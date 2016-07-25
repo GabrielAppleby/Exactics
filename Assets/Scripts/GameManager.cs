@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;       //Allows us to use Lists. 
 
@@ -20,7 +21,13 @@ public class GameManager : MonoBehaviour {
 	private void Start () {
 		//Sets up the scene
 		//The scene is safe!
-		boardManagerInstance.SetupScene();
+		TitleScreen();
+	}
+
+	private void TitleScreen() {
+		gameObject.AddComponent<RectTransform> ();
+		Canvas canvas = gameObject.AddComponent<Canvas> ();
+		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 	}
 		
 }
