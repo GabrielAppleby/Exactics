@@ -54,9 +54,5 @@ public class UnitScript : MonoBehaviour {
 			Debug.Log (statValue);
 		}
 	}
-
-	public void OnMouseUp() {
-		//tile.
-
-	}
+		
 }

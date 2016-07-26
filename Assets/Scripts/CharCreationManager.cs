@@ -47,52 +47,14 @@ public class CharCreationManager : MonoBehaviour {
 		{26, Constants.Classes.Mystic},
 		{27, Constants.Classes.Warpriest}
 	};
-	//EventSystem
-	//DropDown with a 
-		//Rect transform
-		//Canvas Renderer
-		//Image
-		//Dropdown script
 
 	private void Awake() {
-		/*GameObject canvasObject = new GameObject ("Canvas");
-		canvasObject.AddComponent<RectTransform> ();
-		Canvas canvas = canvasObject.AddComponent<Canvas> ();
-		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-		canvasObject.AddComponent<CanvasScaler> ();
-		canvasObject.AddComponent<GraphicRaycaster> ();
-		canvasObject.AddComponent<CanvasRenderer> ();
-		canvasObject.AddComponent<Image> ();
-		GameObject events = new GameObject ("EventSystem");
-		GameObject dropDown = new GameObject ("Dropdown");
-		dropDown.transform.SetParent(canvasObject.transform);
-		RectTransform rectTransform = dropDown.AddComponent<RectTransform> ();
-		dropDown.AddComponent<CanvasRenderer> ();
-		dropDown.AddComponent<Image> ();
-		dropDown.AddComponent<Dropdown> ();
-		GameObject label = new GameObject ("Label");
-		label.AddComponent<RectTransform> ();
-		label.AddComponent<CanvasRenderer> ();
-		label.AddComponent<Text> ();
-		label.transform.SetParent(dropDown.transform);
-
-		GameObject arrow = new GameObject ("Arrow");
-		arrow.AddComponent<RectTransform> ();
-		arrow.AddComponent<CanvasRenderer> ();
-		arrow.AddComponent<Image> ();
-		arrow.transform.SetParent(dropDown.transform);*/
-
 		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
 		unitScript = boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100));
 	}
 
 	private void Start() {
-		/*(GameObject sliderHolder = GameObject.Find ("Sliders");
-		sliders = new ArrayList();
-		foreach (Transform child in sliderHolder.transform)
-		{
-			sliders.Add(child.GetComponent<Slider> ());
-		}*/
+		
 	}
 
 
@@ -100,23 +62,12 @@ public class CharCreationManager : MonoBehaviour {
 		if (dropdown.name == "Race Dropdown") {
 			Constants.Races newRace;
 			raceDropdown.TryGetValue (dropdown.value, out newRace);
-			if (newRace == null) {
-				Debug.Log ("hi");
-			}
-
 			unitScript.setRace(newRace);
 		} else {
 			Constants.Classes newClass;
 			classDropdown.TryGetValue (dropdown.value, out newClass);
 			unitScript.setClass(newClass);
-		}/*
-		SliderScript temp;
-		int i;
-		foreach (Slider slider in sliders) {
-			temp = slider.GetComponent<SliderScript> ();
-			unitScript.stats.TryGetValue (temp.stat, out i);
-			temp.updateSlider((float) i);
-		}*/
+		}
 	}
 
 }

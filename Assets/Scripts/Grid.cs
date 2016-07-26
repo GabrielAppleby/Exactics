@@ -41,40 +41,7 @@ public class Grid {
 	public void remove(int hashCode) {
 		tiles.Remove (hashCode);
 	}
-
-	//A* to find path
-	/*public void findPath(TileScript start, TileScript goal) {
-		PriorityQueue<TileScript> frontier = new PriorityQueue<TileScript> ();
-		frontier.Enqueue (start, 0);
-		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();
-		Dictionary<TileScript, int> cost = new Dictionary<TileScript, int>();
-		cameFrom.Add (start, null);
-		cost.Add (start, 0);
-
-		TileScript current;
-		while (frontier.Count != 0) {
-			current = frontier.Dequeue();
-			if (current == goal) {
-				break;
-			}
-
-			foreach (TileScript neighbor in getNeighbors(current)) {
-				int temp;
-				cost.TryGetValue (current, out temp);
-				int newCost =  temp + 1;
-				int value;
-				int priority;
-				cost.TryGetValue (neighbor, out value);
-				if (cost.ContainsKey(neighbor) != true || newCost < value) {
-					cost.Add(neighbor, value);
-					priority = newCost + heuristic(goal, neighbor);
-					frontier.Enqueue (neighbor, priority);
-					cameFrom.Add(neighbor, current);
-				}
-			}
-		}
-	}*/
-
+		
 	public Dictionary<TileScript, TileScript> test(int moveSpeed, TileScript tempTile) {
 		Queue<Helper> frontier = new Queue<Helper> ();
 		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();

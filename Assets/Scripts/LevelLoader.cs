@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
-	private LevelLoader levelLoaderInstance;
+	//private LevelLoader levelLoaderInstance;
 
 	public void init() {
-		levelLoaderInstance = this;
+		//levelLoaderInstance = this;
 	}
 
 	public void toCharacterScene() {

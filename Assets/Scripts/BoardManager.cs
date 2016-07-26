@@ -111,7 +111,7 @@ public class BoardManager : MonoBehaviour {
 		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath(spritePath, typeof(Sprite));
 
 		//Add a collider
-		PolygonCollider2D test = tempObject.AddComponent<PolygonCollider2D>();
+		tempObject.AddComponent<PolygonCollider2D>();
 
 		return tempObject;
 
