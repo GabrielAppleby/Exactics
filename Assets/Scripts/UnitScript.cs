@@ -7,7 +7,7 @@ public class UnitScript : MonoBehaviour {
 	private Constants.Classes clss;
 	private Constants.Races race;
 
-	private Dictionary<Constants.Stats, int> stats; 
+	public Dictionary<Constants.Stats, int> stats; 
 
 	public void Init(Constants.Classes clss, Constants.Races race) {
 		this.clss = clss;
@@ -15,6 +15,17 @@ public class UnitScript : MonoBehaviour {
 		stats = new Dictionary<Constants.Stats, int> ();
 		CalculateStats ();
 	}
+
+	public void setClass(Constants.Classes clss) {
+		this.clss = clss;
+		CalculateStats ();
+	}
+
+	public void setRace(Constants.Races race) {
+		this.race = race;
+		CalculateStats ();
+	}
+
 
 	public void CalculateStats() {
 		foreach (Constants.Stats stat in Enum.GetValues(typeof(Constants.Stats))) {

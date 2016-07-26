@@ -19,7 +19,7 @@ public class BoardManager : MonoBehaviour {
 	private int maxNumHexs = 30;
 
 	//Initializes the grid, and grabs the width and height of the hexs we are using
-	void Init () {
+	private void init () {
 
 		//Grid stores all the floor things
 		floorGrid = new Grid ();
@@ -30,41 +30,9 @@ public class BoardManager : MonoBehaviour {
 		floorGrid.Remove (helper);
 		Destroy (helper);
 	}
+		
 
-
-	GameObject CreateFloorTile (string name, Coordinate coord) {
-		//Create a new empty game object
-		GameObject floorTile = new GameObject (name + ": " + coord.x + "," + coord.y);
-
-		//Update position to real coords
-		floorTile.transform.position = new Vector2 (coord.xReal, coord.yReal);
-
-		//Set parent for easy access
-		floorTile.transform.SetParent (boardHolder);
-
-		//Attach a sprite renderer
-		SpriteRenderer spriteRenderer = floorTile.AddComponent <SpriteRenderer>();
-		//Pick sprite
-		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath("Assets/Sprites/floor.png", typeof(Sprite));
-
-		//Attach our tilescript
-		TileScript tileScript = floorTile.AddComponent <TileScript>();
-
-		//Initialize the tileScript
-		tileScript.Init (coord, spriteRenderer);
-
-		//Add a collider
-		PolygonCollider2D test = floorTile.AddComponent<PolygonCollider2D>();
-		//test.isTrigger = true;
-
-		//Add it to our grid
-		floorGrid.Add (floorTile);
-
-		//Return the tile (only used for init)
-		return floorTile;
-	}
-
-	void BoardSetup () {
+	private void boardSetup () {
 		//Given the size of the grid we want to make
 		//what is the number of rows on either side of the middle
 		int numSmallerRows = maxNumHexs / 2;
@@ -122,14 +90,52 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	//Sets up the scene of the game
-	public void SetupScene () {
-		Init ();
-		BoardSetup ();
-		CreateUnit("test", floorGrid.Get (floorGrid.hashCode(10, 10)));
+	public void setupScene () {
+		init ();
+		boardSetup ();
+		createUnit("test", floorGrid.Get (floorGrid.hashCode(10, 10)));
+	}
+
+	private void createObject (string name, Coordinate coord, out GameObject tempObject, out SpriteRenderer spriteRenderer) {
+		tempObject = new GameObject (name + ": " + coord.x + "," + coord.y);
+
+		//Update position to real coords
+		tempObject.transform.position = new Vector2 (coord.xReal, coord.yReal);
+
+		//Attach a sprite renderer
+		spriteRenderer = tempObject.AddComponent <SpriteRenderer>();
+
+		//Add a collider
+		PolygonCollider2D test = tempObject.AddComponent<PolygonCollider2D>();
+
 	}
 
 
-	GameObject CreateUnit (string name, GameObject tile) {
+	private void createFloorTile (string name, Coordinate coord, out GameObject floorTile) {
+		SpriteRenderer spriteRenderer;
+
+		createObject (name, coord, floorTile, spriteRenderer);
+
+		//Set parent for easy access
+		floorTile.transform.SetParent (boardHolder);
+
+
+		//Pick sprite
+		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath("Assets/Sprites/floor.png", typeof(Sprite));
+
+		//Attach our tilescript
+		TileScript tileScript = floorTile.AddComponent <TileScript>();
+
+		//Initialize the tileScript
+		tileScript.Init (coord, spriteRenderer);
+
+		//Add it to our grid
+		floorGrid.Add (floorTile);
+	}
+
+
+
+	public GameObject createUnit (string name, GameObject tile) {
 		Coordinate coord = tile.GetComponent<TileScript>().coord;
 
 		//Create a new empty game object
@@ -137,9 +143,6 @@ public class BoardManager : MonoBehaviour {
 		unit.layer = 9;
 		//Update position to real coords
 		unit.transform.position = new Vector2 (coord.xReal, coord.yReal);
-
-		//Set parent for easy access
-		unit.transform.SetParent (boardHolder);
 
 		//Attach a sprite renderer
 		SpriteRenderer spriteRenderer = unit.AddComponent <SpriteRenderer>();
@@ -155,9 +158,7 @@ public class BoardManager : MonoBehaviour {
 		//Add a collider
 		unit.AddComponent<PolygonCollider2D>();
 
-
-
-		//Return the tile (only used for init)
+		//Return the unit
 		return unit;
 	}
 }
