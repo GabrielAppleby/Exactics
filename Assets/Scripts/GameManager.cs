@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	private GameManager gameManagerInstance;
+	//private GameManager gameManagerInstance;
 	private BoardManager boardManagerInstance;
 	private LevelLoader levelLoaderInstance;
 
@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	//Happens even if component not enabled
 	private void Awake () {
 		//Gets the board manager.
-		gameManagerInstance = this;
+		//gameManagerInstance = this;
 		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
 		levelLoaderInstance = gameObject.GetComponent<LevelLoader> ();
 		levelLoaderInstance.init ();

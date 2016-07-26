@@ -15,26 +15,27 @@ public class Grid {
 	}
 
 	//Gets a tile based on hashcode
-	public void get(int hashCode, out TileScript value) {
+	public TileScript get(int hashCode) {
+		TileScript value;
 		tiles.TryGetValue(hashCode, out value);
 		return value;
 	}
 
-	/*//Removes a tile based on object
-	public void Remove(TileScript tile) {
+	//Removes a tile based on object
+	public void remove(TileScript tile) {
 		//Should I destroy the parented object?
 		//Depends on what I'll use this function for..
-		Remove(hashCode (tile));
-	}*/
+		remove(hashCode (tile));
+	}
 
 
-	/*//Removes a tile based on hashcode
-	public void Remove(int hashCode) {
+	//Removes a tile based on hashcode
+	public void remove(int hashCode) {
 		tiles.Remove (hashCode);
-	}*/
+	}
 
 	//A* to find path
-	public void findPath(TileScript start, GameObject goal) {
+	public void findPath(TileScript start, TileScript goal) {
 		PriorityQueue<TileScript> frontier = new PriorityQueue<TileScript> ();
 		frontier.Enqueue (start, 0);
 		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();
@@ -58,7 +59,7 @@ public class Grid {
 				cost.TryGetValue (neighbor, out value);
 				if (cost.ContainsKey(neighbor) != true || newCost < value) {
 					cost.Add(neighbor, value);
-					priority = newCost + Heuristic(goal, neighbor);
+					priority = newCost + heuristic(goal, neighbor);
 					frontier.Enqueue (neighbor, priority);
 					cameFrom.Add(neighbor, current);
 				}
@@ -67,7 +68,7 @@ public class Grid {
 	}
 
 	//Manhattan distance
-	static public int Heuristic(TileScript tileScriptA, TileScript tileScriptB) {
+	static public int heuristic(TileScript tileScriptA, TileScript tileScriptB) {
 		return Mathf.Abs(tileScriptA.coord.x - tileScriptB.coord.x) + Mathf.Abs(tileScriptA.coord.y - tileScriptB.coord.y);
 	}
 
@@ -77,12 +78,12 @@ public class Grid {
 		TileScript tileScript = tile.GetComponent<TileScript> ();
 		TileScript[] neighbors = new TileScript[6];
 
-		neighbors[0] = Get(hashCode(tileScript.coord.x, tileScript.coord.y + 1));
-		neighbors[1] = Get(hashCode(tileScript.coord.x + 1, tileScript.coord.y + 1));
-		neighbors[2] = Get(hashCode(tileScript.coord.x + 1, tileScript.coord.y));
-		neighbors[3] = Get(hashCode(tileScript.coord.x, tileScript.coord.y - 1));
-		neighbors[4] = Get(hashCode(tileScript.coord.x - 1, tileScript.coord.y - 1));
-		neighbors[5] = Get(hashCode(tileScript.coord.x -1, tileScript.coord.y));
+		neighbors[0] = get(hashCode(tileScript.coord.x, tileScript.coord.y + 1));
+		neighbors[1] = get(hashCode(tileScript.coord.x + 1, tileScript.coord.y + 1));
+		neighbors[2] = get(hashCode(tileScript.coord.x + 1, tileScript.coord.y));
+		neighbors[3] = get(hashCode(tileScript.coord.x, tileScript.coord.y - 1));
+		neighbors[4] = get(hashCode(tileScript.coord.x - 1, tileScript.coord.y - 1));
+		neighbors[5] = get(hashCode(tileScript.coord.x -1, tileScript.coord.y));
 
 		return neighbors;
 	}

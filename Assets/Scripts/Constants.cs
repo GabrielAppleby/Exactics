@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public static class Constants {
 
-	public enum Races {Human, Goblin, Daemon, Fae, Tegimin, Avian};
-	public enum Classes {Monk, Ninja, Sage, Champion, Templar, Inquisitor, Ranger, Skirmisher, Archer, Spellsword, Hexblade, Shadowdancer, Shaman, Druid, Healer, Warrior, Defender, Berserker, Mage, Arcanist, Summoner, Rogue, Assassin, Duelist, Cleric, Mystic, Warpriest};
+	public enum Races {Human, Goblin, Daemon, Fae, Tegimin, Avian, None};
+	public enum Classes {Monk, Ninja, Sage, Champion, Templar, Inquisitor, Ranger, Skirmisher, Archer, Spellsword, Hexblade, Shadowdancer, Shaman, Druid, Healer, Warrior, Defender, Berserker, Mage, Arcanist, Summoner, Rogue, Assassin, Duelist, Cleric, Mystic, Warpriest, None};
 	public enum Stats {Health, Stamina, Mana, Speed, Spellpower, Damage, Accuracy, Defense, Evasion, Fortitude, Resistance, Initiative};
 
 	public static Dictionary<Races, Dictionary<Stats, int>> raceStats = new Dictionary<Races, Dictionary<Stats, int>>() {
@@ -98,6 +98,21 @@ public static class Constants {
 				{Stats.Fortitude, 2},
 				{Stats.Resistance, 3},
 				{Stats.Initiative, 3}
+			}
+		},
+		{Races.None, new Dictionary<Stats, int>() {
+				{Stats.Health, 0},
+				{Stats.Stamina, 0},
+				{Stats.Mana, 0},
+				{Stats.Speed, 0},
+				{Stats.Spellpower, 0},
+				{Stats.Damage, 0},
+				{Stats.Accuracy, 0},
+				{Stats.Defense, 0},
+				{Stats.Evasion, 0},
+				{Stats.Fortitude, 0},
+				{Stats.Resistance, 0},
+				{Stats.Initiative, 0}
 			}
 		}
 
@@ -509,6 +524,21 @@ public static class Constants {
 				{Stats.Fortitude, 3},
 				{Stats.Resistance, 3},
 				{Stats.Initiative, 3}
+			}
+		},
+		{Classes.None, new Dictionary<Stats, int>() {
+				{Stats.Health, 0},
+				{Stats.Stamina, 0},
+				{Stats.Mana, 0},
+				{Stats.Speed, 0},
+				{Stats.Spellpower, 0},
+				{Stats.Damage, 0},
+				{Stats.Accuracy, 0},
+				{Stats.Defense, 0},
+				{Stats.Evasion, 0},
+				{Stats.Fortitude, 0},
+				{Stats.Resistance, 0},
+				{Stats.Initiative, 0}
 			}
 		}
 

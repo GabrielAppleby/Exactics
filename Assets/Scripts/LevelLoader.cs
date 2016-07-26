@@ -7,7 +7,7 @@ public class LevelLoader : MonoBehaviour {
 
 	private LevelLoader levelLoaderInstance;
 
-	private void init() {
+	public void init() {
 		levelLoaderInstance = this;
 	}
 

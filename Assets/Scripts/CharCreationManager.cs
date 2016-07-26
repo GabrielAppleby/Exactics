@@ -48,9 +48,9 @@ public class CharCreationManager : MonoBehaviour {
 
 
 	private void Awake() {
-		GameObject unit;
+		
 		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
-		boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100), unit);
+		unitScript = boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100));
 		sliders = GameObject.Find ("Canvas").GetComponents<Slider> ();
 	}
 

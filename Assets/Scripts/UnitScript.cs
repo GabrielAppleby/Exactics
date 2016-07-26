@@ -9,25 +9,25 @@ public class UnitScript : MonoBehaviour {
 
 	public Dictionary<Constants.Stats, int> stats; 
 
-	public void Init(Constants.Classes clss, Constants.Races race) {
+	public void init(Constants.Classes clss, Constants.Races race) {
 		this.clss = clss;
 		this.race = race;
 		stats = new Dictionary<Constants.Stats, int> ();
-		CalculateStats ();
+		calculateStats ();
 	}
 
 	public void setClass(Constants.Classes clss) {
 		this.clss = clss;
-		CalculateStats ();
+		calculateStats ();
 	}
 
 	public void setRace(Constants.Races race) {
 		this.race = race;
-		CalculateStats ();
+		calculateStats ();
 	}
 
 
-	public void CalculateStats() {
+	public void calculateStats() {
 		foreach (Constants.Stats stat in Enum.GetValues(typeof(Constants.Stats))) {
 			Dictionary<Constants.Stats, int> raceValues;
 			Dictionary<Constants.Stats, int> classValues;

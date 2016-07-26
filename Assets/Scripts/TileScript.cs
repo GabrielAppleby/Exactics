@@ -9,7 +9,7 @@ public class TileScript : MonoBehaviour {
 	public Coordinate coord { get; set;}
 	private SpriteRenderer spriteRenderer;
 
-	public void Init(Coordinate coord, SpriteRenderer spriteRenderer) {
+	public void init(Coordinate coord, SpriteRenderer spriteRenderer) {
 		this.coord = coord;
 		this.spriteRenderer = spriteRenderer;
 	}
