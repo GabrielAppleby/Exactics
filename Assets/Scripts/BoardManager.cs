@@ -18,13 +18,23 @@ public class BoardManager : MonoBehaviour {
 	//Currently used to calculate board size
 	private int maxNumHexs = 30;
 
+
+	//Sets up the test scene of the game
+	public void setupScene () {
+		init ();
+		boardSetup ();
+		GameObject testUnit;
+		createUnit("test", floorGrid.Get (floorGrid.hashCode(10, 10)).GetComponent<TileScript>().coord, testUnit);
+	}
+
+
 	//Initializes the grid, and grabs the width and height of the hexs we are using
 	private void init () {
 
 		//Grid stores all the floor things
 		floorGrid = new Grid ();
 		boardHolder = new GameObject ("Board").transform;
-		GameObject helper = CreateFloorTile ("Helper", new Coordinate(0, 0, 0, 0));
+		GameObject helper = createFloorTile ("Helper", new Coordinate(0, 0, 0, 0));
 		hexWidth = helper.GetComponent<PolygonCollider2D>().bounds.size.x;
 		hexHeight = helper.GetComponent<PolygonCollider2D>().bounds.size.y;
 		floorGrid.Remove (helper);
@@ -66,7 +76,7 @@ public class BoardManager : MonoBehaviour {
 		for (float y = yInitial; y < yMax; y+=yInterval) {
 			xCount = 0;
 			for (float x = xInitial; x < xMax; x += xInterval) {
-				CreateFloorTile ("floor", new Coordinate(x, y, xCount, yCount));
+				createFloorTile ("floor", new Coordinate(x, y, xCount, yCount));
 				xCount++;
 			}
 			yCount++;
@@ -87,13 +97,6 @@ public class BoardManager : MonoBehaviour {
 			}
 				
 		}
-	}
-
-	//Sets up the scene of the game
-	public void setupScene () {
-		init ();
-		boardSetup ();
-		createUnit("test", floorGrid.Get (floorGrid.hashCode(10, 10)));
 	}
 
 	private void createObject (string name, Coordinate coord, out GameObject tempObject, out SpriteRenderer spriteRenderer) {
@@ -119,7 +122,6 @@ public class BoardManager : MonoBehaviour {
 		//Set parent for easy access
 		floorTile.transform.SetParent (boardHolder);
 
-
 		//Pick sprite
 		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath("Assets/Sprites/floor.png", typeof(Sprite));
 
@@ -135,31 +137,28 @@ public class BoardManager : MonoBehaviour {
 
 
 
-	public GameObject createUnit (string name, GameObject tile) {
-		Coordinate coord = tile.GetComponent<TileScript>().coord;
+	public void createUnit (string name, Coordinate coord, out GameObject unit) {
 
-		//Create a new empty game object
-		GameObject unit = new GameObject (name + ": " + coord.x + "," + coord.y);
+		SpriteRenderer spriteRenderer;
+
+		createObject (name, coord, unit, spriteRenderer);
+
+
+
 		unit.layer = 9;
-		//Update position to real coords
-		unit.transform.position = new Vector2 (coord.xReal, coord.yReal);
 
-		//Attach a sprite renderer
-		SpriteRenderer spriteRenderer = unit.AddComponent <SpriteRenderer>();
 		//Pick sprite
 		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath("Assets/Sprites/unit.png", typeof(Sprite));
 		spriteRenderer.sortingLayerName = "units";
 		spriteRenderer.sortingOrder = 1;
 		//Attach our tilescript
-		TileScript tileScript = unit.AddComponent <TileScript>();
+		UnitScript unitScript = unit.AddComponent <UnitScript>();
 		//Initialize the tileScript
-		tileScript.Init (coord, spriteRenderer);
+		unitScript.Init (coord, spriteRenderer);
 
 		//Add a collider
 		unit.AddComponent<PolygonCollider2D>();
 
-		//Return the unit
-		return unit;
 	}
 }
 	

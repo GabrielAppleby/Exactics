@@ -6,8 +6,8 @@ using System.Collections;
 public class TileScript : MonoBehaviour {
 	//Need to get grid somehow
 
-	public Coordinate coord;
-	public SpriteRenderer spriteRenderer;
+	public Coordinate coord { get; set;}
+	private SpriteRenderer spriteRenderer;
 
 	public void Init(Coordinate coord, SpriteRenderer spriteRenderer) {
 		this.coord = coord;

@@ -4,51 +4,52 @@ using System.Collections.Generic;
 
 public class Grid {
 
-	private Dictionary<int, GameObject> tiles;
+	private Dictionary<int, TileScript> tiles;
 
 	public Grid() {
-		tiles = new Dictionary<int, GameObject>();
+		tiles = new Dictionary<int, TileScript>();
 	}
 
-	public void Add(GameObject tile) {
+	public void add(TileScript tile) {
 		tiles.Add(hashCode(tile), tile);
 	}
 
 	//Gets a tile based on hashcode
-	public GameObject Get(int hashCode) {
-		GameObject value;
+	public void get(int hashCode, out TileScript value) {
 		tiles.TryGetValue(hashCode, out value);
 		return value;
 	}
 
-	//Removes a tile based on object
-	public void Remove(GameObject tile) {
+	/*//Removes a tile based on object
+	public void Remove(TileScript tile) {
+		//Should I destroy the parented object?
+		//Depends on what I'll use this function for..
 		Remove(hashCode (tile));
-	}
+	}*/
 
 
-	//Removes a tile based on hashcode
+	/*//Removes a tile based on hashcode
 	public void Remove(int hashCode) {
 		tiles.Remove (hashCode);
-	}
+	}*/
 
 	//A* to find path
-	public void findPath(GameObject start, GameObject goal) {
-		PriorityQueue<GameObject> frontier = new PriorityQueue<GameObject> ();
+	public void findPath(TileScript start, GameObject goal) {
+		PriorityQueue<TileScript> frontier = new PriorityQueue<TileScript> ();
 		frontier.Enqueue (start, 0);
-		Dictionary<GameObject, GameObject> cameFrom = new Dictionary<GameObject, GameObject>();
-		Dictionary<GameObject, int> cost = new Dictionary<GameObject, int>();
+		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();
+		Dictionary<TileScript, int> cost = new Dictionary<TileScript, int>();
 		cameFrom.Add (start, null);
 		cost.Add (start, 0);
 
-		GameObject current;
+		TileScript current;
 		while (frontier.Count != 0) {
 			current = frontier.Dequeue();
 			if (current == goal) {
 				break;
 			}
 
-			foreach (GameObject neighbor in getNeighbors(current)) {
+			foreach (TileScript neighbor in getNeighbors(current)) {
 				int temp;
 				cost.TryGetValue (current, out temp);
 				int newCost =  temp + 1;
@@ -66,17 +67,15 @@ public class Grid {
 	}
 
 	//Manhattan distance
-	static public int Heuristic(GameObject a, GameObject b) {
-		TileScript tileScriptA = a.GetComponent<TileScript> ();
-		TileScript tileScriptB = b.GetComponent<TileScript> ();
+	static public int Heuristic(TileScript tileScriptA, TileScript tileScriptB) {
 		return Mathf.Abs(tileScriptA.coord.x - tileScriptB.coord.x) + Mathf.Abs(tileScriptA.coord.y - tileScriptB.coord.y);
 	}
 
 
 	//Update me
-	public GameObject[] getNeighbors(GameObject tile) {
+	public TileScript[] getNeighbors(TileScript tile) {
 		TileScript tileScript = tile.GetComponent<TileScript> ();
-		GameObject[] neighbors = new GameObject[6];
+		TileScript[] neighbors = new TileScript[6];
 
 		neighbors[0] = Get(hashCode(tileScript.coord.x, tileScript.coord.y + 1));
 		neighbors[1] = Get(hashCode(tileScript.coord.x + 1, tileScript.coord.y + 1));
@@ -95,8 +94,8 @@ public class Grid {
 		return hash;
 	}
 
-	private int hashCode(GameObject tile) {
-		Coordinate coord = tile.GetComponent<TileScript>().coord;
+	private int hashCode(TileScript tile) {
+		Coordinate coord = tile.coord;
 		return hashCode (coord.x, coord.y);
 	}
 		

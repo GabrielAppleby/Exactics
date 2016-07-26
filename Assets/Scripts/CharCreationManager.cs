@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CharCreationManager : MonoBehaviour {
+	private BoardManager boardManagerInstance;
 	private UnitScript unitScript;
 	private Slider[] sliders;
 
@@ -47,8 +48,9 @@ public class CharCreationManager : MonoBehaviour {
 
 
 	private void Awake() {
-		GameObject unit = new GameObject("unit");
-		unitScript = unit.AddComponent<UnitScript> ();
+		GameObject unit;
+		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
+		boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100), unit);
 		sliders = GameObject.Find ("Canvas").GetComponents<Slider> ();
 	}
 
