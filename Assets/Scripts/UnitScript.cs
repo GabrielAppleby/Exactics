@@ -43,6 +43,7 @@ public class UnitScript : MonoBehaviour {
 
 			stats[stat] = raceValue + classValue;
 		}
+		printStats ();
 	}
 
 	public void printStats() {

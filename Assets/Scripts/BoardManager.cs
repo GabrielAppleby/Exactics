@@ -23,7 +23,7 @@ public class BoardManager : MonoBehaviour {
 	public void setupScene () {
 		init ();
 		boardSetup ();
-		createUnit("test", floorGrid.get (floorGrid.hashCode(10, 10)).coord);
+		//createUnit("test", floorGrid.get (floorGrid.hashCode(10, 10)).coord);
 	}
 
 
@@ -153,8 +153,8 @@ public class BoardManager : MonoBehaviour {
 		//Attach our tilescript
 		UnitScript unitScript = unit.AddComponent <UnitScript>();
 		//Initialize the tileScript
-		unitScript.init (Constants.Classes.Dragon, Constants.Races.Dragon);
-		unitScript.tileScript = floorGrid.get (coord);
+		unitScript.init (Constants.Classes.Class, Constants.Races.Race);
+		//unitScript.tileScript = floorGrid.get (coord);
 
 		return unitScript;
 	}

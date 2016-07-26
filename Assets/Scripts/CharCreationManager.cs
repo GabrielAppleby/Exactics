@@ -82,8 +82,8 @@ public class CharCreationManager : MonoBehaviour {
 		arrow.AddComponent<Image> ();
 		arrow.transform.SetParent(dropDown.transform);*/
 
-		//boardManagerInstance = gameObject.GetComponent<BoardManager> ();
-		//unitScript = boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100));
+		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
+		unitScript = boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100));
 	}
 
 	private void Start() {
@@ -100,19 +100,23 @@ public class CharCreationManager : MonoBehaviour {
 		if (dropdown.name == "Race Dropdown") {
 			Constants.Races newRace;
 			raceDropdown.TryGetValue (dropdown.value, out newRace);
+			if (newRace == null) {
+				Debug.Log ("hi");
+			}
+
 			unitScript.setRace(newRace);
 		} else {
 			Constants.Classes newClass;
 			classDropdown.TryGetValue (dropdown.value, out newClass);
 			unitScript.setClass(newClass);
-		}
+		}/*
 		SliderScript temp;
 		int i;
 		foreach (Slider slider in sliders) {
 			temp = slider.GetComponent<SliderScript> ();
 			unitScript.stats.TryGetValue (temp.stat, out i);
 			temp.updateSlider((float) i);
-		}
+		}*/
 	}
 
 }
