@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public static class Constants {
 
-	public enum Races {Human, Goblin, Daemon, Fae, Tegimin, Avian, None};
-	public enum Classes {Monk, Ninja, Sage, Champion, Templar, Inquisitor, Ranger, Skirmisher, Archer, Spellsword, Hexblade, Shadowdancer, Shaman, Druid, Healer, Warrior, Defender, Berserker, Mage, Arcanist, Summoner, Rogue, Assassin, Duelist, Cleric, Mystic, Warpriest, None};
+	public enum Races {Human, Goblin, Daemon, Fae, Tegimin, Avian, Dragon, Race};
+	public enum Classes {Monk, Ninja, Sage, Champion, Templar, Inquisitor, Ranger, Skirmisher, Archer, Spellsword, Hexblade, Shadowdancer, Shaman, Druid, Healer, Warrior, Defender, Berserker, Mage, Arcanist, Summoner, Rogue, Assassin, Duelist, Cleric, Mystic, Warpriest, Dragon, Class};
 	public enum Stats {Health, Stamina, Mana, Speed, Spellpower, Damage, Accuracy, Defense, Evasion, Fortitude, Resistance, Initiative};
 
 	public static Dictionary<Races, Dictionary<Stats, int>> raceStats = new Dictionary<Races, Dictionary<Stats, int>>() {
@@ -100,7 +100,22 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Races.None, new Dictionary<Stats, int>() {
+		{Races.Dragon, new Dictionary<Stats, int>() {
+				{Stats.Health, 9},
+				{Stats.Stamina, 9},
+				{Stats.Mana, 9},
+				{Stats.Speed, 9},
+				{Stats.Spellpower, 9},
+				{Stats.Damage, 9},
+				{Stats.Accuracy, 9},
+				{Stats.Defense, 9},
+				{Stats.Evasion, 9},
+				{Stats.Fortitude, 9},
+				{Stats.Resistance, 9},
+				{Stats.Initiative, 9}
+			}
+		},
+		{Races.Race, new Dictionary<Stats, int>() {
 				{Stats.Health, 0},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 0},
@@ -526,7 +541,22 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.None, new Dictionary<Stats, int>() {
+		{Classes.Dragon, new Dictionary<Stats, int>() {
+				{Stats.Health, 9},
+				{Stats.Stamina, 9},
+				{Stats.Mana, 9},
+				{Stats.Speed, 9},
+				{Stats.Spellpower, 9},
+				{Stats.Damage, 9},
+				{Stats.Accuracy, 9},
+				{Stats.Defense, 9},
+				{Stats.Evasion, 9},
+				{Stats.Fortitude, 9},
+				{Stats.Resistance, 9},
+				{Stats.Initiative, 9}
+			}
+		},
+		{Classes.Class, new Dictionary<Stats, int>() {
 				{Stats.Health, 0},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 0},

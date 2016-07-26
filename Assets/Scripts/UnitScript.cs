@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class UnitScript : MonoBehaviour {
 	private Constants.Classes clss;
 	private Constants.Races race;
+	public TileScript tileScript { get; set; }
 
 	public Dictionary<Constants.Stats, int> stats; 
 
@@ -40,7 +41,7 @@ public class UnitScript : MonoBehaviour {
 			classValues.TryGetValue (stat, out classValue);
 
 
-			stats.Add(stat, raceValue + classValue);
+			stats[stat] = raceValue + classValue;
 		}
 	}
 
@@ -51,5 +52,10 @@ public class UnitScript : MonoBehaviour {
 			stats.TryGetValue(stat, out statValue);
 			Debug.Log (statValue);
 		}
+	}
+
+	public void OnMouseUp() {
+		//tile.
+
 	}
 }

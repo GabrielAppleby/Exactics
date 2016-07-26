@@ -5,17 +5,21 @@ using System.Collections;
 public class SliderScript : MonoBehaviour {
 
 	private Slider slider;
+	private Text field;
 	public Constants.Stats stat { get; set;}
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<Slider> ();
+		slider = gameObject.GetComponent<Slider> ();
+		field = gameObject.GetComponent<Text> ();
 		stat = Constants.Stats.Health;
 	}
 
-	public void UpdateSlider(float update) {
-		if (slider != null) {
-			slider.value = Mathf.MoveTowards (slider.value, update, 0.15f);
+	public void updateSlider(float update) {
+		if (field != null) {
+			slider.value = update;
+			field.text = update.ToString ();
 		}
+
 	}
 }

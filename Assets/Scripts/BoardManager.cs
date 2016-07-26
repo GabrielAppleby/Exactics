@@ -34,8 +34,8 @@ public class BoardManager : MonoBehaviour {
 		floorGrid = new Grid ();
 		boardHolder = new GameObject ("Board").transform;
 		TileScript helper = createFloorTile ("Helper", new Coordinate(0, 0, 0, 0));
-		hexWidth = helper.GetComponent<PolygonCollider2D>().bounds.size.x;
-		hexHeight = helper.GetComponent<PolygonCollider2D>().bounds.size.y;
+		hexWidth = helper.gameObject.GetComponent<PolygonCollider2D>().bounds.size.x;
+		hexHeight = helper.gameObject.GetComponent<PolygonCollider2D>().bounds.size.y;
 		Destroy (helper.gameObject);
 	}
 		
@@ -74,7 +74,7 @@ public class BoardManager : MonoBehaviour {
 		for (float y = yInitial; y < yMax; y+=yInterval) {
 			xCount = 0;
 			for (float x = xInitial; x < xMax; x += xInterval) {
-				floorGrid.add (createFloorTile ("floor", new Coordinate(x, y, xCount, yCount)));
+				floorGrid.add(createFloorTile ("floor", new Coordinate(x, y, xCount, yCount)));
 				//Add it to our grid
 				xCount++;
 			}
@@ -98,14 +98,17 @@ public class BoardManager : MonoBehaviour {
 		}
 	}
 
-	private GameObject createObject (string name, Coordinate coord) {
+	private GameObject createObject (string name, Coordinate coord, string spritePath) {
 		GameObject tempObject = new GameObject (name + ": " + coord.x + "," + coord.y);
 
 		//Update position to real coords
 		tempObject.transform.position = new Vector2 (coord.xReal, coord.yReal);
 
 		//Attach a sprite renderer
-		tempObject.AddComponent <SpriteRenderer>();
+		SpriteRenderer spriteRenderer = tempObject.AddComponent <SpriteRenderer>();
+
+		//Pick sprite
+		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath(spritePath, typeof(Sprite));
 
 		//Add a collider
 		PolygonCollider2D test = tempObject.AddComponent<PolygonCollider2D>();
@@ -116,15 +119,12 @@ public class BoardManager : MonoBehaviour {
 
 
 	private TileScript createFloorTile (string name, Coordinate coord) {
-
-		GameObject floorTile = createObject (name, coord);
+		
+		GameObject floorTile = createObject (name, coord, "Assets/Sprites/floor.png");
 		SpriteRenderer spriteRenderer = floorTile.GetComponent<SpriteRenderer>();
 
 		//Set parent for easy access
 		floorTile.transform.SetParent (boardHolder);
-
-		//Pick sprite
-		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath("Assets/Sprites/floor.png", typeof(Sprite));
 
 		//Attach our tilescript
 		TileScript tileScript = floorTile.AddComponent <TileScript>();
@@ -140,7 +140,7 @@ public class BoardManager : MonoBehaviour {
 	public UnitScript createUnit (string name, Coordinate coord) {
 
 
-		GameObject unit = createObject (name, coord);
+		GameObject unit = createObject (name, coord, "Assets/Sprites/unit.png");
 		SpriteRenderer spriteRenderer = unit.GetComponent<SpriteRenderer>();
 
 
@@ -148,16 +148,13 @@ public class BoardManager : MonoBehaviour {
 		unit.layer = 9;
 
 		//Pick sprite
-		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath("Assets/Sprites/unit.png", typeof(Sprite));
 		spriteRenderer.sortingLayerName = "units";
 		spriteRenderer.sortingOrder = 1;
 		//Attach our tilescript
 		UnitScript unitScript = unit.AddComponent <UnitScript>();
 		//Initialize the tileScript
-		unitScript.init (Constants.Classes.None, Constants.Races.None);
-
-		//Add a collider
-		unit.AddComponent<PolygonCollider2D>();
+		unitScript.init (Constants.Classes.Dragon, Constants.Races.Dragon);
+		unitScript.tileScript = floorGrid.get (coord);
 
 		return unitScript;
 	}

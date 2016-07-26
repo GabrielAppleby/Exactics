@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+﻿/*// ----------------------------------------------------------------------------
 // Tuple structs for use in .NET Not-Quite-3.5 (e.g. Unity3D).
 //
 // Used Chapter 3 in http://functional-programming.net/ as a starting point.
@@ -97,3 +97,4 @@ public sealed class Tuple<T1, T2>
 		unpackerDelegate(Item1, Item2);
 	}
 }
+*/

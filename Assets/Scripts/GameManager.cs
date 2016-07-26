@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 	private void Start () {
 		//Sets up the scene
 		//The scene is safe!
+		boardManagerInstance.setupScene();
 
 	}
 }
