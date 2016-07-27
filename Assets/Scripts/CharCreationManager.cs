@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ public class CharCreationManager : MonoBehaviour {
 	private BoardManager boardManagerInstance;
 	private UnitScript unitScript;
 	private ArrayList sliders;
+	public Dictionary<Constants.Stats, Text> textValues; 
 
 	private Dictionary<int, Constants.Races> raceDropdown = new Dictionary <int, Constants.Races>() {
 		{0, Constants.Races.Race},
@@ -49,8 +51,10 @@ public class CharCreationManager : MonoBehaviour {
 	};
 
 	private void Awake() {
+		textValues = new Dictionary<Constants.Stats, Text> ();
 		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
 		unitScript = boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100));
+		createText ();
 	}
 
 	private void Start() {
@@ -68,6 +72,67 @@ public class CharCreationManager : MonoBehaviour {
 			classDropdown.TryGetValue (dropdown.value, out newClass);
 			unitScript.setClass(newClass);
 		}
+		updateStats ();
 	}
 
+	private void updateStats() {
+		int value;
+		foreach (KeyValuePair<Constants.Stats, Text> entry in textValues) {
+			unitScript.stats.TryGetValue(entry.Key, out value);
+			entry.Value.text = value.ToString ();
+		}
+
+	}
+
+	private void createText() {
+		Font arialFont = (Font)Resources.GetBuiltinResource (typeof(Font), "Arial.ttf");
+		GameObject canvas = GameObject.Find ("Canvas");
+		GameObject textObject;
+		RectTransform rectTransform;
+		Text text;
+		float xCurrent;
+		float yInterval = 65f;
+		float yStart = 225f;
+		float yCurrent = yStart;
+		String strText;
+		String strName;
+		System.Array allStats = Enum.GetValues (typeof(Constants.Stats));
+		Constants.Stats stat;
+		int n = allStats.Length / 2;
+		for (int i = 0; i < allStats.Length; i++) {
+			stat = (Constants.Stats) allStats.GetValue(i);
+			strText = stat.ToString () + ": ";
+			strName = "Text: " + stat.ToString ();
+			if (i >= n) {
+				xCurrent = 196;
+			} else {
+				xCurrent = -16f;
+			}
+			if (i == 6) {
+				yCurrent = yStart;
+			}
+			yCurrent -= yInterval;
+			for (int j = 0; j < 2; j++) {
+				textObject = new GameObject (strName);
+				textObject.layer = 5;
+				textObject.transform.SetParent (canvas.transform);
+				rectTransform = textObject.AddComponent<RectTransform> ();
+				textObject.AddComponent<CanvasRenderer> ();
+				text = textObject.AddComponent<Text> ();
+				if (j == 1) {
+					xCurrent += 106;
+					strText = "0";
+					strName = "Text: " + stat.ToString () + " value";
+					textValues.Add (stat, text);
+				}
+				text.text = strText;
+				text.font = arialFont;
+				text.color = Color.black;
+				text.alignment = TextAnchor.MiddleCenter;
+				rectTransform.sizeDelta = new Vector2 (100f, 20f);
+				rectTransform.localScale = new Vector3 (1f, 1f, 1f);
+				textObject.transform.localPosition = new Vector3 (xCurrent, yCurrent, 0);
+			}
+		}
+	}
 }

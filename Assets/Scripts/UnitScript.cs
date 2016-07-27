@@ -43,8 +43,8 @@ public class UnitScript : MonoBehaviour {
 
 			stats[stat] = raceValue + classValue;
 		}
-		printStats ();
 	}
+		
 
 	public void printStats() {
 		Debug.Log(race.ToString() + " + " + clss.ToString());
