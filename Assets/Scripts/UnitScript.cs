@@ -7,14 +7,22 @@ public class UnitScript : MonoBehaviour {
 	private Constants.Classes clss;
 	private Constants.Races race;
 	public TileScript tileScript { get; set; }
+	private int speed;
+	public Dictionary<Constants.Stats, int> stats;
+	private Grid floorGrid;
+	public bool selected { get; set; }
+	public Dictionary<TileScript, TileScript> cameFrom;
+	private BoardManager boardManagerInstance;
 
-	public Dictionary<Constants.Stats, int> stats; 
-
-	public void init(Constants.Classes clss, Constants.Races race) {
+	public void init(Constants.Classes clss, Constants.Races race, BoardManager boardManagerInstance) {
 		this.clss = clss;
 		this.race = race;
+		this.boardManagerInstance = boardManagerInstance;
+		this.floorGrid = boardManagerInstance.floorGrid;
 		stats = new Dictionary<Constants.Stats, int> ();
 		calculateStats ();
+		selected = false;
+		cameFrom = new Dictionary<TileScript, TileScript> ();
 	}
 
 	public void setClass(Constants.Classes clss) {
@@ -53,6 +61,17 @@ public class UnitScript : MonoBehaviour {
 			stats.TryGetValue(stat, out statValue);
 			Debug.Log (statValue);
 		}
+	}
+
+	public void OnMouseUp() {
+		if (selected == false) {
+			stats.TryGetValue (Constants.Stats.Speed, out speed);
+			cameFrom = floorGrid.test(speed, tileScript);
+			selected = true;
+			boardManagerInstance.unitScript = this;
+			boardManagerInstance.unitSelected = true;
+		}
+
 	}
 		
 }

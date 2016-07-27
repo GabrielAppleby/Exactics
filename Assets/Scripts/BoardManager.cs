@@ -8,7 +8,7 @@ public class BoardManager : MonoBehaviour {
 	//Holds all the floor tiles in the Unity Window
 	private Transform boardHolder;
 	//Grid class that will store our tiles for easy access
-	private Grid floorGrid;
+	public Grid floorGrid;
 
 	//Width of a hexagon
 	private float hexWidth;
@@ -16,20 +16,23 @@ public class BoardManager : MonoBehaviour {
 	private float hexHeight;
 	//The number of hexs in the largest row
 	//Currently used to calculate board size
-	private int maxNumHexs = 30;
+	private int maxNumHexs = 20;
+
+	public bool unitSelected;
+	public UnitScript unitScript;
 
 
 	//Sets up the test scene of the game
 	public void setupScene () {
 		init ();
 		boardSetup ();
-		//createUnit("test", floorGrid.get (floorGrid.hashCode(10, 10)).coord);
 	}
 
 
 	//Initializes the grid, and grabs the width and height of the hexs we are using
 	private void init () {
-
+		unitSelected = false;
+		unitScript = null;
 		//Grid stores all the floor things
 		floorGrid = new Grid ();
 		boardHolder = new GameObject ("Board").transform;
@@ -71,14 +74,20 @@ public class BoardManager : MonoBehaviour {
 		//Lets me know if we're increasing in number of hexs per row or decreasing
 		int yCount = 0;
 		int xCount;
+		int q;
+		int r = numSmallerRows;
 		for (float y = yInitial; y < yMax; y+=yInterval) {
 			xCount = 0;
+			q = -numSmallerRows;
 			for (float x = xInitial; x < xMax; x += xInterval) {
-				floorGrid.add(createFloorTile ("floor", new Coordinate(x, y, xCount, yCount)));
+				Debug.Log (x + ", " + y);
+				floorGrid.add(createFloorTile ("floor", new Coordinate(x, y, q, r)));
 				//Add it to our grid
 				xCount++;
+				q++;
 			}
 			yCount++;
+			r--;
 
 			//If decreasing
 			if (yCount > numSmallerRows) {
@@ -86,6 +95,7 @@ public class BoardManager : MonoBehaviour {
 				xInitial += (hexWidth / 2f);
 				//and end a bit sooner
 				xMax -= (hexWidth / 2f);
+				numSmallerRows--;
 			} 
 			//If increasing
 			else {
@@ -94,8 +104,8 @@ public class BoardManager : MonoBehaviour {
 				//End a bit later
 				xMax += (hexWidth / 2f);
 			}
-				
 		}
+		floorGrid.calculateNeighbors ();
 	}
 
 	private GameObject createObject (string name, Coordinate coord, string spritePath) {
@@ -130,7 +140,7 @@ public class BoardManager : MonoBehaviour {
 		TileScript tileScript = floorTile.AddComponent <TileScript>();
 
 		//Initialize the tileScript
-		tileScript.init (coord, spriteRenderer);
+		tileScript.init (coord, spriteRenderer, this);
 
 		return tileScript;
 	}
@@ -140,7 +150,7 @@ public class BoardManager : MonoBehaviour {
 	public UnitScript createUnit (string name, Coordinate coord) {
 
 
-		GameObject unit = createObject (name, coord, "Assets/Sprites/unit.png");
+		GameObject unit = createObject (name, coord, "Assets/Sprites/Ephraim.png");
 		SpriteRenderer spriteRenderer = unit.GetComponent<SpriteRenderer>();
 
 
@@ -153,9 +163,15 @@ public class BoardManager : MonoBehaviour {
 		//Attach our tilescript
 		UnitScript unitScript = unit.AddComponent <UnitScript>();
 		//Initialize the tileScript
-		unitScript.init (Constants.Classes.Class, Constants.Races.Race);
-		//unitScript.tileScript = floorGrid.get (coord);
+		unit.transform.localScale = new Vector2 (2, 2);
 
+		/* Recomment me pllleeease */
+		if (floorGrid != null) {
+			unitScript.tileScript = floorGrid.get (coord);
+			unitScript.init (Constants.Classes.Hexblade, Constants.Races.Human, this);
+		} else {
+			unitScript.init (Constants.Classes.Class, Constants.Races.Race, this);
+		}
 		return unitScript;
 	}
 }

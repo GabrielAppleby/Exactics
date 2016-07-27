@@ -23,10 +23,12 @@ public class Grid {
 
 	//Gets a tile based on hashcode
 	public TileScript get(Coordinate coord) {
-		int hashCodeValue = hashCode (coord);
-		TileScript value;
-		tiles.TryGetValue(hashCodeValue, out value);
-		return value;
+		return get (hashCode (coord));
+	}
+
+	//Gets a tile based on hashcode
+	public TileScript get(int x, int y) {
+		return get (hashCode (x, y));
 	}
 
 	//Removes a tile based on object
@@ -42,6 +44,12 @@ public class Grid {
 		tiles.Remove (hashCode);
 	}
 		
+	public void calculateNeighbors() {
+		foreach (TileScript tile in tiles.Values) {
+			tile.getNeighbors ();
+		}
+	}
+
 	public Dictionary<TileScript, TileScript> test(int moveSpeed, TileScript tempTile) {
 		Queue<Helper> frontier = new Queue<Helper> ();
 		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();
@@ -51,10 +59,13 @@ public class Grid {
 		while (frontier.Count != 0) {
 			tempHelper = frontier.Dequeue ();
 			if (tempHelper.steps > 0) {
-				foreach (TileScript neighbor in getNeighbors(tempHelper.tileScript)) {
-					if (cameFrom.ContainsKey (neighbor) == false) {
-						frontier.Enqueue(new Helper(tempHelper.steps - 1, neighbor));
-						cameFrom.Add (neighbor, tempHelper.tileScript);
+				foreach (TileScript neighbor in tempHelper.tileScript.neighbors) {
+					if (neighbor != null) {
+						if (cameFrom.ContainsKey (neighbor) == false) {
+							frontier.Enqueue (new Helper (tempHelper.steps - 1, neighbor));
+							neighbor.changeColor (Color.blue);
+							cameFrom.Add (neighbor, tempHelper.tileScript);
+						}
 					}
 				}
 			}
@@ -66,22 +77,8 @@ public class Grid {
 	public int heuristic(TileScript tileScriptA, TileScript tileScriptB) {
 		return Mathf.Abs(tileScriptA.coord.x - tileScriptB.coord.x) + Mathf.Abs(tileScriptA.coord.y - tileScriptB.coord.y);
 	}
+		
 
-
-	//Update me
-	public TileScript[] getNeighbors(TileScript tile) {
-		TileScript tileScript = tile.GetComponent<TileScript> ();
-		TileScript[] neighbors = new TileScript[6];
-
-		neighbors[0] = get(hashCode(tileScript.coord.x, tileScript.coord.y + 1));
-		neighbors[1] = get(hashCode(tileScript.coord.x + 1, tileScript.coord.y + 1));
-		neighbors[2] = get(hashCode(tileScript.coord.x + 1, tileScript.coord.y));
-		neighbors[3] = get(hashCode(tileScript.coord.x, tileScript.coord.y - 1));
-		neighbors[4] = get(hashCode(tileScript.coord.x - 1, tileScript.coord.y - 1));
-		neighbors[5] = get(hashCode(tileScript.coord.x -1, tileScript.coord.y));
-
-		return neighbors;
-	}
 
 	public int hashCode(int x, int y) {
 		int hash = 17;

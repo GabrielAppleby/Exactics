@@ -146,6 +146,28 @@ arrow.AddComponent<Image> ();
 arrow.transform.SetParent(dropDown.transform);*/
 
 
+/* int numHexsEachSide = maxNumHexs / 2;
+int startingNumHexs = (maxNumHexs - numHexsEachSide)/2;
+float xInitial = -hexWidth * startingNumHexs;
+float xMax = hexWidth * startingNumHexs;
+float xInterval = hexWidth - (hexWidth / 2);
+float yInitial = hexHeight * numHexsEachSide * 3f / 4f;
+float yInterval = hexHeight * 3f / 4f;
+float yMin = -hexHeight * (numHexsEachSide + 1) * 3f / 4f;
+for (float x = xInitial; x < xMax; x+=xInterval) {
+	int yCount = -numHexsEachSide;
+	for (float y = yInitial; y > yMin; y -= yInterval) {
+		createFloorTile ("floor", new Coordinate(x, y, -1, -1));
+		if (yCount < 0) {
+			x -= (hexWidth / 2);
+		} else {
+			x += (hexWidth / 2);
+		}
+		yCount++;
+	}
+}*/
+
+
 //A* to find path
 /*public void findPath(TileScript start, TileScript goal) {
 		PriorityQueue<TileScript> frontier = new PriorityQueue<TileScript> ();

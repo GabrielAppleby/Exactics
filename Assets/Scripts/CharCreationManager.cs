@@ -53,7 +53,7 @@ public class CharCreationManager : MonoBehaviour {
 	private void Awake() {
 		textValues = new Dictionary<Constants.Stats, Text> ();
 		boardManagerInstance = gameObject.GetComponent<BoardManager> ();
-		unitScript = boardManagerInstance.createUnit (name, new Coordinate (-100, -100, -100, -100));
+		unitScript = boardManagerInstance.createUnit ("Unit", new Coordinate (-100, -100, -100, -100));
 		createText ();
 	}
 

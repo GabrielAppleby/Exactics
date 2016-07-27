@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 	//private GameManager gameManagerInstance;
 	private BoardManager boardManagerInstance;
 	private LevelLoader levelLoaderInstance;
+	private UnitScript unitScript;
 
 
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour {
 		//Sets up the scene
 		//The scene is safe!
 		boardManagerInstance.setupScene();
+		unitScript = boardManagerInstance.createUnit ("Unit", boardManagerInstance.floorGrid.get(0,0).coord);
 
 	}
 }
