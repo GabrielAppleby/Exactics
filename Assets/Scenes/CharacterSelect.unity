@@ -218,7 +218,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Duelist
       m_Image: {fileID: 0}
-    - m_Text: Claric
+    - m_Text: Cleric
       m_Image: {fileID: 0}
     - m_Text: Mystic
       m_Image: {fileID: 0}
@@ -2442,6 +2442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338b1198c66454ee597df542da002fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitSelected: 0
+  unitScript: {fileID: 0}
 --- !u!1 &2080086462
 GameObject:
   m_ObjectHideFlags: 0
