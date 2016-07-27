@@ -571,6 +571,5 @@ public static class Constants {
 				{Stats.Initiative, 0}
 			}
 		}
-
 	};
 }
