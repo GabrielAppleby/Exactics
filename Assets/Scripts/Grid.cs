@@ -4,38 +4,21 @@ using System.Collections.Generic;
 
 public class Grid {
 
-	private Dictionary<int, TileScript> tiles;
+	private Dictionary<int, GameObject> tiles;
 
 	public Grid() {
-		tiles = new Dictionary<int, TileScript>();
+		tiles = new Dictionary<int, GameObject>();
 	}
 
-	public void add(TileScript tile) {
+	public void add(GameObject tile) {
 		tiles.Add(hashCode(tile), tile);
 	}
 
 	//Gets a tile based on hashcode
-	public TileScript get(int hashCode) {
-		TileScript value;
+	public GameObject get(int hashCode) {
+		GameObject value;
 		tiles.TryGetValue(hashCode, out value);
 		return value;
-	}
-
-	//Gets a tile based on hashcode
-	public TileScript get(Coordinate coord) {
-		return get (hashCode (coord));
-	}
-
-	//Gets a tile based on hashcode
-	public TileScript get(int x, int y) {
-		return get (hashCode (x, y));
-	}
-
-	//Removes a tile based on object
-	public void remove(TileScript tile) {
-		//Should I destroy the parented object?
-		//Depends on what I'll use this function for..
-		remove(hashCode (tile));
 	}
 
 
@@ -43,13 +26,23 @@ public class Grid {
 	public void remove(int hashCode) {
 		tiles.Remove (hashCode);
 	}
-		
-	public void calculateNeighbors() {
-		foreach (TileScript tile in tiles.Values) {
-			tile.getNeighbors ();
-		}
+
+	public int hashCode(int x, int y) {
+		int hash = 17;
+		hash = ((hash + x) << 5) - (hash + x);
+		hash = ((hash + y) << 5) - (hash + y);
+		return hash;
 	}
 
+	private int hashCode(GameObject tile) {
+		return hashCode(tile.GetComponent<FakeTransform>().position);
+	}
+
+	private int hashCode(Vector2 fakePosition) {
+		return hashCode ((int) fakePosition.x, (int) fakePosition.y);
+	}
+
+	/*
 	public Dictionary<TileScript, TileScript> test(int moveSpeed, TileScript tempTile) {
 		Queue<Helper> frontier = new Queue<Helper> ();
 		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();
@@ -71,28 +64,11 @@ public class Grid {
 			}
 		}
 		return cameFrom;
-	}
+	}*/
 
-	//Manhattan distance
+	/*//Manhattan distance
 	public int heuristic(TileScript tileScriptA, TileScript tileScriptB) {
 		return Mathf.Abs(tileScriptA.coord.x - tileScriptB.coord.x) + Mathf.Abs(tileScriptA.coord.y - tileScriptB.coord.y);
-	}
-		
-
-
-	public int hashCode(int x, int y) {
-		int hash = 17;
-		hash = ((hash + x) << 5) - (hash + x);
-		hash = ((hash + y) << 5) - (hash + y);
-		return hash;
-	}
-
-	private int hashCode(TileScript tile) {
-		return hashCode(tile.coord);
-	}
-
-	private int hashCode(Coordinate coord) {
-		return hashCode (coord.x, coord.y);
-	}
+	}*/
 		
 }

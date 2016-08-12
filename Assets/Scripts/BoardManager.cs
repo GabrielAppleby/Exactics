@@ -5,45 +5,41 @@ using System.Collections;
 
 public class BoardManager : MonoBehaviour {
 
-	//Holds all the floor tiles in the Unity Window
-	private Transform boardHolder;
 	//Grid class that will store our tiles for easy access
-	public Grid floorGrid;
+	private Grid grid;
+	private ObjectFactory objectFactory;
 
 	//Width of a hexagon
-	private float hexWidth;
+	private readonly float hexWidth = .88f;
 	//Height of a hexagon
-	private float hexHeight;
+	private readonly float hexHeight = 1f;
 	//The number of hexs in the largest row
 	//Currently used to calculate board size
-	private int maxNumHexs = 20;
+	private readonly int maxNumHexs = 20;
 
-	public bool unitSelected;
-	public UnitScript unitScript;
+	//Delete me
+	GameObject unit;
 
 
-	//Sets up the test scene of the game
-	public void setupScene () {
-		init ();
-		boardSetup ();
+
+	//First thing that happens
+	//Happens even if component not enabled
+	private void Awake () {
+
 	}
 
-
-	//Initializes the grid, and grabs the width and height of the hexs we are using
-	private void init () {
-		unitSelected = false;
-		unitScript = null;
-		//Grid stores all the floor things
-		floorGrid = new Grid ();
-		boardHolder = new GameObject ("Board").transform;
-		TileScript helper = createFloorTile ("Helper", new Coordinate(0, 0, 0, 0));
-		hexWidth = helper.gameObject.GetComponent<PolygonCollider2D>().bounds.size.x;
-		hexHeight = helper.gameObject.GetComponent<PolygonCollider2D>().bounds.size.y;
-		Destroy (helper.gameObject);
+	//Happens after awake, before first update.
+	//Does not happen if component not enabled
+	private void Start () {
+		this.objectFactory = new ObjectFactory ();
+		this.grid = new Grid ();
+		createBoard ();
+		objectFactory.position = new Vector2 (-1.32f, -1.5f);
+		objectFactory.fakePosition = new Vector2 (-3f, 2f);
+		unit = objectFactory.createUnit ();
 	}
-		
 
-	private void boardSetup () {
+	private void createBoard () {
 		//Given the size of the grid we want to make
 		//what is the number of rows on either side of the middle
 		int numSmallerRows = maxNumHexs / 2;
@@ -80,8 +76,9 @@ public class BoardManager : MonoBehaviour {
 			xCount = 0;
 			q = -numSmallerRows;
 			for (float x = xInitial; x < xMax; x += xInterval) {
-				Debug.Log (x + ", " + y);
-				floorGrid.add(createFloorTile ("floor", new Coordinate(x, y, q, r)));
+				objectFactory.position = new Vector2 (x, y);
+				objectFactory.fakePosition = new Vector2 (q, r);
+				grid.add (objectFactory.createTile());
 				//Add it to our grid
 				xCount++;
 				q++;
@@ -105,74 +102,7 @@ public class BoardManager : MonoBehaviour {
 				xMax += (hexWidth / 2f);
 			}
 		}
-		floorGrid.calculateNeighbors ();
 	}
-
-	private GameObject createObject (string name, Coordinate coord, string spritePath) {
-		GameObject tempObject = new GameObject (name + ": " + coord.x + "," + coord.y);
-
-		//Update position to real coords
-		tempObject.transform.position = new Vector2 (coord.xReal, coord.yReal);
-
-		//Attach a sprite renderer
-		SpriteRenderer spriteRenderer = tempObject.AddComponent <SpriteRenderer>();
-
-		//Pick sprite
-		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath(spritePath, typeof(Sprite));
-
-		//Add a collider
-		tempObject.AddComponent<PolygonCollider2D>();
-
-		return tempObject;
-
-	}
-
-
-	private TileScript createFloorTile (string name, Coordinate coord) {
 		
-		GameObject floorTile = createObject (name, coord, "Assets/Sprites/floor.png");
-		SpriteRenderer spriteRenderer = floorTile.GetComponent<SpriteRenderer>();
-
-		//Set parent for easy access
-		floorTile.transform.SetParent (boardHolder);
-
-		//Attach our tilescript
-		TileScript tileScript = floorTile.AddComponent <TileScript>();
-
-		//Initialize the tileScript
-		tileScript.init (coord, spriteRenderer, this);
-
-		return tileScript;
-	}
-
-
-
-	public UnitScript createUnit (string name, Coordinate coord) {
-
-
-		GameObject unit = createObject (name, coord, "Assets/Sprites/Ephraim.png");
-		SpriteRenderer spriteRenderer = unit.GetComponent<SpriteRenderer>();
-
-
-
-		unit.layer = 9;
-
-		//Pick sprite
-		spriteRenderer.sortingLayerName = "units";
-		spriteRenderer.sortingOrder = 1;
-		//Attach our tilescript
-		UnitScript unitScript = unit.AddComponent <UnitScript>();
-		//Initialize the tileScript
-		unit.transform.localScale = new Vector2 (2, 2);
-
-		/* Recomment me pllleeease */
-		if (floorGrid != null) {
-			unitScript.tileScript = floorGrid.get (coord);
-			unitScript.init (Constants.Classes.Hexblade, Constants.Races.Human, this);
-		} else {
-			unitScript.init (Constants.Classes.Class, Constants.Races.Race, this);
-		}
-		return unitScript;
-	}
 }
 	
