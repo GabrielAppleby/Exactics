@@ -2,11 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Grid {
+public class GridSystem : MonoBehaviour {
+
+	void OnEnable()
+	{
+		BoardManager.addedTile += add;
+		//InputSystem.highlight += directClick;
+	}
+
+
+	void OnDisable()
+	{
+		BoardManager.addedTile -= add;
+		//InputSystem.highlight -= directClick;
+	}
+
 
 	private Dictionary<int, GameObject> tiles;
 
-	public Grid() {
+	private void Start() {
 		tiles = new Dictionary<int, GameObject>();
 	}
 
@@ -15,19 +29,26 @@ public class Grid {
 	}
 
 	//Gets a tile based on hashcode
-	public GameObject get(int hashCode) {
+	private GameObject get(int hashCode) {
 		GameObject value;
 		tiles.TryGetValue(hashCode, out value);
 		return value;
 	}
 
+	//Gets a tile based on gameobject
+	private GameObject get(GameObject tile) {
+		GameObject value;
+		tiles.TryGetValue(hashCode(tile), out value);
+		return value;
+	}
+
 
 	//Removes a tile based on hashcode
-	public void remove(int hashCode) {
+	private void remove(int hashCode) {
 		tiles.Remove (hashCode);
 	}
 
-	public int hashCode(int x, int y) {
+	private int hashCode(int x, int y) {
 		int hash = 17;
 		hash = ((hash + x) << 5) - (hash + x);
 		hash = ((hash + y) << 5) - (hash + y);
@@ -43,16 +64,17 @@ public class Grid {
 	}
 
 	/*
-	public Dictionary<TileScript, TileScript> test(int moveSpeed, TileScript tempTile) {
+	public Dictionary<GameObject> getMovement(int moveSpeed, GameObject tempTile) {
 		Queue<Helper> frontier = new Queue<Helper> ();
-		Dictionary<TileScript, TileScript> cameFrom = new Dictionary<TileScript, TileScript>();
+		Dictionary<GameObject, GameObject> cameFrom = new Dictionary<GameObject, GameObject>();
 		Helper tempHelper = new Helper (moveSpeed, tempTile);
 		frontier.Enqueue (tempHelper);
 		cameFrom.Add (tempTile, null);
 		while (frontier.Count != 0) {
 			tempHelper = frontier.Dequeue ();
 			if (tempHelper.steps > 0) {
-				foreach (TileScript neighbor in tempHelper.tileScript.neighbors) {
+				//Where should neighbors be stored?
+				foreach (GameObject neighbor in tempHelper.entity.neighbors) {
 					if (neighbor != null) {
 						if (cameFrom.ContainsKey (neighbor) == false) {
 							frontier.Enqueue (new Helper (tempHelper.steps - 1, neighbor));
@@ -64,7 +86,21 @@ public class Grid {
 			}
 		}
 		return cameFrom;
+	}
+
+	public class Helper {
+		public int steps { get; set; }
+		public GameObject entity { get; set; }
+
+		public Helper(int steps, GameObject entity) {
+			this.steps = steps;
+			this.entity = entity;
+
+		}
+
+
 	}*/
+
 
 	/*//Manhattan distance
 	public int heuristic(TileScript tileScriptA, TileScript tileScriptB) {

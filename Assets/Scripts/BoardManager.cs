@@ -5,8 +5,11 @@ using System.Collections;
 
 public class BoardManager : MonoBehaviour {
 
+	public delegate void AddedTile(GameObject e);
+	public static event AddedTile addedTile;
+
+
 	//Grid class that will store our tiles for easy access
-	private Grid grid;
 	private ObjectFactory objectFactory;
 
 	//Width of a hexagon
@@ -32,7 +35,6 @@ public class BoardManager : MonoBehaviour {
 	//Does not happen if component not enabled
 	private void Start () {
 		this.objectFactory = new ObjectFactory ();
-		this.grid = new Grid ();
 		createBoard ();
 		objectFactory.position = new Vector2 (-1.32f, -1.5f);
 		objectFactory.fakePosition = new Vector2 (-3f, 2f);
@@ -78,7 +80,8 @@ public class BoardManager : MonoBehaviour {
 			for (float x = xInitial; x < xMax; x += xInterval) {
 				objectFactory.position = new Vector2 (x, y);
 				objectFactory.fakePosition = new Vector2 (q, r);
-				grid.add (objectFactory.createTile());
+				//Talk to grid system somehow to add the tile
+				addedTile (objectFactory.createTile());
 				//Add it to our grid
 				xCount++;
 				q++;

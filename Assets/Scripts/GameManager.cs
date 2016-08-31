@@ -3,8 +3,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-
-
 	//First thing that happens
 	//Happens even if component not enabled
 	private void Awake () {

@@ -61,6 +61,7 @@ public class ObjectFactory {
 		unit.AddComponent<Race> ();
 		unit.AddComponent<Job> ();
 		unit.AddComponent<Input> ();
+		unit.AddComponent<AttachedToTile> ();
 		return unit;
 	}
 
