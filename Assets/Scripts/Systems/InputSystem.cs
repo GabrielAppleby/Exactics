@@ -8,7 +8,7 @@ using System.Collections;
 public class InputSystem : MonoBehaviour {
 
 	public delegate void HighlightMovement(GameObject e, int speed);
-	public static event HighlightMovement highlight;
+	public static event HighlightMovement highlightMovement;
 
 	public delegate void BringUpMenu(GameObject e);
 	public static event BringUpMenu bringUpMenu;
@@ -27,14 +27,20 @@ public class InputSystem : MonoBehaviour {
 	}
 
 	void directClick(GameObject entity) {
-		//Make a menu
+		bringUpMenu (entity);
 	}
 
 	void directHover(GameObject entity) {
 		//Will depend on what components attached
+
+
+
 		Movement movementComponent = entity.GetComponent<Movement> ();
 		if (movementComponent != null) {
-			//Lets go!
+			//Should inputsystem pass the speed? From design point of view no
+			//But it seems silly to do another getcomponent at next method..
+			//We shall see
+			highlightMovement (entity, movementComponent.movement);
 		}
 	}
 }

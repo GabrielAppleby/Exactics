@@ -7,26 +7,22 @@ public class UISystem : MonoBehaviour {
 
 	void OnEnable()
 	{
-		//InputSystem.highlight += 
-		//InputSystem.bringUpMenu += 
+		InputSystem.highlightMovement += highlightMovement;
+		InputSystem.bringUpMenu += bringUpMenu;
 	}
 
 
 	void OnDisable()
 	{
-		//InputSystem.highlight 
-		//InputSystem.bringUpMenu 
+		InputSystem.highlightMovement -= highlightMovement;
+		InputSystem.bringUpMenu -= bringUpMenu;
 	}
 
-	public void highlightMovable(GameObject entity, int speed) {
+	public void highlightMovement(GameObject entity, int movement) {
 		//highlight grid
-		//This should attach somethign that makes a grid piece highlight..
-		//But where should the method for figuring out where to highlight exist? Maybe attach
-		//a reference to the current tile to the entity? then work from that?
-		//Maybe it should talk to the movement system?
 	}
 
-	public void bringUpMenu() {
+	public void bringUpMenu(GameObject entity) {
 		//Bring up menu
 	}
 }
