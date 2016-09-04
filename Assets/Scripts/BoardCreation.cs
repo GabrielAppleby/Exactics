@@ -3,13 +3,13 @@ using UnityEditor;
 using System.Collections;
 
 
-public class BoardManager : MonoBehaviour {
 
-	public delegate void AddedTile(GameObject e);
-	public static event AddedTile addedTile;
+//All of this will be rewritten once we have "tiled" maps
 
+public class BoardCreation : MonoBehaviour {
 
 	//Grid class that will store our tiles for easy access
+	private Grid grid;
 	private ObjectFactory objectFactory;
 
 	//Width of a hexagon
@@ -19,9 +19,6 @@ public class BoardManager : MonoBehaviour {
 	//The number of hexs in the largest row
 	//Currently used to calculate board size
 	private readonly int maxNumHexs = 20;
-
-	//Delete me
-	GameObject unit;
 
 
 
@@ -34,11 +31,11 @@ public class BoardManager : MonoBehaviour {
 	//Happens after awake, before first update.
 	//Does not happen if component not enabled
 	private void Start () {
+		grid = new Grid ();
 		this.objectFactory = new ObjectFactory ();
 		createBoard ();
 		objectFactory.position = new Vector2 (-1.32f, -1.5f);
 		objectFactory.fakePosition = new Vector2 (-3f, 2f);
-		unit = objectFactory.createUnit ();
 	}
 
 	private void createBoard () {
@@ -81,7 +78,7 @@ public class BoardManager : MonoBehaviour {
 				objectFactory.position = new Vector2 (x, y);
 				objectFactory.fakePosition = new Vector2 (q, r);
 				//Talk to grid system somehow to add the tile
-				addedTile (objectFactory.createTile());
+				grid.add (objectFactory.createTile());
 				//Add it to our grid
 				xCount++;
 				q++;

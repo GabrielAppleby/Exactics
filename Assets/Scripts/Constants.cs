@@ -3,18 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public static class Constants {
+//If these aren't needed in as many places as I think they will be
+//I will move them into classes that make more sense
 
+public static class Constants {
+	public enum StatComponents {Defense, Initiative, Mana, Movement, Offense, Stamina};
+	public static readonly int NUM_STAT_COMPONENTS = System.Enum.GetNames(typeof(StatComponents)).Length;
 	public enum Races {Human, Goblin, Daemon, Fae, Tegimin, Avian, Dragon, Race};
-	public enum Classes {Monk, Ninja, Sage, Champion, Templar, Inquisitor, Ranger, Skirmisher, Archer, Spellsword, Hexblade, Shadowdancer, Shaman, Druid, Healer, Warrior, Defender, Berserker, Mage, Arcanist, Summoner, Rogue, Assassin, Duelist, Cleric, Mystic, Warpriest, Dragon, Class};
-	public enum Stats {Health, Stamina, Mana, Speed, Spellpower, Damage, Accuracy, Defense, Evasion, Fortitude, Resistance, Initiative};
+	public enum Jobs {Monk, Ninja, Sage, Champion, Templar, Inquisitor, Ranger, Skirmisher, Archer, Spellsword, Hexblade, Shadowdancer, Shaman, Druid, Healer, Warrior, Defender, Berserker, Mage, Arcanist, Summoner, Rogue, Assassin, Duelist, Cleric, Mystic, Warpriest, Dragon, Class};
+	public enum Stats {Expertise, Health, Stamina, Mana, Move, Spellpower, Damage, Accuracy, Defense, Evasion, Fortitude, Resistance, Initiative};
 
 	public static Dictionary<Races, Dictionary<Stats, int>> raceStats = new Dictionary<Races, Dictionary<Stats, int>>() {
 		{Races.Human, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 3},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -26,10 +31,11 @@ public static class Constants {
 			}
 		},
 		{Races.Goblin, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 3},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 4},
@@ -41,10 +47,11 @@ public static class Constants {
 			}
 		},
 		{Races.Daemon, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 3},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 3},
@@ -56,10 +63,11 @@ public static class Constants {
 			}
 		},
 		{Races.Fae, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 2},
 				{Stats.Mana, 4},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 4},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -71,10 +79,11 @@ public static class Constants {
 			}
 		},
 		{Races.Tegimin, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 0},
 				{Stats.Health, 4},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 2},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -86,10 +95,11 @@ public static class Constants {
 			}
 		},
 		{Races.Avian, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 3},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -101,10 +111,11 @@ public static class Constants {
 			}
 		},
 		{Races.Dragon, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 9},
 				{Stats.Stamina, 9},
 				{Stats.Mana, 9},
-				{Stats.Speed, 9},
+				{Stats.Move, 9},
 				{Stats.Spellpower, 9},
 				{Stats.Damage, 9},
 				{Stats.Accuracy, 9},
@@ -116,10 +127,11 @@ public static class Constants {
 			}
 		},
 		{Races.Race, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 0},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 0},
-				{Stats.Speed, 0},
+				{Stats.Move, 0},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 0},
 				{Stats.Accuracy, 0},
@@ -135,12 +147,13 @@ public static class Constants {
 	};
 
 
-	public static Dictionary<Classes, Dictionary<Stats, int>> classStats = new Dictionary<Classes, Dictionary<Stats, int>>() {
-		{Classes.Monk, new Dictionary<Stats, int>() {
+	public static Dictionary<Jobs, Dictionary<Stats, int>> jobStats = new Dictionary<Jobs, Dictionary<Stats, int>>() {
+		{Jobs.Monk, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 4},
@@ -151,11 +164,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Ninja, new Dictionary<Stats, int>() {
+		{Jobs.Ninja, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 5},
+				{Stats.Move, 5},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -166,11 +180,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Sage, new Dictionary<Stats, int>() {
+		{Jobs.Sage, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 0},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 2},
 				{Stats.Accuracy, 3},
@@ -181,11 +196,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Champion, new Dictionary<Stats, int>() {
+		{Jobs.Champion, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 4},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 0},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -196,11 +212,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Templar, new Dictionary<Stats, int>() {
+		{Jobs.Templar, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 4},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 0},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 3},
@@ -211,11 +228,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Inquisitor, new Dictionary<Stats, int>() {
+		{Jobs.Inquisitor, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 4},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 0},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -226,11 +244,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Ranger, new Dictionary<Stats, int>() {
+		{Jobs.Ranger, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -241,11 +260,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Skirmisher, new Dictionary<Stats, int>() {
+		{Jobs.Skirmisher, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 5},
 				{Stats.Mana, 0},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -256,11 +276,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Archer, new Dictionary<Stats, int>() {
+		{Jobs.Archer, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -271,11 +292,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Spellsword, new Dictionary<Stats, int>() {
+		{Jobs.Spellsword, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 3},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -286,11 +308,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Hexblade, new Dictionary<Stats, int>() {
+		{Jobs.Hexblade, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 2},
 				{Stats.Mana, 3},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -301,11 +324,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Shadowdancer, new Dictionary<Stats, int>() {
+		{Jobs.Shadowdancer, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 3},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -316,11 +340,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Shaman, new Dictionary<Stats, int>() {
+		{Jobs.Shaman, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 4},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 4},
 				{Stats.Damage, 2},
 				{Stats.Accuracy, 2},
@@ -331,11 +356,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Druid, new Dictionary<Stats, int>() {
+		{Jobs.Druid, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 1},
 				{Stats.Mana, 2},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 2},
@@ -346,11 +372,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Healer, new Dictionary<Stats, int>() {
+		{Jobs.Healer, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 5},
-				{Stats.Speed, 1},
+				{Stats.Move, 1},
 				{Stats.Spellpower, 4},
 				{Stats.Damage, 1},
 				{Stats.Accuracy, 1},
@@ -361,11 +388,12 @@ public static class Constants {
 				{Stats.Initiative, 1}
 			}
 		},
-		{Classes.Warrior, new Dictionary<Stats, int>() {
+		{Jobs.Warrior, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 4},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -376,11 +404,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Defender, new Dictionary<Stats, int>() {
+		{Jobs.Defender, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 4},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 4},
@@ -391,11 +420,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Berserker, new Dictionary<Stats, int>() {
+		{Jobs.Berserker, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 5},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -406,11 +436,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Mage, new Dictionary<Stats, int>() {
+		{Jobs.Mage, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 1},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 4},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 5},
 				{Stats.Damage, 1},
 				{Stats.Accuracy, 1},
@@ -421,11 +452,12 @@ public static class Constants {
 				{Stats.Initiative, 1}
 			}
 		},
-		{Classes.Arcanist, new Dictionary<Stats, int>() {
+		{Jobs.Arcanist, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 1},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 4},
-				{Stats.Speed, 1},
+				{Stats.Move, 1},
 				{Stats.Spellpower, 5},
 				{Stats.Damage, 1},
 				{Stats.Accuracy, 1},
@@ -436,11 +468,12 @@ public static class Constants {
 				{Stats.Initiative, 1}
 			}
 		},
-		{Classes.Summoner, new Dictionary<Stats, int>() {
+		{Jobs.Summoner, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 1},
 				{Stats.Mana, 5},
-				{Stats.Speed, 3},
+				{Stats.Move, 3},
 				{Stats.Spellpower, 4},
 				{Stats.Damage, 2},
 				{Stats.Accuracy, 2},
@@ -451,11 +484,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Rogue, new Dictionary<Stats, int>() {
+		{Jobs.Rogue, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 4},
@@ -466,11 +500,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Assassin, new Dictionary<Stats, int>() {
+		{Jobs.Assassin, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 0},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 5},
 				{Stats.Accuracy, 4},
@@ -481,11 +516,12 @@ public static class Constants {
 				{Stats.Initiative, 4}
 			}
 		},
-		{Classes.Duelist, new Dictionary<Stats, int>() {
+		{Jobs.Duelist, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 4},
 				{Stats.Mana, 0},
-				{Stats.Speed, 4},
+				{Stats.Move, 4},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 5},
@@ -496,11 +532,12 @@ public static class Constants {
 				{Stats.Initiative, 5}
 			}
 		},
-		{Classes.Cleric, new Dictionary<Stats, int>() {
+		{Jobs.Cleric, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 3},
 				{Stats.Stamina, 2},
 				{Stats.Mana, 3},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 3},
 				{Stats.Damage, 3},
 				{Stats.Accuracy, 3},
@@ -511,11 +548,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Mystic, new Dictionary<Stats, int>() {
+		{Jobs.Mystic, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 2},
 				{Stats.Stamina, 1},
 				{Stats.Mana, 4},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 4},
 				{Stats.Damage, 2},
 				{Stats.Accuracy, 2},
@@ -526,11 +564,12 @@ public static class Constants {
 				{Stats.Initiative, 2}
 			}
 		},
-		{Classes.Warpriest, new Dictionary<Stats, int>() {
+		{Jobs.Warpriest, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 4},
 				{Stats.Stamina, 3},
 				{Stats.Mana, 2},
-				{Stats.Speed, 2},
+				{Stats.Move, 2},
 				{Stats.Spellpower, 2},
 				{Stats.Damage, 4},
 				{Stats.Accuracy, 3},
@@ -541,11 +580,12 @@ public static class Constants {
 				{Stats.Initiative, 3}
 			}
 		},
-		{Classes.Dragon, new Dictionary<Stats, int>() {
+		{Jobs.Dragon, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 9},
 				{Stats.Stamina, 9},
 				{Stats.Mana, 9},
-				{Stats.Speed, 9},
+				{Stats.Move, 9},
 				{Stats.Spellpower, 9},
 				{Stats.Damage, 9},
 				{Stats.Accuracy, 9},
@@ -556,11 +596,12 @@ public static class Constants {
 				{Stats.Initiative, 9}
 			}
 		},
-		{Classes.Class, new Dictionary<Stats, int>() {
+		{Jobs.Class, new Dictionary<Stats, int>() {
+				{Stats.Expertise, 3},
 				{Stats.Health, 0},
 				{Stats.Stamina, 0},
 				{Stats.Mana, 0},
-				{Stats.Speed, 0},
+				{Stats.Move, 0},
 				{Stats.Spellpower, 0},
 				{Stats.Damage, 0},
 				{Stats.Accuracy, 0},

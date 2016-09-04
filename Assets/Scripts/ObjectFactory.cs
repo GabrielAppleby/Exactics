@@ -2,6 +2,10 @@
 using UnityEditor;
 using System.Collections;
 
+
+
+//Will switch this to a more robust pattern as the game scales up
+
 public class ObjectFactory {
 	private readonly GameObject parentUnit;
 	private readonly Transform parentUnitTransform;
@@ -58,10 +62,13 @@ public class ObjectFactory {
 		spriteRenderer.sprite = (Sprite) AssetDatabase.LoadAssetAtPath(pathToUnitSprite, typeof(Sprite));
 		spriteRenderer.sortingOrder = 1;
 		unit.AddComponent<PolygonCollider2D>();
-		unit.AddComponent<Race> ();
-		unit.AddComponent<Job> ();
+		unit.AddComponent<Defense> ();
+		unit.AddComponent<Initiative> ();
+		unit.AddComponent<Mana> ();
+		unit.AddComponent<Stamina> ();
+		unit.AddComponent<Movement> ();
+		unit.AddComponent<Offense> ();
 		unit.AddComponent<Input> ();
-		unit.AddComponent<AttachedToTile> ();
 		return unit;
 	}
 

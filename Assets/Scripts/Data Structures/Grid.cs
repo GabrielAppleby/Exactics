@@ -2,25 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GridSystem : MonoBehaviour {
-
-	void OnEnable()
-	{
-		BoardManager.addedTile += add;
-		//InputSystem.highlight += directClick;
-	}
-
-
-	void OnDisable()
-	{
-		BoardManager.addedTile -= add;
-		//InputSystem.highlight -= directClick;
-	}
-
+public class Grid {
 
 	private Dictionary<int, GameObject> tiles;
 
-	private void Start() {
+	public Grid() {
 		tiles = new Dictionary<int, GameObject>();
 	}
 
@@ -29,26 +15,19 @@ public class GridSystem : MonoBehaviour {
 	}
 
 	//Gets a tile based on hashcode
-	private GameObject get(int hashCode) {
+	public GameObject get(int hashCode) {
 		GameObject value;
 		tiles.TryGetValue(hashCode, out value);
 		return value;
 	}
 
-	//Gets a tile based on gameobject
-	private GameObject get(GameObject tile) {
-		GameObject value;
-		tiles.TryGetValue(hashCode(tile), out value);
-		return value;
-	}
-
 
 	//Removes a tile based on hashcode
-	private void remove(int hashCode) {
+	public void remove(int hashCode) {
 		tiles.Remove (hashCode);
 	}
 
-	private int hashCode(int x, int y) {
+	public int hashCode(int x, int y) {
 		int hash = 17;
 		hash = ((hash + x) << 5) - (hash + x);
 		hash = ((hash + y) << 5) - (hash + y);
