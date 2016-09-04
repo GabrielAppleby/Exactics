@@ -14,6 +14,10 @@ public class UnitCreation : MonoBehaviour {
 
 	private void Start () {
 		objectFactory = new ObjectFactory ();
+
+		//Temp
+		objectFactory.position = new Vector2 (-0.8799999f, -.75f);
+		objectFactory.fakePosition = new Vector2 (-2, 1);
 		unit = objectFactory.createUnit ();
 	}
 

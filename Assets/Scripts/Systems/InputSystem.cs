@@ -27,14 +27,12 @@ public class InputSystem : MonoBehaviour {
 	}
 
 	void directClick(GameObject entity) {
+		Debug.Log (entity);
 		bringUpMenu (entity);
 	}
 
 	void directHover(GameObject entity) {
 		//Will depend on what components attached
-
-
-
 		Movement movementComponent = entity.GetComponent<Movement> ();
 		if (movementComponent != null) {
 			//Should inputsystem pass the speed? From design point of view no
