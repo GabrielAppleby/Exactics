@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 
@@ -9,16 +8,16 @@ using System.Collections.Generic;
 public class UnitCreation : MonoBehaviour {
 
 
-	ObjectFactory objectFactory;
+	UnitFactory unitFactory;
 	GameObject unit;
 
 	private void Start () {
-		objectFactory = new ObjectFactory ();
+		unitFactory = new UnitFactory ();
 
 		//Temp
-		objectFactory.position = new Vector2 (-0.8799999f, -.75f);
-		objectFactory.fakePosition = new Vector2 (-2, 1);
-		unit = objectFactory.createUnit ();
+		unitFactory.position = new Vector2 (-0.8799999f, -.75f);
+		unitFactory.fakePosition = new Vector2 (-2, 1);
+		unit = unitFactory.createUnit ();
 	}
 
 
