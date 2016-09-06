@@ -16,7 +16,8 @@ public class BoardCreation : MonoBehaviour {
 	}
 
 	private void createMap() {
-		map = (GameObject) Instantiate(Resources.Load("NewTestArena"), new Vector3(-246, 213.5f, 0), Quaternion.identity);
+
+		map = (GameObject) Instantiate(Resources.Load("DebugMap"), new Vector3(-246, 213.5f, 0), Quaternion.identity);
 	}
 
 

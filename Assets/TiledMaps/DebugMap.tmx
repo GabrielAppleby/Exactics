@@ -1,0 +1,2836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="hexagonal" renderorder="right-down" width="20" height="20" tilewidth="24" tileheight="28" hexsidelength="14" staggeraxis="y" staggerindex="odd" nextobjectid="2855">
+ <tileset firstgid="1" name="Tileset4" tilewidth="24" tileheight="28" spacing="2" tilecount="4" columns="4">
+  <image source="Tileset4.png" width="105" height="28"/>
+ </tileset>
+ <layer name="Terrain" width="20" height="20">
+  <data encoding="csv">
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,1,1,1,1,1,1,1,3,3,3,3,3,3,3,
+3,3,3,3,3,3,1,1,1,1,1,1,1,1,3,3,3,3,3,3,
+3,3,3,3,3,1,1,1,1,2,2,1,1,1,3,3,3,3,3,3,
+3,3,3,3,3,1,1,1,1,1,2,2,2,1,1,3,3,3,3,3,
+3,3,3,3,1,1,2,1,1,1,2,2,2,1,1,3,3,3,3,3,
+3,3,3,3,1,1,2,2,1,1,1,1,2,2,1,1,3,3,3,3,
+3,3,3,1,1,1,2,2,1,1,1,1,2,2,1,1,3,3,3,3,
+3,3,3,3,1,1,2,2,1,1,1,1,1,2,2,1,1,3,3,3,
+3,3,3,3,1,1,2,2,1,1,1,1,2,2,1,1,1,3,3,3,
+3,3,3,3,3,1,1,2,2,1,1,1,1,2,2,1,1,3,3,3,
+3,3,3,3,3,1,1,2,2,2,1,1,1,2,1,1,3,3,3,3,
+3,3,3,3,3,3,1,1,2,2,2,1,1,1,1,1,3,3,3,3,
+3,3,3,3,3,3,1,1,1,2,2,1,1,1,1,3,3,3,3,3,
+3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,3,3,3,3,3,
+3,3,3,3,3,3,3,1,1,1,1,1,1,1,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+</data>
+ </layer>
+ <objectgroup name="objDirt">
+  <object id="2455" name="Dirt Tile" x="167.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2456" name="Dirt Tile" x="191.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2457" name="Dirt Tile" x="215.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2458" name="Dirt Tile" x="239.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2459" name="Dirt Tile" x="263.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2460" name="Dirt Tile" x="287.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2461" name="Dirt Tile" x="311.909" y="21">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2462" name="Dirt Tile" x="155.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2463" name="Dirt Tile" x="179.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2464" name="Dirt Tile" x="203.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2465" name="Dirt Tile" x="227.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2466" name="Dirt Tile" x="251.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2467" name="Dirt Tile" x="275.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2468" name="Dirt Tile" x="299.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2469" name="Dirt Tile" x="323.909" y="42">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2470" name="Dirt Tile" x="143.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2471" name="Dirt Tile" x="167.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2472" name="Dirt Tile" x="191.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2473" name="Dirt Tile" x="215.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2474" name="Dirt Tile" x="287.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2475" name="Dirt Tile" x="311.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2476" name="Dirt Tile" x="335.909" y="63">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2477" name="Dirt Tile" x="131.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2478" name="Dirt Tile" x="155.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2479" name="Dirt Tile" x="179.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2480" name="Dirt Tile" x="203.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2481" name="Dirt Tile" x="227.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2482" name="Dirt Tile" x="323.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2483" name="Dirt Tile" x="347.909" y="84">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2484" name="Dirt Tile" x="119.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2485" name="Dirt Tile" x="143.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2486" name="Dirt Tile" x="191.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2487" name="Dirt Tile" x="215.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2488" name="Dirt Tile" x="239.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2489" name="Dirt Tile" x="335.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2490" name="Dirt Tile" x="359.909" y="105">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2491" name="Dirt Tile" x="107.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2492" name="Dirt Tile" x="131.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2493" name="Dirt Tile" x="203.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2494" name="Dirt Tile" x="227.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2495" name="Dirt Tile" x="251.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2496" name="Dirt Tile" x="275.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2497" name="Dirt Tile" x="347.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2498" name="Dirt Tile" x="371.909" y="126">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2499" name="Dirt Tile" x="95.9091" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2500" name="Dirt Tile" x="119.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2501" name="Dirt Tile" x="143.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2502" name="Dirt Tile" x="215.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2503" name="Dirt Tile" x="239.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2504" name="Dirt Tile" x="263.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2505" name="Dirt Tile" x="287.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2506" name="Dirt Tile" x="359.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2507" name="Dirt Tile" x="383.909" y="147">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2508" name="Dirt Tile" x="107.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2509" name="Dirt Tile" x="131.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2510" name="Dirt Tile" x="203.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2511" name="Dirt Tile" x="227.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2512" name="Dirt Tile" x="251.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2513" name="Dirt Tile" x="275.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2514" name="Dirt Tile" x="299.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2515" name="Dirt Tile" x="371.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2516" name="Dirt Tile" x="395.909" y="168">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2517" name="Dirt Tile" x="119.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2518" name="Dirt Tile" x="143.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2519" name="Dirt Tile" x="215.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2520" name="Dirt Tile" x="239.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2521" name="Dirt Tile" x="263.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2522" name="Dirt Tile" x="287.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2523" name="Dirt Tile" x="359.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2524" name="Dirt Tile" x="383.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2525" name="Dirt Tile" x="407.909" y="189">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2526" name="Dirt Tile" x="131.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2527" name="Dirt Tile" x="155.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2528" name="Dirt Tile" x="227.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2529" name="Dirt Tile" x="251.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2530" name="Dirt Tile" x="275.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2531" name="Dirt Tile" x="299.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2532" name="Dirt Tile" x="371.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2533" name="Dirt Tile" x="395.909" y="210">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2534" name="Dirt Tile" x="143.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2535" name="Dirt Tile" x="167.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2536" name="Dirt Tile" x="263.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2537" name="Dirt Tile" x="287.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2538" name="Dirt Tile" x="311.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2539" name="Dirt Tile" x="359.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2540" name="Dirt Tile" x="383.909" y="231">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2541" name="Dirt Tile" x="155.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2542" name="Dirt Tile" x="179.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2543" name="Dirt Tile" x="275.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2544" name="Dirt Tile" x="299.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2545" name="Dirt Tile" x="323.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2546" name="Dirt Tile" x="347.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2547" name="Dirt Tile" x="371.909" y="252">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2548" name="Dirt Tile" x="167.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2549" name="Dirt Tile" x="191.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2550" name="Dirt Tile" x="215.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2551" name="Dirt Tile" x="287.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2552" name="Dirt Tile" x="311.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2553" name="Dirt Tile" x="335.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2554" name="Dirt Tile" x="359.909" y="273">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2555" name="Dirt Tile" x="179.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2556" name="Dirt Tile" x="203.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2557" name="Dirt Tile" x="227.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2558" name="Dirt Tile" x="251.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2559" name="Dirt Tile" x="275.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2560" name="Dirt Tile" x="299.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2561" name="Dirt Tile" x="323.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2562" name="Dirt Tile" x="347.909" y="294">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2563" name="Dirt Tile" x="191.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2564" name="Dirt Tile" x="215.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2565" name="Dirt Tile" x="239.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2566" name="Dirt Tile" x="263.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2567" name="Dirt Tile" x="287.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2568" name="Dirt Tile" x="311.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+  <object id="2569" name="Dirt Tile" x="335.909" y="315">
+   <properties>
+    <property name="Note" value="Can walk on"/>
+    <property name="Terrain" value="Dirt"/>
+   </properties>
+   <polyline points="0,0 -12,6.90909 -12,20.9091 0,27.9091 12,21 12.0909,7.09091 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="objWater">
+  <object id="2570" name="Water Tile" x="239.938" y="63.0625">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2571" name="Water Tile" x="263.938" y="63.0625">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2572" name="Water Tile" x="251.938" y="84.0625">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2573" name="Water Tile" x="275.938" y="84.0625">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2574" name="Water Tile" x="299.938" y="84.0625">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2575" name="Water Tile" x="167.938" y="105.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2576" name="Water Tile" x="263.938" y="105.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2577" name="Water Tile" x="287.938" y="105.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2578" name="Water Tile" x="311.938" y="105.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2579" name="Water Tile" x="155.938" y="126.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2580" name="Water Tile" x="179.938" y="126.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2581" name="Water Tile" x="299.938" y="126.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2582" name="Water Tile" x="323.938" y="126.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2583" name="Water Tile" x="167.938" y="147.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2584" name="Water Tile" x="191.938" y="147.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2585" name="Water Tile" x="311.938" y="147.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2586" name="Water Tile" x="335.938" y="147.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2587" name="Water Tile" x="155.938" y="168.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2588" name="Water Tile" x="179.938" y="168.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2589" name="Water Tile" x="323.938" y="168.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2590" name="Water Tile" x="347.938" y="168.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2591" name="Water Tile" x="167.938" y="189.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2592" name="Water Tile" x="191.938" y="189.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2593" name="Water Tile" x="311.938" y="189.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2594" name="Water Tile" x="335.938" y="189.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2595" name="Water Tile" x="179.938" y="210.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2596" name="Water Tile" x="203.938" y="210.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2597" name="Water Tile" x="323.938" y="210.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2598" name="Water Tile" x="347.938" y="210.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2599" name="Water Tile" x="191.938" y="231.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2600" name="Water Tile" x="215.938" y="231.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2601" name="Water Tile" x="239.938" y="231.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2602" name="Water Tile" x="335.938" y="231.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2603" name="Water Tile" x="203.938" y="252.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2604" name="Water Tile" x="227.938" y="252.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2605" name="Water Tile" x="251.938" y="252.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2606" name="Water Tile" x="239.938" y="273.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+  <object id="2607" name="Water Tile" x="263.938" y="273.063">
+   <properties>
+    <property name="Note" value="Cant act in"/>
+    <property name="Terrain" value="Water"/>
+   </properties>
+   <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="objStone">
+  <object id="2608" name="Stone Tile" x="12" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2609" name="Stone Tile" x="36" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2610" name="Stone Tile" x="60" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2611" name="Stone Tile" x="84" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2612" name="Stone Tile" x="108" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2613" name="Stone Tile" x="132" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2614" name="Stone Tile" x="156" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2615" name="Stone Tile" x="180" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2616" name="Stone Tile" x="204" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2617" name="Stone Tile" x="228" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2618" name="Stone Tile" x="252" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2619" name="Stone Tile" x="276" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2620" name="Stone Tile" x="300" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2621" name="Stone Tile" x="324" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2622" name="Stone Tile" x="348" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2623" name="Stone Tile" x="372" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2624" name="Stone Tile" x="396" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2625" name="Stone Tile" x="420" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2626" name="Stone Tile" x="444" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2627" name="Stone Tile" x="468" y="0">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2628" name="Stone Tile" x="24" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2629" name="Stone Tile" x="48" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2630" name="Stone Tile" x="72" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2631" name="Stone Tile" x="96" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2632" name="Stone Tile" x="120" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2633" name="Stone Tile" x="144" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2634" name="Stone Tile" x="336" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2635" name="Stone Tile" x="360" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2636" name="Stone Tile" x="384" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2637" name="Stone Tile" x="408" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2638" name="Stone Tile" x="432" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2639" name="Stone Tile" x="456" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2640" name="Stone Tile" x="480" y="21">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2641" name="Stone Tile" x="12" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2642" name="Stone Tile" x="36" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2643" name="Stone Tile" x="60" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2644" name="Stone Tile" x="84" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2645" name="Stone Tile" x="108" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2646" name="Stone Tile" x="132" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2647" name="Stone Tile" x="348" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2648" name="Stone Tile" x="372" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2649" name="Stone Tile" x="396" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2650" name="Stone Tile" x="420" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2651" name="Stone Tile" x="444" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2652" name="Stone Tile" x="468" y="42">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2653" name="Stone Tile" x="24" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2654" name="Stone Tile" x="48" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2655" name="Stone Tile" x="72" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2656" name="Stone Tile" x="96" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2657" name="Stone Tile" x="120" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2658" name="Stone Tile" x="360" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2659" name="Stone Tile" x="384" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2660" name="Stone Tile" x="408" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2661" name="Stone Tile" x="432" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2662" name="Stone Tile" x="456" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2663" name="Stone Tile" x="480" y="63">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2664" name="Stone Tile" x="12" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2665" name="Stone Tile" x="36" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2666" name="Stone Tile" x="60" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2667" name="Stone Tile" x="84" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2668" name="Stone Tile" x="108" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2669" name="Stone Tile" x="372" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2670" name="Stone Tile" x="396" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2671" name="Stone Tile" x="420" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2672" name="Stone Tile" x="444" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2673" name="Stone Tile" x="468" y="84">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2674" name="Stone Tile" x="24" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2675" name="Stone Tile" x="48" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2676" name="Stone Tile" x="72" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2677" name="Stone Tile" x="96" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2678" name="Stone Tile" x="384" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2679" name="Stone Tile" x="408" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2680" name="Stone Tile" x="432" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2681" name="Stone Tile" x="456" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2682" name="Stone Tile" x="480" y="105">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2683" name="Stone Tile" x="12" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2684" name="Stone Tile" x="36" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2685" name="Stone Tile" x="60" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2686" name="Stone Tile" x="84" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2687" name="Stone Tile" x="396" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2688" name="Stone Tile" x="420" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2689" name="Stone Tile" x="444" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2690" name="Stone Tile" x="468" y="126">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2691" name="Stone Tile" x="24" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2692" name="Stone Tile" x="48" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2693" name="Stone Tile" x="72" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2694" name="Stone Tile" x="408" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2695" name="Stone Tile" x="432" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2696" name="Stone Tile" x="456" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2697" name="Stone Tile" x="480" y="147">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2698" name="Stone Tile" x="12" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2699" name="Stone Tile" x="36" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2700" name="Stone Tile" x="60" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2701" name="Stone Tile" x="84" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2702" name="Stone Tile" x="420" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2703" name="Stone Tile" x="444" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2704" name="Stone Tile" x="468" y="168">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2705" name="Stone Tile" x="24" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2706" name="Stone Tile" x="48" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2707" name="Stone Tile" x="72" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2708" name="Stone Tile" x="96" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2709" name="Stone Tile" x="432" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2710" name="Stone Tile" x="456" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2711" name="Stone Tile" x="480" y="189">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2712" name="Stone Tile" x="12" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2713" name="Stone Tile" x="36" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2714" name="Stone Tile" x="60" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2715" name="Stone Tile" x="84" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2716" name="Stone Tile" x="108" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2717" name="Stone Tile" x="420" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2718" name="Stone Tile" x="444" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2719" name="Stone Tile" x="468" y="210">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2720" name="Stone Tile" x="24" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2721" name="Stone Tile" x="48" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2722" name="Stone Tile" x="72" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2723" name="Stone Tile" x="96" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2724" name="Stone Tile" x="120" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2725" name="Stone Tile" x="408" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2726" name="Stone Tile" x="432" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2727" name="Stone Tile" x="456" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2728" name="Stone Tile" x="480" y="231">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2729" name="Stone Tile" x="12" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2730" name="Stone Tile" x="36" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2731" name="Stone Tile" x="60" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2732" name="Stone Tile" x="84" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2733" name="Stone Tile" x="108" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2734" name="Stone Tile" x="132" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2735" name="Stone Tile" x="396" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2736" name="Stone Tile" x="420" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2737" name="Stone Tile" x="444" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2738" name="Stone Tile" x="468" y="252">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2739" name="Stone Tile" x="24" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2740" name="Stone Tile" x="48" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2741" name="Stone Tile" x="72" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2742" name="Stone Tile" x="96" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2743" name="Stone Tile" x="120" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2744" name="Stone Tile" x="144" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2745" name="Stone Tile" x="384" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2746" name="Stone Tile" x="408" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2747" name="Stone Tile" x="432" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2748" name="Stone Tile" x="456" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2749" name="Stone Tile" x="480" y="273">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2750" name="Stone Tile" x="12" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2751" name="Stone Tile" x="36" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2752" name="Stone Tile" x="60" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2753" name="Stone Tile" x="84" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2754" name="Stone Tile" x="108" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2755" name="Stone Tile" x="132" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2756" name="Stone Tile" x="156" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2757" name="Stone Tile" x="372" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2758" name="Stone Tile" x="396" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2759" name="Stone Tile" x="420" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2760" name="Stone Tile" x="444" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2761" name="Stone Tile" x="468" y="294">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2762" name="Stone Tile" x="24" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2763" name="Stone Tile" x="48" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2764" name="Stone Tile" x="72" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2765" name="Stone Tile" x="96" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2766" name="Stone Tile" x="120" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2767" name="Stone Tile" x="144" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2768" name="Stone Tile" x="168" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2769" name="Stone Tile" x="360" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2770" name="Stone Tile" x="384" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2771" name="Stone Tile" x="408" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2772" name="Stone Tile" x="432" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2773" name="Stone Tile" x="456" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2774" name="Stone Tile" x="480" y="315">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2775" name="Stone Tile" x="12" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2776" name="Stone Tile" x="36" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2777" name="Stone Tile" x="60" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2778" name="Stone Tile" x="84" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2779" name="Stone Tile" x="108" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2780" name="Stone Tile" x="132" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2781" name="Stone Tile" x="156" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2782" name="Stone Tile" x="180" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2783" name="Stone Tile" x="204" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2784" name="Stone Tile" x="228" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2785" name="Stone Tile" x="252" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2786" name="Stone Tile" x="276" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2787" name="Stone Tile" x="300" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2788" name="Stone Tile" x="324" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2789" name="Stone Tile" x="348" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2790" name="Stone Tile" x="372" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2791" name="Stone Tile" x="396" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2792" name="Stone Tile" x="420" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2793" name="Stone Tile" x="444" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2794" name="Stone Tile" x="468" y="336">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2795" name="Stone Tile" x="24" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2796" name="Stone Tile" x="48" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2797" name="Stone Tile" x="72" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2798" name="Stone Tile" x="96" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2799" name="Stone Tile" x="120" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2800" name="Stone Tile" x="144" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2801" name="Stone Tile" x="168" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2802" name="Stone Tile" x="192" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2803" name="Stone Tile" x="216" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2804" name="Stone Tile" x="240" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2805" name="Stone Tile" x="264" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2806" name="Stone Tile" x="288" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2807" name="Stone Tile" x="312" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2808" name="Stone Tile" x="336" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2809" name="Stone Tile" x="360" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2810" name="Stone Tile" x="384" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2811" name="Stone Tile" x="408" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2812" name="Stone Tile" x="432" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2813" name="Stone Tile" x="456" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2814" name="Stone Tile" x="480" y="357">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2815" name="Stone Tile" x="12" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2816" name="Stone Tile" x="36" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2817" name="Stone Tile" x="60" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2818" name="Stone Tile" x="84" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2819" name="Stone Tile" x="108" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2820" name="Stone Tile" x="132" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2821" name="Stone Tile" x="156" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2822" name="Stone Tile" x="180" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2823" name="Stone Tile" x="204" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2824" name="Stone Tile" x="228" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2825" name="Stone Tile" x="252" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2826" name="Stone Tile" x="276" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2827" name="Stone Tile" x="300" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2828" name="Stone Tile" x="324" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2829" name="Stone Tile" x="348" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2830" name="Stone Tile" x="372" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2831" name="Stone Tile" x="396" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2832" name="Stone Tile" x="420" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2833" name="Stone Tile" x="444" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2834" name="Stone Tile" x="468" y="378">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2835" name="Stone Tile" x="24" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2836" name="Stone Tile" x="48" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2837" name="Stone Tile" x="72" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2838" name="Stone Tile" x="96" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2839" name="Stone Tile" x="120" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2840" name="Stone Tile" x="144" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2841" name="Stone Tile" x="168" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2842" name="Stone Tile" x="192" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2843" name="Stone Tile" x="216" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2844" name="Stone Tile" x="240" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2845" name="Stone Tile" x="264" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2846" name="Stone Tile" x="288" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2847" name="Stone Tile" x="312" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2848" name="Stone Tile" x="336" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2849" name="Stone Tile" x="360" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2850" name="Stone Tile" x="384" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2851" name="Stone Tile" x="408" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2852" name="Stone Tile" x="432" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2853" name="Stone Tile" x="456" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+  <object id="2854" name="Stone Tile" x="480" y="399">
+   <properties>
+    <property name="Note" value="cannot walk though"/>
+    <property name="Terrain" value="Stone"/>
+   </properties>
+   <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
+  </object>
+ </objectgroup>
+</map>
