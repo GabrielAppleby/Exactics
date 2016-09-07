@@ -10,7 +10,7 @@ public class InputSystem : MonoBehaviour {
 	public static event HighlightMovement highlightMovement;
 
 	public delegate void BringUpMenu(GameObject e);
-	public static event BringUpMenu bringUpMenu;
+	public static event BringUpMenu updateMenu;
 
 	void OnEnable()
 	{
@@ -27,7 +27,7 @@ public class InputSystem : MonoBehaviour {
 
 	void directClick(GameObject entity) {
 		Debug.Log (entity);
-		bringUpMenu (entity);
+		updateMenu (entity);
 	}
 
 	void directHover(GameObject entity) {
