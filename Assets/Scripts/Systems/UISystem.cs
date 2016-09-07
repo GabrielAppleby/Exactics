@@ -2,26 +2,39 @@
 
 
 //
-public class UISystem : MonoBehaviour {
+public class UISystem : MonoBehaviour
+{
+	void Start()
+	{
+		makeMenu ();
+	}
 
 	void OnEnable()
 	{
 		InputSystem.highlightMovement += highlightMovement;
-		InputSystem.bringUpMenu += bringUpMenu;
+		InputSystem.updateMenu += updateMenu;
 	}
 
 
 	void OnDisable()
 	{
 		InputSystem.highlightMovement -= highlightMovement;
-		InputSystem.bringUpMenu -= bringUpMenu;
+		InputSystem.updateMenu -= updateMenu;
 	}
 
-	public void highlightMovement(GameObject entity, int movement) {
+	public void highlightMovement(GameObject entity, int movement)
+	{
 		//highlight grid
 	}
 
-	public void bringUpMenu(GameObject entity) {
+	public void updateMenu(GameObject entity)
+	{
 		//Bring up menu
 	}
+
+	public void makeMenu()
+	{
+		//Bring up menu
+	}
+
 }
