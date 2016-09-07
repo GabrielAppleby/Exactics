@@ -9,7 +9,13 @@ public class UnitCreation : MonoBehaviour {
 
 
 	UnitFactory unitFactory;
+
+	//I will need this eventually
+	//And I hate seeing the stupid
+	//Unused variable warning..
+	#pragma warning disable 0414
 	GameObject unit;
+	#pragma warning restore 0414
 
 	private void Start () {
 		unitFactory = new UnitFactory ();

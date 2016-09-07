@@ -20,8 +20,8 @@ public class UnitFactory {
 
 		parentUnit = new GameObject ("Unit Holder");
 		parentUnitTransform = parentUnit.GetComponent<Transform> ();
-		unitSpriteName = "Ephraim.png";
-		unitSprite = (Sprite)Resources.Load (unitSpriteName);
+		unitSpriteName = "Ephraim";
+		unitSprite = (Sprite) Resources.Load<Sprite> (unitSpriteName);
 
 		unitName = "Unit";
 	}
