@@ -1,40 +1,32 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 
 //
-public class UISystem : MonoBehaviour
-{
-	void Start()
-	{
-		makeMenu ();
-	}
+public class UISystem : MonoBehaviour {
 
 	void OnEnable()
 	{
-		InputSystem.highlightMovement += highlightMovement;
+		InputSystem.highlightMove += highlightMove;
 		InputSystem.updateMenu += updateMenu;
 	}
 
 
 	void OnDisable()
 	{
-		InputSystem.highlightMovement -= highlightMovement;
+		InputSystem.highlightMove -= highlightMove;
 		InputSystem.updateMenu -= updateMenu;
 	}
 
-	public void highlightMovement(GameObject entity, int movement)
-	{
+	public void highlightMove(GameObject entity) {
+		foreach(KeyValuePair<GameObject, GameObject> entry in entity.GetComponent<Movement>().camefrom)
+		{
+			Debug.Log (entry.Value.GetComponent<Transform> ().position);
+		}
 		//highlight grid
 	}
 
-	public void updateMenu(GameObject entity)
-	{
+	public void updateMenu(GameObject entity) {
 		//Bring up menu
 	}
-
-	public void makeMenu()
-	{
-		//Bring up menu
-	}
-
 }

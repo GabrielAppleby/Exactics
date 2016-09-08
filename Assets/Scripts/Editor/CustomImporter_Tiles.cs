@@ -95,32 +95,33 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 			}
 		}
 	}
-}
 
-public class CoordinateCompare : Comparer<GameObject>  {
-	// Compares by Length, Height, and Width.
-	public override int Compare(GameObject one, GameObject two)
-	{
-		Vector3 onePosition = one.GetComponent<Transform> ().position;
-		Vector3 twoPosition = two.GetComponent<Transform> ().position;
-		float oneX = onePosition.x;
-		float oneY = onePosition.y;
-		float twoX = twoPosition.x;
-		float twoY = twoPosition.y;
+	private sealed class CoordinateCompare : Comparer<GameObject>  {
+		// Compares by Length, Height, and Width.
+		public override int Compare(GameObject one, GameObject two)
+		{
+			Vector3 onePosition = one.GetComponent<Transform> ().position;
+			Vector3 twoPosition = two.GetComponent<Transform> ().position;
+			float oneX = onePosition.x;
+			float oneY = onePosition.y;
+			float twoX = twoPosition.x;
+			float twoY = twoPosition.y;
 
 
-		if (oneY < twoY) {
-			return -1;
+			if (oneY < twoY) {
+				return -1;
+			}
+			else if (oneY > twoY) {
+				return 1;
+			}
+			else if (oneX < twoX) {
+				return -1;
+			}
+			else if (oneX > twoX) {
+				return 1;
+			}
+			return 0;
 		}
-		else if (oneY > twoY) {
-			return 1;
-		}
-		else if (oneX < twoX) {
-			return -1;
-		}
-		else if (oneX > twoX) {
-			return 1;
-		}
-		return 0;
 	}
 }
+

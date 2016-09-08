@@ -5,12 +5,25 @@
 //For abstracting inputs into intentions
 //For now its mostly just annoying
 public class InputSystem : MonoBehaviour {
+	public enum States {Rest, Menu, Move};
+	private States state = States.Rest;
+	private GameObject selectedEntity;
+	//when in move state click on tile triggers mvoe entity
+	//So put state here?
 
-	public delegate void HighlightMovement(GameObject e, int speed);
-	public static event HighlightMovement highlightMovement;
 
-	public delegate void BringUpMenu(GameObject e);
-	public static event BringUpMenu updateMenu;
+	public delegate void MakeMove(GameObject entityToMove, GameObject entityWithLocation);
+	public static event MakeMove makeMove;
+
+	public delegate void CalculateMove(GameObject entity);
+	public static event CalculateMove calculateMove;
+
+	public delegate void HighlightMove(GameObject entity);
+	public static event HighlightMove highlightMove;
+
+
+	public delegate void UpdateMenu(GameObject e);
+	public static event UpdateMenu updateMenu;
 
 	void OnEnable()
 	{
@@ -26,8 +39,20 @@ public class InputSystem : MonoBehaviour {
 	}
 
 	void directClick(GameObject entity) {
-		Debug.Log (entity);
-		updateMenu (entity);
+		switch (state) 
+		{
+		case States.Rest:
+			state = States.Menu;
+			//updateMenu (entity);
+			break;
+		case States.Menu:
+			break;
+		case States.Move:
+			makeMove (selectedEntity, entity);
+			break;
+		default:
+			break;
+		}
 	}
 
 	void directHover(GameObject entity) {
@@ -37,7 +62,10 @@ public class InputSystem : MonoBehaviour {
 			//Should inputsystem pass the speed? From design point of view no
 			//But it seems silly to do another getcomponent at next method..
 			//We shall see
-			highlightMovement (entity, movementComponent.movement);
+			//so we populate came from from movement
+			//then use ui system to change the highlights
+			calculateMove (entity);
+			highlightMove (entity);
 		}
 	}
 }
