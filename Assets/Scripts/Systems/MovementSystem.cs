@@ -9,12 +9,14 @@ public class MovementSystem : MonoBehaviour {
 
 	void OnEnable()
 	{
+		InputSystem.calculateMove += calculateMove;
 		InputSystem.makeMove += makeMove;
 	}
 
 
 	void OnDisable()
 	{
+		InputSystem.calculateMove += calculateMove;
 		InputSystem.makeMove -= makeMove;
 	}
 

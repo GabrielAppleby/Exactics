@@ -74,7 +74,7 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 			}
 
 			//Set fake transform's position
-			temp.position.Set(x, y);
+			temp.position = new Vector3(x, y, 0);
 
 			//If we're on an odd parity neighbor coords are
 			if (parity == 1) {

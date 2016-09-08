@@ -59,13 +59,15 @@ public class InputSystem : MonoBehaviour {
 		//Will depend on what components attached
 		Movement movementComponent = entity.GetComponent<Movement> ();
 		if (movementComponent != null) {
+			selectedEntity = entity;
 			//Should inputsystem pass the speed? From design point of view no
 			//But it seems silly to do another getcomponent at next method..
 			//We shall see
 			//so we populate came from from movement
 			//then use ui system to change the highlights
 			calculateMove (entity);
-			highlightMove (entity);
+			Debug.Log (entity);
+			//highlightMove (entity);
 		}
 	}
 }

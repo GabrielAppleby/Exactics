@@ -13,6 +13,12 @@ public class Grid {
 		tiles.Add(hashCode(tile), tile);
 	}
 
+
+	//Gets a tile based on hashcode
+	public GameObject get(int x, int y) {
+		return get (hashCode (x, y));
+	}
+
 	//Gets a tile based on hashcode
 	public GameObject get(int hashCode) {
 		GameObject value;

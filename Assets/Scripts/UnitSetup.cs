@@ -5,7 +5,7 @@ using System.Collections.Generic;
 //Eventually I need to go back and handle if
 //TryGetValue fails
 
-public class UnitCreation : MonoBehaviour {
+public class UnitSetup : MonoBehaviour {
 
 
 	UnitFactory unitFactory;
@@ -21,9 +21,28 @@ public class UnitCreation : MonoBehaviour {
 		unitFactory = new UnitFactory ();
 
 		//Temp
-		unitFactory.position = new Vector2 (-0.8799999f, -.75f);
-		unitFactory.fakePosition = new Vector2 (-2, 1);
+		unitFactory.position = new Vector2 (-1, -1);
+		unitFactory.fakePosition = new Vector2 (-1, -1);
 		unit = unitFactory.createUnit ();
+
+	}
+
+	void OnEnable()
+	{
+		BoardSetup.gridReadyForUnits += placeUnits;
+	}
+
+
+	void OnDisable()
+	{
+		BoardSetup.gridReadyForUnits -= placeUnits;
+	}
+
+	private void placeUnits(GameObject[] tiles) {
+		GameObject why = tiles [0];
+		Debug.Log (why.GetComponent<FakeTransform> ().position);
+		unit.GetComponent<FakeTransform>().position = why.GetComponent<FakeTransform>().position;
+		unit.GetComponent<Transform>().position = why.GetComponent<Transform>().position;
 	}
 
 
