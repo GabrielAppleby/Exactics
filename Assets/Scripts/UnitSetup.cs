@@ -43,6 +43,7 @@ public class UnitSetup : MonoBehaviour {
 		Debug.Log (why.GetComponent<FakeTransform> ().position);
 		unit.GetComponent<FakeTransform>().position = why.GetComponent<FakeTransform>().position;
 		unit.GetComponent<Transform>().position = why.GetComponent<Transform>().position;
+		unit.GetComponent<CurrentTile> ().currentTile = tiles [0];
 	}
 
 
