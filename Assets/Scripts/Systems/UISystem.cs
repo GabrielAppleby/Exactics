@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 
-//
 public class UISystem : MonoBehaviour {
 
 	void OnEnable()
@@ -20,8 +19,11 @@ public class UISystem : MonoBehaviour {
 
 	public void highlightMove(GameObject entity) {
 		foreach(KeyValuePair<GameObject, GameObject> entry in entity.GetComponent<Movement>().camefrom)
-		{
-			Debug.Log (entry.Value.GetComponent<Transform> ().position);
+		{	
+			if (entry.Key != null) {
+				Debug.Log (entry.Key.GetComponent<Transform> ().position);
+			}
+
 		}
 		//highlight grid
 	}

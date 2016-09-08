@@ -14,7 +14,7 @@ public class Input : MonoBehaviour {
 		}
 	}
 
-	private void OnMouseOver() {
+	private void OnMouseEnter() {
 		if (onHover != null) {
 			onHover (gameObject);
 		}

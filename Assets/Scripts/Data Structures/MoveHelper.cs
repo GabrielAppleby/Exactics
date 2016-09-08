@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MoveHelper : MonoBehaviour {
+public class MoveHelper {
 	public GameObject entity;
 	public int numMoves;
 

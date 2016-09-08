@@ -41,7 +41,6 @@ public class MovementSystem : MonoBehaviour {
 					if (neighbor != null) {
 						if (cameFrom.ContainsKey (neighbor) == false) {
 							frontier.Enqueue (new MoveHelper (tempHelper.numMoves - 1, neighbor));
-							//neighbor.changeColor (Color.blue);
 							cameFrom.Add (neighbor, tempHelper.entity);
 						}
 					}

@@ -39,13 +39,15 @@ public class InputSystem : MonoBehaviour {
 	}
 
 	void directClick(GameObject entity) {
+		selectedEntity = entity;
 		switch (state) 
 		{
 		case States.Rest:
 			state = States.Menu;
-			//updateMenu (entity);
+			updateMenu (entity);
 			break;
 		case States.Menu:
+			//States = States.Rest;
 			break;
 		case States.Move:
 			makeMove (selectedEntity, entity);
@@ -60,14 +62,8 @@ public class InputSystem : MonoBehaviour {
 		Movement movementComponent = entity.GetComponent<Movement> ();
 		if (movementComponent != null) {
 			selectedEntity = entity;
-			//Should inputsystem pass the speed? From design point of view no
-			//But it seems silly to do another getcomponent at next method..
-			//We shall see
-			//so we populate came from from movement
-			//then use ui system to change the highlights
 			calculateMove (entity);
-			Debug.Log (entity);
-			//highlightMove (entity);
+			highlightMove (entity);
 		}
 	}
 }

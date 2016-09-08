@@ -24,6 +24,8 @@ public class UnitSetup : MonoBehaviour {
 		unitFactory.position = new Vector2 (-1, -1);
 		unitFactory.fakePosition = new Vector2 (-1, -1);
 		unit = unitFactory.createUnit ();
+		changeJob (unit, Constants.Jobs.Arcanist);
+		changeRace (unit, Constants.Races.Avian);
 
 	}
 
@@ -38,12 +40,15 @@ public class UnitSetup : MonoBehaviour {
 		BoardSetup.gridReadyForUnits -= placeUnits;
 	}
 
+
+	//THis is currently almost identical to the method in MovementSystem
+	//But I feel like the movement System one will be very different shortly
+	//Hence the two different functions with the same code
 	private void placeUnits(GameObject[] tiles) {
 		GameObject why = tiles [0];
-		Debug.Log (why.GetComponent<FakeTransform> ().position);
 		unit.GetComponent<FakeTransform>().position = why.GetComponent<FakeTransform>().position;
-		unit.GetComponent<Transform>().position = why.GetComponent<Transform>().position;
-		unit.GetComponent<CurrentTile> ().currentTile = tiles [0];
+		unit.GetComponent<Transform> ().position = why.GetComponent<Transform>().position;
+		unit.GetComponent<CurrentTile> ().currentTile = why;
 	}
 
 
