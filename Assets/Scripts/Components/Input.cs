@@ -5,8 +5,8 @@ public class Input : MonoBehaviour {
 	public delegate void ClickEventHandler(GameObject e);
 	public static event ClickEventHandler onClick;
 
-	public delegate void HoverEventHandler(GameObject e);
-	public static event HoverEventHandler onHover;
+	public delegate void MouseEnterEventHandler(GameObject e);
+	public static event MouseEnterEventHandler onMouseEnter;
 
 	private void OnMouseUp() {
 		if (onClick != null) {
@@ -15,8 +15,8 @@ public class Input : MonoBehaviour {
 	}
 
 	private void OnMouseEnter() {
-		if (onHover != null) {
-			onHover (gameObject);
+		if (onMouseEnter != null) {
+			onMouseEnter (gameObject);
 		}
 	}
 }

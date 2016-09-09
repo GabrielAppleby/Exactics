@@ -3,8 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	public delegate void CurrentUnitChanged(GameObject unit);
-	public static event CurrentUnitChanged currentUnitChanged;
+	
 
 
 	void OnEnable()

@@ -29,7 +29,7 @@ public class InputSystem : MonoBehaviour {
 	void OnEnable()
 	{
 		Input.onClick += directClick;
-		Input.onHover += directHover;
+		Input.onMouseEnter += directHover;
 		UnitSetup.unitsReady += currentUnitChanged;
 	}
 
@@ -37,7 +37,7 @@ public class InputSystem : MonoBehaviour {
 	void OnDisable()
 	{
 		Input.onClick -= directClick;
-		Input.onHover -= directHover;
+		Input.onMouseEnter -= directHover;
 		UnitSetup.unitsReady += currentUnitChanged;
 	}
 

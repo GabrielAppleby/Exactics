@@ -21,7 +21,7 @@ public class UISystem : MonoBehaviour {
 		foreach(KeyValuePair<GameObject, GameObject> entry in entity.GetComponent<Movement>().camefrom)
 		{	
 			if (entry.Key != null) {
-				Debug.Log (entry.Key.GetComponent<Transform> ().position);
+				//Do it
 			}
 
 		}

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 //I think in the future this class will be helpful
 //For abstracting inputs into intentions
 //For now its mostly just annoying
+using System.Collections;
+
+
 public class MovementSystem : MonoBehaviour {
 
 	void OnEnable()
@@ -51,12 +54,37 @@ public class MovementSystem : MonoBehaviour {
 	}
 
 	private void makeMove(GameObject entityToMove, GameObject entityWithLocation) {
-		entityToMove.GetComponent<FakeTransform>().position = entityWithLocation.GetComponent<FakeTransform>().position;
-		entityToMove.GetComponent<Transform>().position = entityWithLocation.GetComponent<Transform>().position;
-
+		Debug.Log (entityToMove.transform.position);
+		Dictionary<GameObject, GameObject> cameFrom = getAvailableMoves(entityToMove);
+		Debug.Log (entityWithLocation.transform.position);
+		if (cameFrom.ContainsKey (entityWithLocation)) {
+			List<GameObject> path = new List<GameObject> ();
+			GameObject current = entityWithLocation;
+			path.Add (current);
+			while (current != entityToMove.GetComponent<CurrentTile>().currentTile) {
+				cameFrom.TryGetValue (current, out current);
+				path.Add (current);
+			}
+			StartCoroutine(moveRawr(entityToMove, entityWithLocation, path));
+		}
 	}
 
-	/*public int heuristic(en tileScriptA, TileScript tileScriptB) {
-		return Mathf.Abs(tileScriptA.coord.x - tileScriptB.coord.x) + Mathf.Abs(tileScriptA.coord.y - tileScriptB.coord.y);
-	}*/
+	IEnumerator moveTest (Transform transform, Vector3 startPos, Vector3 endPos, float time) {
+		float i = 0.0f;
+		float rate = 1.0f/time;
+		while (i < 1.0) {
+			i += Time.deltaTime * rate;
+			transform.position = Vector3.Lerp(startPos, endPos, i);
+			yield return null; 
+		}
+	}
+
+	IEnumerator moveRawr (GameObject entityToMove, GameObject entityWithLocation, List<GameObject> path) {
+		for (int i = path.Count-1; i > -1; i--) {
+			entityToMove.GetComponent<CurrentTile>().currentTile = entityWithLocation;
+			yield return StartCoroutine(moveTest(entityToMove.transform, entityToMove.transform.position, path[i].transform.position, 1));;
+		}
+	}
+	
+
 }
