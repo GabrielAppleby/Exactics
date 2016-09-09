@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 public class UnitSetup : MonoBehaviour {
 
+	public delegate void UnitsReady(GameObject unit);
+	public static event UnitsReady unitsReady;
+
 
 	UnitFactory unitFactory;
 
@@ -26,6 +29,11 @@ public class UnitSetup : MonoBehaviour {
 		unit = unitFactory.createUnit ();
 		changeJob (unit, Constants.Jobs.Arcanist);
 		changeRace (unit, Constants.Races.Avian);
+		//GameObject[] units = GameObject [1];
+		//units [0] = unit;
+		if (unitsReady != null) {
+			unitsReady (unit);
+		}
 
 	}
 

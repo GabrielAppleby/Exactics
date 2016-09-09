@@ -11,7 +11,11 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		IDictionary<string, string> customProperties)
 	{
 		//Debug.Log (gameObject.GetComponent<Transform>().position);
-		//Object.DestroyImmediate (gameObject.GetComponent<EdgeCollider2D> ());
+
+		gameObject.AddComponent<Input>();
+
+
+		//
 	}
 
 	//This is a bad way to do this, maybe it is easier
@@ -25,13 +29,15 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		//Number of tiles in a row
 		int tilesWide = info.NumTilesWide;
 		int tilesHigh = info.NumTilesHigh;
+		int tileWidth = info.TileWidth;
+		int tileHeight = info.TileHeight;
 
 		List<GameObject> tiles = aggregateTiles (prefab);
 
 		//Sort the tiles by y then by x (smaller y/x first)
 		tiles.Sort (new CoordinateCompare());
+		setLocationAndNeighbors (tiles, tilesWide, tilesHigh, tileWidth, tileHeight); 
 
-		setLocationAndNeighbors (tiles, tilesWide, tilesHigh); 
 	}
 
 	private List<GameObject> aggregateTiles(GameObject prefab) {
@@ -49,16 +55,23 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		return tiles;
 	}
 
-	private void setLocationAndNeighbors(List<GameObject> tiles, int tilesWide, int tilesHigh) {
+	private void setLocationAndNeighbors(List<GameObject> tiles, int tilesWide, int tilesHigh, int tileWidth, int tileHeight) {
 		FakeTransform temp;
 		int x = -1;
 		int y = -1;
 		int parity = 1;
+		Vector2[] points;
+		PolygonCollider2D iShouldNotHaveToDoThis;
+		EdgeCollider2D oldCollider;
 		//Order of foreach with List is not explicitly documented
 		//So using for loop so it doesnt randomly change with an update
 		for (int i = 0; i < tiles.Count; i++) {
 			//Add a fake transform
 			temp = tiles [i].AddComponent<FakeTransform> ();
+			iShouldNotHaveToDoThis = tiles[i].AddComponent<PolygonCollider2D>();
+			oldCollider = tiles[i].GetComponent<EdgeCollider2D> ();
+			iShouldNotHaveToDoThis.SetPath (0, oldCollider.points);
+			Object.DestroyImmediate (oldCollider);
 
 			//Next column
 			x++;

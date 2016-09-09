@@ -7,6 +7,7 @@
 public class InputSystem : MonoBehaviour {
 	public enum States {Rest, Menu, Move};
 	private States state = States.Rest;
+
 	private GameObject selectedEntity;
 	//when in move state click on tile triggers mvoe entity
 	//So put state here?
@@ -29,6 +30,7 @@ public class InputSystem : MonoBehaviour {
 	{
 		Input.onClick += directClick;
 		Input.onHover += directHover;
+		UnitSetup.unitsReady += currentUnitChanged;
 	}
 
 
@@ -36,34 +38,58 @@ public class InputSystem : MonoBehaviour {
 	{
 		Input.onClick -= directClick;
 		Input.onHover -= directHover;
+		UnitSetup.unitsReady += currentUnitChanged;
 	}
 
 	void directClick(GameObject entity) {
-		selectedEntity = entity;
-		switch (state) 
+		/*switch (state) 
 		{
 		case States.Rest:
 			state = States.Menu;
-			updateMenu (entity);
+			if (updateMenu != null) {
+				updateMenu (entity);
+			}
 			break;
 		case States.Menu:
 			//States = States.Rest;
 			break;
 		case States.Move:
-			makeMove (selectedEntity, entity);
+			if (makeMove != null) {
+				makeMove (selectedEntity, entity);
+			}
 			break;
 		default:
 			break;
+		}*/
+
+		if (state == States.Move) {
+			makeMove (selectedEntity, entity);
 		}
+	}
+
+	public void clickedMove() {
+		state = States.Move;
+	}
+
+	void clickedAttack() {
+
 	}
 
 	void directHover(GameObject entity) {
 		//Will depend on what components attached
 		Movement movementComponent = entity.GetComponent<Movement> ();
 		if (movementComponent != null) {
-			selectedEntity = entity;
-			calculateMove (entity);
-			highlightMove (entity);
+			if (calculateMove != null) {
+				calculateMove (entity);
+			}
+			if (highlightMove != null) {
+				highlightMove (entity);
+			}
 		}
 	}
+
+	void currentUnitChanged(GameObject entity) {
+		selectedEntity = entity;
+	}
+
 }
