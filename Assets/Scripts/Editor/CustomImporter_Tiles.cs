@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 [Tiled2Unity.CustomTiledImporter]
 
@@ -24,6 +25,7 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 	//Its strictly worse in every way
 	public void CustomizePrefab(GameObject prefab)
 	{
+		
 		//Grab the script that has the number of tiles in each column and row
 		Tiled2Unity.TiledMap info = prefab.GetComponent<Tiled2Unity.TiledMap> ();
 		//Number of tiles in a row
@@ -34,9 +36,13 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 
 		List<GameObject> tiles = aggregateTiles (prefab);
 
+
+
 		//Sort the tiles by y then by x (smaller y/x first)
 		tiles.Sort (new CoordinateCompare());
-		setLocationAndNeighbors (tiles, tilesWide, tilesHigh, tileWidth, tileHeight); 
+
+		setLocationAndNeighbors (tiles, tilesWide, tilesHigh, tileWidth, tileHeight);
+
 
 	}
 
@@ -48,6 +54,7 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		foreach (Transform child in prefabTransform) {
 			if (child.name.StartsWith ("obj")) {
 				foreach (Transform nestedChild in child) {
+					Debug.Log (nestedChild);
 					tiles.Add (nestedChild.gameObject);
 				}
 			}
@@ -71,7 +78,7 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 			iShouldNotHaveToDoThis = tiles[i].AddComponent<PolygonCollider2D>();
 			oldCollider = tiles[i].GetComponent<EdgeCollider2D> ();
 			iShouldNotHaveToDoThis.SetPath (0, oldCollider.points);
-			Object.DestroyImmediate (oldCollider);
+			UnityEngine.Object.DestroyImmediate (oldCollider);
 
 			//Next column
 			x++;
@@ -115,12 +122,11 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		{
 			Vector3 onePosition = one.GetComponent<Transform> ().position;
 			Vector3 twoPosition = two.GetComponent<Transform> ().position;
-			float oneX = onePosition.x;
-			float oneY = onePosition.y;
-			float twoX = twoPosition.x;
-			float twoY = twoPosition.y;
-
-
+			double oneX = Math.Round((double) onePosition.x, 2);
+			double oneY = Math.Round((double) onePosition.y, 2);
+			double twoX = Math.Round((double) twoPosition.x, 2);
+			double twoY = Math.Round((double) twoPosition.y, 2);
+			Debug.Log (oneX);
 			if (oneY < twoY) {
 				return -1;
 			}

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using System.Collections.Generic;
 
 
 
@@ -18,7 +19,7 @@ public class BoardSetup : MonoBehaviour {
 	//Happens after awake, before first update.
 	//Does not happen if component not enabled
 	private void Start () {
-		string mapName = "DebugMap";
+		string mapName = "DebugNew";
 		GameObject map = createMap (mapName);
 		Grid grid = createGrid (map);
 		GameObject[] startTiles = new GameObject[1];
@@ -58,8 +59,6 @@ public class BoardSetup : MonoBehaviour {
 		}
 		return grid;
 	}
-
-
 
 		
 }

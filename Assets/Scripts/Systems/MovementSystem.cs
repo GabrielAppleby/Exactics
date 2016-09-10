@@ -54,9 +54,7 @@ public class MovementSystem : MonoBehaviour {
 	}
 
 	private void makeMove(GameObject entityToMove, GameObject entityWithLocation) {
-		Debug.Log (entityToMove.transform.position);
 		Dictionary<GameObject, GameObject> cameFrom = getAvailableMoves(entityToMove);
-		Debug.Log (entityWithLocation.transform.position);
 		if (cameFrom.ContainsKey (entityWithLocation)) {
 			List<GameObject> path = new List<GameObject> ();
 			GameObject current = entityWithLocation;

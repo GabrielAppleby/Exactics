@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: f20f375264b6342199ea7f0f9e905317
-timeCreated: 1473282460
+guid: ca2d4c8a8a25143408c829b72456802f
+timeCreated: 1473455850
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: mesh_0001
-    100002: //RootNode
-    400000: mesh_0001
-    400002: //RootNode
+    100000: //RootNode
+    100002: mesh_0001
+    400000: //RootNode
+    400002: mesh_0001
     2300000: mesh_0001
     3300000: mesh_0001
     4300000: mesh_0001
