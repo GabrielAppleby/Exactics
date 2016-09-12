@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 
 
-//I think in the future this class will be helpful
-//For abstracting inputs into intentions
-//For now its mostly just annoying
+
 using System.Collections;
 
 
@@ -30,20 +28,42 @@ public class MovementSystem : MonoBehaviour {
 
 	private Dictionary<GameObject, GameObject> getAvailableMoves(GameObject entity) {
 		Movement moveComponent = entity.GetComponent<Movement>();
-		GameObject currentTile = entity.GetComponent<CurrentTile>().currentTile;
+		GameObject currentTile = moveComponent.currentTile;
 		int numMoves = moveComponent.movement;
+		int newCost;
+		int iFuckingHateCSharp;
 		Queue<MoveHelper> frontier = new Queue<MoveHelper> ();
 		Dictionary<GameObject, GameObject> cameFrom = new Dictionary<GameObject, GameObject> ();
+		Dictionary<GameObject, int> costSoFar = new Dictionary<GameObject, int> ();
 		MoveHelper tempHelper = new MoveHelper (numMoves, currentTile);
 		frontier.Enqueue (tempHelper);
+		costSoFar.Add (currentTile, 0);
 		cameFrom.Add (currentTile, null);
 		while (frontier.Count != 0) {
 			tempHelper = frontier.Dequeue ();
 			if (tempHelper.numMoves > 0) {
-				foreach (GameObject neighbor in tempHelper.entity.GetComponent<FakeTransform>().neighbors) {
+				foreach (GameObject neighbor in tempHelper.entity.GetComponent<TerrainInfo>().neighbors) {
 					if (neighbor != null) {
-						if (cameFrom.ContainsKey (neighbor) == false) {
+						costSoFar.TryGetValue (tempHelper.entity, out newCost);
+						costSoFar.TryGetValue (neighbor, out iFuckingHateCSharp);
+						newCost += 1;
+						if ((cameFrom.ContainsKey (neighbor) == false) || newCost < iFuckingHateCSharp) {
+							TerrainInfo neighborInfo = neighbor.GetComponent<TerrainInfo> ();
+							if (neighborInfo.terrainType == Constants.TerrainTypes.Dirt) {
+								if (moveComponent.dirtWalk == false) {
+									break;
+								}
+							} else if (neighborInfo.terrainType == Constants.TerrainTypes.Water) {
+								if (moveComponent.waterWalk == false) {
+									break;
+								}
+							} else if (neighborInfo.terrainType == Constants.TerrainTypes.Stone) {
+								if (moveComponent.stoneWalk == false) {
+									break;
+								}
+							}
 							frontier.Enqueue (new MoveHelper (tempHelper.numMoves - 1, neighbor));
+							costSoFar.Add (neighbor, newCost);
 							cameFrom.Add (neighbor, tempHelper.entity);
 						}
 					}
@@ -59,7 +79,7 @@ public class MovementSystem : MonoBehaviour {
 			List<GameObject> path = new List<GameObject> ();
 			GameObject current = entityWithLocation;
 			path.Add (current);
-			while (current != entityToMove.GetComponent<CurrentTile>().currentTile) {
+			while (current != entityToMove.GetComponent<Movement>().currentTile) {
 				cameFrom.TryGetValue (current, out current);
 				path.Add (current);
 			}
@@ -79,7 +99,7 @@ public class MovementSystem : MonoBehaviour {
 
 	IEnumerator moveRawr (GameObject entityToMove, GameObject entityWithLocation, List<GameObject> path) {
 		for (int i = path.Count-1; i > -1; i--) {
-			entityToMove.GetComponent<CurrentTile>().currentTile = entityWithLocation;
+			entityToMove.GetComponent<Movement>().currentTile = entityWithLocation;
 			yield return StartCoroutine(moveTest(entityToMove.transform, entityToMove.transform.position, path[i].transform.position, 1));;
 		}
 	}

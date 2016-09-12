@@ -45,7 +45,6 @@ public class UnitFactory {
 		unit.AddComponent<Movement> ();
 		unit.AddComponent<Offense> ();
 		unit.AddComponent<Input> ();
-		unit.AddComponent<CurrentTile> ();
 		return unit;
 	}
 

@@ -11,12 +11,26 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 	public void HandleCustomProperties(GameObject gameObject,
 		IDictionary<string, string> customProperties)
 	{
-		//Debug.Log (gameObject.GetComponent<Transform>().position);
+		TerrainInfo temp = gameObject.AddComponent<TerrainInfo> ();
+		foreach (KeyValuePair<string, string> entry in customProperties) {
+			if (entry.Key == "Terrain") {
+				switch (entry.Value) {
+				case "Water":
+					temp.terrainType = Constants.TerrainTypes.Water;
+					break;
+				case "Stone":
+					temp.terrainType = Constants.TerrainTypes.Stone;
+					break;
+				case "Dirt":
+					temp.terrainType = Constants.TerrainTypes.Dirt;
+					break;
+				default:
+					Debug.Log ("Somethings is wrong with Tile Types. (CustomImporter_Tiles line 28");
+					break;
+				}
+			}
 
-		gameObject.AddComponent<Input>();
-
-
-		//
+		}
 	}
 
 	//This is a bad way to do this, maybe it is easier
@@ -54,7 +68,6 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		foreach (Transform child in prefabTransform) {
 			if (child.name.StartsWith ("obj")) {
 				foreach (Transform nestedChild in child) {
-					Debug.Log (nestedChild);
 					tiles.Add (nestedChild.gameObject);
 				}
 			}
@@ -63,7 +76,8 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 	}
 
 	private void setLocationAndNeighbors(List<GameObject> tiles, int tilesWide, int tilesHigh, int tileWidth, int tileHeight) {
-		FakeTransform temp;
+		FakeTransform fakeTransform;
+		TerrainInfo terrainInfo;
 		int x = -1;
 		int y = -1;
 		int parity = 1;
@@ -74,7 +88,9 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 		//So using for loop so it doesnt randomly change with an update
 		for (int i = 0; i < tiles.Count; i++) {
 			//Add a fake transform
-			temp = tiles [i].AddComponent<FakeTransform> ();
+			fakeTransform = tiles [i].AddComponent<FakeTransform> ();
+			terrainInfo = tiles [i].GetComponent<TerrainInfo> ();
+			tiles[i].AddComponent<Input>();
 			iShouldNotHaveToDoThis = tiles[i].AddComponent<PolygonCollider2D>();
 			oldCollider = tiles[i].GetComponent<EdgeCollider2D> ();
 			iShouldNotHaveToDoThis.SetPath (0, oldCollider.points);
@@ -94,24 +110,24 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 			}
 
 			//Set fake transform's position
-			temp.position = new Vector3(x, y, 0);
+			fakeTransform.position = new Vector3(x, y, 0);
 
 			//If we're on an odd parity neighbor coords are
 			if (parity == 1) {
-				temp.neighbors [0] = ((x-1 > -1) && (y+1 < tilesHigh)) ? tiles [i+tilesWide-1] : null;
-				temp.neighbors [1] = (y+1 < tilesHigh) ? tiles [i + tilesWide] : null;
-				temp.neighbors [2] = (x-1 > -1) ? tiles [i-1] : null;
-				temp.neighbors [3] = (x+1 < tilesWide) ? tiles [i+1] : null;
-				temp.neighbors [4] = ((x-1 > -1 ) && (y-1 > -1)) ? tiles [i-tilesWide-1] : null;
-				temp.neighbors [5] = (y-1 > -1) ? tiles [i - tilesWide] : null;
+				terrainInfo.neighbors [0] = ((x-1 > -1) && (y+1 < tilesHigh)) ? tiles [i+tilesWide-1] : null;
+				terrainInfo.neighbors [1] = (y+1 < tilesHigh) ? tiles [i + tilesWide] : null;
+				terrainInfo.neighbors [2] = (x-1 > -1) ? tiles [i-1] : null;
+				terrainInfo.neighbors [3] = (x+1 < tilesWide) ? tiles [i+1] : null;
+				terrainInfo.neighbors [4] = ((x-1 > -1 ) && (y-1 > -1)) ? tiles [i-tilesWide-1] : null;
+				terrainInfo.neighbors [5] = (y-1 > -1) ? tiles [i - tilesWide] : null;
 				//Since we're on an even parity neighbor coords are
 			} else {
-				temp.neighbors [0] = (y+1 < tilesHigh) ? tiles [i + tilesWide] : null;
-				temp.neighbors [1] = ((x+1 < tilesWide) && (y+1 < tilesHigh)) ? tiles [i + tilesWide+1] : null;
-				temp.neighbors [2] = (x-1 > -1) ? tiles [i-1] : null;
-				temp.neighbors [3] = (x+1 < tilesWide) ? tiles [i+1] : null;
-				temp.neighbors [4] = (y-1 > -1) ? tiles [i - tilesWide] : null;
-				temp.neighbors [5] = ((x+1 < tilesWide) && (y-1 > -1)) ? tiles [i - tilesWide+1] : null;
+				terrainInfo.neighbors [0] = (y+1 < tilesHigh) ? tiles [i + tilesWide] : null;
+				terrainInfo.neighbors [1] = ((x+1 < tilesWide) && (y+1 < tilesHigh)) ? tiles [i + tilesWide+1] : null;
+				terrainInfo.neighbors [2] = (x-1 > -1) ? tiles [i-1] : null;
+				terrainInfo.neighbors [3] = (x+1 < tilesWide) ? tiles [i+1] : null;
+				terrainInfo.neighbors [4] = (y-1 > -1) ? tiles [i - tilesWide] : null;
+				terrainInfo.neighbors [5] = ((x+1 < tilesWide) && (y-1 > -1)) ? tiles [i - tilesWide+1] : null;
 			}
 		}
 	}
@@ -126,7 +142,6 @@ public class CustomImporter_Tiles : Tiled2Unity.ICustomTiledImporter
 			double oneY = Math.Round((double) onePosition.y, 2);
 			double twoX = Math.Round((double) twoPosition.x, 2);
 			double twoY = Math.Round((double) twoPosition.y, 2);
-			Debug.Log (oneX);
 			if (oneY < twoY) {
 				return -1;
 			}

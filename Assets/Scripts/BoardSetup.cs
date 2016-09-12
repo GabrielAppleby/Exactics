@@ -23,7 +23,7 @@ public class BoardSetup : MonoBehaviour {
 		GameObject map = createMap (mapName);
 		Grid grid = createGrid (map);
 		GameObject[] startTiles = new GameObject[1];
-		startTiles [0] = grid.get (13, 6);
+		startTiles [0] = grid.get (12, 6);
 		if (gridReadyForUnits != null) {
 			gridReadyForUnits (startTiles);
 		}

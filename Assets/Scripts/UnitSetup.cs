@@ -29,6 +29,10 @@ public class UnitSetup : MonoBehaviour {
 		unit = unitFactory.createUnit ();
 		changeJob (unit, Constants.Jobs.Arcanist);
 		changeRace (unit, Constants.Races.Avian);
+		Movement moveComponent = unit.GetComponent<Movement> ();
+		moveComponent.waterWalk = false;
+		moveComponent.stoneWalk = false;
+		moveComponent.dirtWalk = true;
 		//GameObject[] units = GameObject [1];
 		//units [0] = unit;
 		if (unitsReady != null) {
@@ -56,7 +60,7 @@ public class UnitSetup : MonoBehaviour {
 		GameObject why = tiles [0];
 		unit.GetComponent<FakeTransform>().position = why.GetComponent<FakeTransform>().position;
 		unit.GetComponent<Transform> ().position = why.GetComponent<Transform>().position;
-		unit.GetComponent<CurrentTile> ().currentTile = why;
+		unit.GetComponent<Movement> ().currentTile = why;
 	}
 
 

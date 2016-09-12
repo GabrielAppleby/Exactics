@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public static class Constants {
 
-
+	public enum TerrainTypes {Dirt, Water, Stone};
 	public enum StatComponents {Defense, Initiative, Mana, Movement, Offense, Stamina};
 	public static readonly int NUM_STAT_COMPONENTS = System.Enum.GetNames(typeof(StatComponents)).Length;
 	public enum Races {Human, Goblin, Daemon, Fae, Tegimin, Avian, Dragon, Race};
