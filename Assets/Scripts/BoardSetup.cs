@@ -9,25 +9,30 @@ using System.Collections.Generic;
 
 public class BoardSetup : MonoBehaviour {
 
-	//public delegate void GridCreated(Grid grid);
-	//public static event GridCreated gridCreated;
 
-	public delegate void GridReadyForUnits(GameObject[] startTiles);
-	public static event GridReadyForUnits gridReadyForUnits;
+	//This event is fired after the grid has been created.
+	public delegate void GridCreated(GameObject[] startTiles);
+	public static event GridCreated gridCreated;
 
 
-	//Happens after awake, before first update.
-	//Does not happen if component not enabled
 	private void Start () {
+		//For now hardcoding name/map
 		string mapName = "DebugNew";
 		GameObject map = createMap (mapName);
+
+		//This is a temporary solution for testing
 		Grid grid = createGrid (map);
-		GameObject[] startTiles = new GameObject[1];
-		startTiles [0] = grid.get (12, 6);
-		if (gridReadyForUnits != null) {
-			gridReadyForUnits (startTiles);
+		GameObject[] startTiles = new GameObject[6];
+		startTiles [0] = grid.get (5, 18);
+		startTiles [1] = grid.get (6, 18);
+		startTiles [2] = grid.get (7, 18);
+		startTiles [3] = grid.get (11, 2);
+		startTiles [4] = grid.get (12, 2);
+		startTiles [5] = grid.get (13, 2);
+
+		if (gridCreated != null) {
+			gridCreated (startTiles);
 		}
-		//gridCreated (grid);
 
 	}
 
@@ -42,9 +47,10 @@ public class BoardSetup : MonoBehaviour {
 	}
 
 
+
 	//Sort of redudant with stuff done on import of map
-	//From tiled, I may just have the grid generated at import
-	//and throw it into an object attached to the prefab
+	//From tiled, but for some reason custom data structures
+	//Don't seem to survive the import process :S
 	private Grid createGrid(GameObject map) {
 		//Create a list to store all our tiles
 		Grid grid = new Grid();

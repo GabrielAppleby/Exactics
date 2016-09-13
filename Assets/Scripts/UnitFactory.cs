@@ -26,25 +26,26 @@ public class UnitFactory {
 		unitName = "Unit";
 	}
 		
-
+	//Adds all the components necessary to be a unit
 	public GameObject createUnit()
 	{
 		GameObject unit = new GameObject (unitName);
 		unit.GetComponent<Transform>().position = position;
-		FakeTransform fakeTransform = unit.AddComponent<FakeTransform> ();
+		FakeTransformComponent fakeTransform = unit.AddComponent<FakeTransformComponent> ();
 		fakeTransform.position = fakePosition;
 		unit.transform.SetParent (parentUnitTransform);
 		SpriteRenderer spriteRenderer = unit.AddComponent <SpriteRenderer>();
 		spriteRenderer.sprite = unitSprite;
 		spriteRenderer.sortingOrder = 1;
 		unit.AddComponent<PolygonCollider2D>();
-		unit.AddComponent<Defense> ();
-		unit.AddComponent<Initiative> ();
-		unit.AddComponent<Mana> ();
-		unit.AddComponent<Stamina> ();
-		unit.AddComponent<Movement> ();
-		unit.AddComponent<Offense> ();
-		unit.AddComponent<Input> ();
+		unit.AddComponent<DefenseComponent> ();
+		unit.AddComponent<InitiativeComponent> ();
+		unit.AddComponent<ManaComponent> ();
+		unit.AddComponent<StaminaComponent> ();
+		unit.AddComponent<MovementComponent> ();
+		unit.AddComponent<OffenseComponent> ();
+		unit.AddComponent<InputComponent> ();
+		unit.AddComponent<TeamComponent> ();
 		return unit;
 	}
 

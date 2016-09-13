@@ -2,92 +2,98 @@
 using System.Collections.Generic;
 
 
-//Eventually I need to go back and handle if
-//TryGetValue fails
-
 public class UnitSetup : MonoBehaviour {
 
-	public delegate void UnitsReady(GameObject unit);
+	//Event called when units are ready for gameplay
+	public delegate void UnitsReady(List<GameObject> units);
 	public static event UnitsReady unitsReady;
 
+	private void OnEnable()
+	{
+		BoardSetup.gridCreated += temporaryStart;
+	}
 
-	UnitFactory unitFactory;
 
-	//I will need this eventually
-	//And I hate seeing the stupid
-	//Unused variable warning..
-	#pragma warning disable 0414
-	GameObject unit;
-	#pragma warning restore 0414
-
-	private void Start () {
-		unitFactory = new UnitFactory ();
-
-		//Temp
+	private void OnDisable()
+	{
+		BoardSetup.gridCreated -= temporaryStart;
+	}
+		
+	//Temporary for testing purposes
+	//This sort of stuff will live in start in the future
+	//Don't move them in now as then it would be possible for place units to
+	//try to reference an uninitialized array
+	private void temporaryStart(GameObject[] tiles) 
+	{	
+		MovementComponent moveComponent;
+		GameObject tempUnit;
+		List<GameObject> units = new List<GameObject>();
+		UnitFactory unitFactory = new UnitFactory ();
 		unitFactory.position = new Vector2 (-1, -1);
 		unitFactory.fakePosition = new Vector2 (-1, -1);
-		unit = unitFactory.createUnit ();
-		changeJob (unit, Constants.Jobs.Arcanist);
-		changeRace (unit, Constants.Races.Avian);
-		Movement moveComponent = unit.GetComponent<Movement> ();
-		moveComponent.waterWalk = false;
-		moveComponent.stoneWalk = false;
-		moveComponent.dirtWalk = true;
-		//GameObject[] units = GameObject [1];
-		//units [0] = unit;
-		if (unitsReady != null) {
-			unitsReady (unit);
+
+		for (int i = 0; i < 6; i++) {
+			tempUnit = unitFactory.createUnit ();
+			changeJob (tempUnit, Constants.Jobs.Arcanist);
+			changeRace (tempUnit, Constants.Races.Avian);
+			tempUnit.GetComponent<FakeTransformComponent>().position = tiles[i].GetComponent<FakeTransformComponent>().position;
+			tempUnit.GetComponent<Transform> ().position = tiles[i].GetComponent<Transform>().position;
+			moveComponent = tempUnit.GetComponent<MovementComponent> ();
+			moveComponent.waterWalk = false;
+			moveComponent.stoneWalk = false;
+			moveComponent.dirtWalk = true;
+			moveComponent.currentTile = tiles [i];
+			tiles [i].GetComponent<TerrainInfoComponent> ().unit = tempUnit;
+
+			if (i > 2) {
+				tempUnit.GetComponent<TeamComponent> ().team = Constants.Team.Red;
+				tempUnit.GetComponent<SpriteRenderer> ().color = Color.red;
+			} else {
+				tempUnit.GetComponent<TeamComponent> ().team = Constants.Team.Blue;
+			}
+
+			units.Add (tempUnit);
 		}
-
+		units.Sort (new InitiativeComparator ());
+		if (unitsReady != null) {
+			unitsReady (units);
+		}
 	}
 
-	void OnEnable()
+
+
+	//Change jobs and update stats
+	public void changeJob(GameObject entity, Constants.Jobs job) 
 	{
-		BoardSetup.gridReadyForUnits += placeUnits;
-	}
-
-
-	void OnDisable()
-	{
-		BoardSetup.gridReadyForUnits -= placeUnits;
-	}
-
-
-	//THis is currently almost identical to the method in MovementSystem
-	//But I feel like the movement System one will be very different shortly
-	//Hence the two different functions with the same code
-	private void placeUnits(GameObject[] tiles) {
-		GameObject why = tiles [0];
-		unit.GetComponent<FakeTransform>().position = why.GetComponent<FakeTransform>().position;
-		unit.GetComponent<Transform> ().position = why.GetComponent<Transform>().position;
-		unit.GetComponent<Movement> ().currentTile = why;
-	}
-
-
-	public void changeJob(GameObject entity, Constants.Jobs job) {
 		Dictionary<Constants.Stats, int> stats;
 		Constants.jobStats.TryGetValue (job, out stats);
 		updateStats (entity, stats);
 	}
 
-	public void changeRace(GameObject entity, Constants.Races race) {
+	//Change races and update stats
+	public void changeRace(GameObject entity, Constants.Races race)
+	{
 		Dictionary<Constants.Stats, int> stats;
 		Constants.raceStats.TryGetValue (race, out stats);
 		updateStats (entity, stats);
 	}
 
-	private void updateStats(GameObject entity, Dictionary<Constants.Stats, int> stats) {
-		Defense defense = entity.GetComponent<Defense> ();
-		Initiative initiative = entity.GetComponent<Initiative> ();
-		Mana mana = entity.GetComponent<Mana> ();
-		Movement movement = entity.GetComponent<Movement> ();
-		Offense offense = entity.GetComponent<Offense> ();
-		Stamina stamina = entity.GetComponent<Stamina> ();
+	//Update stats
+	private void updateStats(GameObject entity, Dictionary<Constants.Stats, int> stats)
+	{
+		DefenseComponent defense = entity.GetComponent<DefenseComponent> ();
+		InitiativeComponent initiative = entity.GetComponent<InitiativeComponent> ();
+		ManaComponent mana = entity.GetComponent<ManaComponent> ();
+		MovementComponent movement = entity.GetComponent<MovementComponent> ();
+		OffenseComponent offense = entity.GetComponent<OffenseComponent> ();
+		StaminaComponent stamina = entity.GetComponent<StaminaComponent> ();
 
 		stats.TryGetValue (Constants.Stats.Health, out defense.health);
+		defense.currentHealth = defense.health;
 		stats.TryGetValue (Constants.Stats.Stamina, out stamina.stamina);
 		stats.TryGetValue (Constants.Stats.Mana, out mana.mana);
-		stats.TryGetValue (Constants.Stats.Move, out movement.movement);
+		stats.TryGetValue (Constants.Stats.Movement, out movement.movement);
+		movement.currentMovement = movement.movement;
 		stats.TryGetValue (Constants.Stats.Spellpower, out offense.spellpower);
 		stats.TryGetValue (Constants.Stats.Damage, out offense.damage);
 		stats.TryGetValue (Constants.Stats.Accuracy, out offense.accuracy);

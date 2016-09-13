@@ -8,28 +8,39 @@ using System.Collections;
 
 public class MovementSystem : MonoBehaviour {
 
+	public delegate void MovementFinished();
+	public static event MovementFinished movementFinished;
+
 	void OnEnable()
 	{
-		InputSystem.calculateMove += calculateMove;
-		InputSystem.makeMove += makeMove;
+		GameSystem.movementCalculationRequested += calculateMove;
+		GameSystem.moveRequested += makeMove;
+		GameSystem.restRequested += resetMove;
 	}
 
 
 	void OnDisable()
 	{
-		InputSystem.calculateMove += calculateMove;
-		InputSystem.makeMove -= makeMove;
+		GameSystem.movementCalculationRequested += calculateMove;
+		GameSystem.restRequested += resetMove;
+	}
+		
+
+	private void resetMove(GameObject unit) 
+	{
+		MovementComponent movementComponent = unit.GetComponent<MovementComponent> ();
+		movementComponent.currentMovement = movementComponent.movement;
 	}
 
 	private void calculateMove(GameObject entity) {
-		entity.GetComponent<Movement> ().camefrom = getAvailableMoves(entity);
+		entity.GetComponent<MovementComponent> ().camefrom = getAvailableMoves(entity);
 
 	}
 
 	private Dictionary<GameObject, GameObject> getAvailableMoves(GameObject entity) {
-		Movement moveComponent = entity.GetComponent<Movement>();
+		MovementComponent moveComponent = entity.GetComponent<MovementComponent>();
 		GameObject currentTile = moveComponent.currentTile;
-		int numMoves = moveComponent.movement;
+		int numMoves = moveComponent.currentMovement;
 		int newCost;
 		int iFuckingHateCSharp;
 		Queue<MoveHelper> frontier = new Queue<MoveHelper> ();
@@ -42,24 +53,24 @@ public class MovementSystem : MonoBehaviour {
 		while (frontier.Count != 0) {
 			tempHelper = frontier.Dequeue ();
 			if (tempHelper.numMoves > 0) {
-				foreach (GameObject neighbor in tempHelper.entity.GetComponent<TerrainInfo>().neighbors) {
+				foreach (GameObject neighbor in tempHelper.entity.GetComponent<TerrainInfoComponent>().neighbors) {
 					if (neighbor != null) {
 						costSoFar.TryGetValue (tempHelper.entity, out newCost);
 						costSoFar.TryGetValue (neighbor, out iFuckingHateCSharp);
 						newCost += 1;
-						if ((cameFrom.ContainsKey (neighbor) == false) || newCost < iFuckingHateCSharp) {
-							TerrainInfo neighborInfo = neighbor.GetComponent<TerrainInfo> ();
+						if ((cameFrom.ContainsKey (neighbor) == false) || (newCost < iFuckingHateCSharp)) {
+							TerrainInfoComponent neighborInfo = neighbor.GetComponent<TerrainInfoComponent> ();
 							if (neighborInfo.terrainType == Constants.TerrainTypes.Dirt) {
 								if (moveComponent.dirtWalk == false) {
-									break;
+									continue;
 								}
 							} else if (neighborInfo.terrainType == Constants.TerrainTypes.Water) {
 								if (moveComponent.waterWalk == false) {
-									break;
+									continue;
 								}
 							} else if (neighborInfo.terrainType == Constants.TerrainTypes.Stone) {
 								if (moveComponent.stoneWalk == false) {
-									break;
+									continue;
 								}
 							}
 							frontier.Enqueue (new MoveHelper (tempHelper.numMoves - 1, neighbor));
@@ -79,11 +90,13 @@ public class MovementSystem : MonoBehaviour {
 			List<GameObject> path = new List<GameObject> ();
 			GameObject current = entityWithLocation;
 			path.Add (current);
-			while (current != entityToMove.GetComponent<Movement>().currentTile) {
+			while (current != entityToMove.GetComponent<MovementComponent> ().currentTile) {
 				cameFrom.TryGetValue (current, out current);
 				path.Add (current);
 			}
-			StartCoroutine(moveRawr(entityToMove, entityWithLocation, path));
+			StartCoroutine (moveRawr (entityToMove, entityWithLocation, path));
+		} else {
+			movementFinished ();
 		}
 	}
 
@@ -98,10 +111,16 @@ public class MovementSystem : MonoBehaviour {
 	}
 
 	IEnumerator moveRawr (GameObject entityToMove, GameObject entityWithLocation, List<GameObject> path) {
+		MovementComponent movementComponent = entityToMove.GetComponent<MovementComponent> ();
 		for (int i = path.Count-1; i > -1; i--) {
-			entityToMove.GetComponent<Movement>().currentTile = entityWithLocation;
+			movementComponent.currentTile.GetComponent<TerrainInfoComponent>().unit = null;
+			movementComponent.currentTile = path[i];
+			path [i].GetComponent<TerrainInfoComponent> ().unit = entityToMove;
+
 			yield return StartCoroutine(moveTest(entityToMove.transform, entityToMove.transform.position, path[i].transform.position, 1));;
 		}
+		movementComponent.currentMovement = movementComponent.currentMovement - (path.Count - 1);
+		movementFinished ();
 	}
 	
 

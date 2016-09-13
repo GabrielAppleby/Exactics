@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Initiative : MonoBehaviour {
+public class InitiativeComponent : MonoBehaviour {
 
 	public int initiative;
 

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Movement : MonoBehaviour {
+public class MovementComponent : MonoBehaviour {
 	public int movement;
+	public int currentMovement;
 	public bool waterWalk;
 	public bool stoneWalk;
 	public bool dirtWalk;

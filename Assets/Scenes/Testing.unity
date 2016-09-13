@@ -627,8 +627,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 788923048}
   - 114: {fileID: 788923046}
-  - 114: {fileID: 788923045}
   - 114: {fileID: 788923047}
+  - 114: {fileID: 788923045}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 788923044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27abfbd1beec4a2c9aa23deb197c928, type: 3}
+  m_Script: {fileID: 11500000, guid: daefbbdf3e38241f398ffded13e2cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &788923046
@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 788923045}
+      - m_Target: {fileID: 0}
         m_MethodName: clickedMove
         m_Mode: 1
         m_Arguments:

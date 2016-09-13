@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Offense : MonoBehaviour {
+public class OffenseComponent : MonoBehaviour {
 	public int expertise;
 	public int accuracy;
 	public int damage;

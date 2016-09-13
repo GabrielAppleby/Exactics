@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Input : MonoBehaviour {
+public class InputComponent : MonoBehaviour {
 
 	public delegate void ClickEventHandler(GameObject e);
 	public static event ClickEventHandler onClick;

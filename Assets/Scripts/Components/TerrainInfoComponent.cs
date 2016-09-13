@@ -8,8 +8,9 @@ using System.Collections;
  * 
  * 
  * */
-public class TerrainInfo : MonoBehaviour {
+public class TerrainInfoComponent : MonoBehaviour {
 
 	public Constants.TerrainTypes terrainType;
+	public GameObject unit;
 	public GameObject[] neighbors = new GameObject[6];
 }
