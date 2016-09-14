@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 9/12/2016 9:01:54 PM-->
+<!--Last exported: 9/14/2016 5:27:52 PM-->
 <Tiled2Unity version="1.0.7.8">
   <AssignMaterial mesh="mesh_0001" material="Tileset4" />
   <Prefab name="DebugNew" orientation="Hexagonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="14" numLayers="1" numTilesWide="20" numTilesHigh="20" tileWidth="24" tileHeight="28" exportScale="0.01" mapWidthInPixels="492" mapHeightInPixels="427">
     <GameObject name="Terrain" x="0" y="0" z="0">
       <GameObject name="Tileset4" copy="mesh_0001" sortingLayerName="" sortingOrder="0" opacity="1" />
     </GameObject>
-    <GameObject name="objWater" x="0" y="0" z="0">
+    <GameObject name="Water" x="0" y="0" z="0">
       <GameObject name="Water Tile" x="2.15938" y="-0.630625" rotation="0" layer="">
         <Property name="Note" value="Cant act in" />
         <Property name="Terrain" value="Water" />
@@ -486,7 +486,7 @@
         </EdgeCollider2D>
       </GameObject>
     </GameObject>
-    <GameObject name="objStone" x="0" y="0" z="0">
+    <GameObject name="Stone" x="0" y="0" z="0">
       <GameObject name="Stone Tile" x="0.12" y="0" rotation="0" layer="">
         <Property name="Note" value="cannot walk though" />
         <Property name="Terrain" value="Stone" />
@@ -1769,7 +1769,7 @@
         </EdgeCollider2D>
       </GameObject>
     </GameObject>
-    <GameObject name="objDirt" x="0" y="0" z="0">
+    <GameObject name="Dirt" x="0" y="0" z="0">
       <GameObject name="Dirt Tile" x="1.43908989" y="-0.21" rotation="0" layer="">
         <Property name="Note" value="Can walk on" />
         <Property name="Terrain" value="Dirt" />

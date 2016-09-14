@@ -27,7 +27,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="objWater">
+ <objectgroup name="Water">
   <object id="150" name="Water Tile" x="215.938" y="63.0625">
    <properties>
     <property name="Note" value="Cant act in"/>
@@ -505,7 +505,7 @@
    <polyline points="0,0 -11.875,6.9375 -11.8125,20.8125 0.0625,27.75 11.8125,20.8125 11.9375,7 0,0.0625"/>
   </object>
  </objectgroup>
- <objectgroup name="objStone">
+ <objectgroup name="Stone">
   <object id="218" name="Stone Tile" x="12" y="0">
    <properties>
     <property name="Note" value="cannot walk though"/>
@@ -1788,7 +1788,7 @@
    <polyline points="0,0 -11.9091,7.09091 -12.0909,20.9091 0,28 11.9091,20.9091 11.8182,7.18182 0,0"/>
   </object>
  </objectgroup>
- <objectgroup name="objDirt">
+ <objectgroup name="Dirt">
   <object id="1" name="Dirt Tile" x="143.909" y="21">
    <properties>
     <property name="Note" value="Can walk on"/>
