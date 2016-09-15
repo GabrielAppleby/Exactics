@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 
 		// Manually add entity indices.
 		// It's planned to generate this in future versions of Entitas
-		//pools.AddEntityIndices();
+		pools.AddEntityIndices();
 
 		_systems = createSystems(pools);
 		_systems.Initialize();

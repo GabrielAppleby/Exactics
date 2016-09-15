@@ -6,18 +6,20 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Entitas;
+
 namespace Entitas {
     public partial class Entity {
         static readonly GameMapElementComponent gameMapElementComponent = new GameMapElementComponent();
 
         public bool isGameMapElement {
-            get { return HasComponent(ComponentIds.GameMapElement); }
+            get { return HasComponent(CoreComponentIds.GameMapElement); }
             set {
                 if (value != isGameMapElement) {
                     if (value) {
-                        AddComponent(ComponentIds.GameMapElement, gameMapElementComponent);
+                        AddComponent(CoreComponentIds.GameMapElement, gameMapElementComponent);
                     } else {
-                        RemoveComponent(ComponentIds.GameMapElement);
+                        RemoveComponent(CoreComponentIds.GameMapElement);
                     }
                 }
             }
@@ -28,15 +30,16 @@ namespace Entitas {
             return this;
         }
     }
+}
 
-    public partial class Matcher {
+    public partial class CoreMatcher {
         static IMatcher _matcherGameMapElement;
 
         public static IMatcher GameMapElement {
             get {
                 if (_matcherGameMapElement == null) {
-                    var matcher = (Matcher)Matcher.AllOf(ComponentIds.GameMapElement);
-                    matcher.componentNames = ComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameMapElement);
+                    matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherGameMapElement = matcher;
                 }
 
@@ -44,4 +47,3 @@ namespace Entitas {
             }
         }
     }
-}

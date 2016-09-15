@@ -175,7 +175,6 @@ namespace Entitas {
                     "You should check if an entity has the component before getting it."
                 );
             }
-
             return _components[index];
         }
 

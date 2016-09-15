@@ -6,53 +6,57 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Entitas;
+
 namespace Entitas {
     public partial class Entity {
-        public GameMapComponent gameMap { get { return (GameMapComponent)GetComponent(ComponentIds.GameMap); } }
+        public GameMapComponent gameMap { get { return (GameMapComponent)GetComponent(CoreComponentIds.GameMap); } }
 
-        public bool hasGameMap { get { return HasComponent(ComponentIds.GameMap); } }
+        public bool hasGameMap { get { return HasComponent(CoreComponentIds.GameMap); } }
 
-        public Entity AddGameMap(Entitas.Entity[,] newGrid) {
-            var component = CreateComponent<GameMapComponent>(ComponentIds.GameMap);
-            component.grid = newGrid;
-            return AddComponent(ComponentIds.GameMap, component);
+        public Entity AddGameMap(int newColumns, int newRows) {
+            var component = CreateComponent<GameMapComponent>(CoreComponentIds.GameMap);
+            component.columns = newColumns;
+            component.rows = newRows;
+            return AddComponent(CoreComponentIds.GameMap, component);
         }
 
-        public Entity ReplaceGameMap(Entitas.Entity[,] newGrid) {
-            var component = CreateComponent<GameMapComponent>(ComponentIds.GameMap);
-            component.grid = newGrid;
-            ReplaceComponent(ComponentIds.GameMap, component);
+        public Entity ReplaceGameMap(int newColumns, int newRows) {
+            var component = CreateComponent<GameMapComponent>(CoreComponentIds.GameMap);
+            component.columns = newColumns;
+            component.rows = newRows;
+            ReplaceComponent(CoreComponentIds.GameMap, component);
             return this;
         }
 
         public Entity RemoveGameMap() {
-            return RemoveComponent(ComponentIds.GameMap);
+            return RemoveComponent(CoreComponentIds.GameMap);
         }
     }
 
     public partial class Pool {
-        public Entity gameMapEntity { get { return GetGroup(Matcher.GameMap).GetSingleEntity(); } }
+        public Entity gameMapEntity { get { return GetGroup(CoreMatcher.GameMap).GetSingleEntity(); } }
 
         public GameMapComponent gameMap { get { return gameMapEntity.gameMap; } }
 
         public bool hasGameMap { get { return gameMapEntity != null; } }
 
-        public Entity SetGameMap(Entitas.Entity[,] newGrid) {
+        public Entity SetGameMap(int newColumns, int newRows) {
             if (hasGameMap) {
                 throw new EntitasException("Could not set gameMap!\n" + this + " already has an entity with GameMapComponent!",
                     "You should check if the pool already has a gameMapEntity before setting it or use pool.ReplaceGameMap().");
             }
             var entity = CreateEntity();
-            entity.AddGameMap(newGrid);
+            entity.AddGameMap(newColumns, newRows);
             return entity;
         }
 
-        public Entity ReplaceGameMap(Entitas.Entity[,] newGrid) {
+        public Entity ReplaceGameMap(int newColumns, int newRows) {
             var entity = gameMapEntity;
             if (entity == null) {
-                entity = SetGameMap(newGrid);
+                entity = SetGameMap(newColumns, newRows);
             } else {
-                entity.ReplaceGameMap(newGrid);
+                entity.ReplaceGameMap(newColumns, newRows);
             }
 
             return entity;
@@ -62,15 +66,16 @@ namespace Entitas {
             DestroyEntity(gameMapEntity);
         }
     }
+}
 
-    public partial class Matcher {
+    public partial class CoreMatcher {
         static IMatcher _matcherGameMap;
 
         public static IMatcher GameMap {
             get {
                 if (_matcherGameMap == null) {
-                    var matcher = (Matcher)Matcher.AllOf(ComponentIds.GameMap);
-                    matcher.componentNames = ComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameMap);
+                    matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherGameMap = matcher;
                 }
 
@@ -78,4 +83,3 @@ namespace Entitas {
             }
         }
     }
-}

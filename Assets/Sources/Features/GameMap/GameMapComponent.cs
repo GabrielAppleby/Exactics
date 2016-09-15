@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿
 using Entitas;
 using Entitas.CodeGenerator;
 
-[SingleEntity]
+[Core, SingleEntity]
 public class GameMapComponent : IComponent {
-	public Entity[,] grid;
+	public int columns;
+	public int rows;
 }

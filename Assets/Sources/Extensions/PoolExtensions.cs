@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PoolExtensions {
 
-	/*
+
 	public static void AddEntityIndices(this Pools pools) {
 		var positionIndex = new EntityIndex<string>(
 			pools.core.GetGroup(CoreMatcher.Position),
@@ -19,8 +19,8 @@ public static class PoolExtensions {
 		pools.core.AddEntityIndex(CoreComponentIds.Position.ToString(), positionIndex);
 	}
 
-	public static HashSet<Entity> GetEntitiesWithPosition(this Pool pool, int x, int y) {
+	public static HashSet<Entity> GetEntitiesWithPosition(this Pool pool, float x, float y) {
 		var index = (EntityIndex<string>)pool.GetEntityIndex(CoreComponentIds.Position.ToString());
 		return index.GetEntities(x + "," + y);
-	}*/
+	}
 }
