@@ -2,20 +2,33 @@
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-	
+
 	Systems _systems;
 
 	void Start() {
-		Pools.sharedInstance.pool = Pools.CreatePool ();
-		_systems = createSystems(Pools.sharedInstance.pool);
+
+		var pools = Pools.sharedInstance;
+		pools.SetAllPools();
+
+		// Manually add entity indices.
+		// It's planned to generate this in future versions of Entitas
+		//pools.AddEntityIndices();
+
+		_systems = createSystems(pools);
 		_systems.Initialize();
 	}
 
 	void Update() {
 		_systems.Execute();
+		_systems.Cleanup();
 	}
 
-	Systems createSystems(Pool pool) {
-		return new Feature ("Systems").Add (Pools.sharedInstance.pool.CreateSystem(new GameMapSystem()));
+	void OnDestroy() {
+		_systems.Deinitialize();
+	}
+
+	Systems createSystems(Pools pools) {
+		return new Feature("Systems")
+			.Add(pools.core.CreateSystem(new GameMapSystem()));
 	}
 }

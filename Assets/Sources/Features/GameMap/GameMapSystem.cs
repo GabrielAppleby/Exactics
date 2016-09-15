@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Entitas;
+using System.Collections.Generic;
 
 public class GameMapSystem : IInitializeSystem, ISetPool {
 	Pool _pool;
@@ -11,31 +12,30 @@ public class GameMapSystem : IInitializeSystem, ISetPool {
 	}
 
 	public void Initialize() {
-		//Create Map image
+		/*//Create Map image
 		GameObject map = (GameObject) Object.Instantiate(Resources.Load<GameObject>("DebugNew"));
-
 		//Create entities
+		bool impassable;
 		Transform mapTransform = map.GetComponent<Transform> ();
 		foreach (Transform child in mapTransform) {
 			if (child.name != "Terrain") {
 				if (child.name == "Stone") {
-					createGameMapElements (child, true);
+					impassable = true;
 				} else {
-					createGameMapElements (child, false);
+					impassable = false;
+				}
+				foreach (Transform nestedChild in child) {
+					_pool.CreateEntity ()
+						.IsGameMapElement (true)
+						.IsInteractive (true)
+						.IsImpassable (impassable);
 				}
 			}
 		}
-
+*/
 	}
 
-	private void createGameMapElements(Transform child, bool impassable) {
-		foreach (Transform nestedChild in child) {
-			_pool.CreateEntity ()
-				.IsGameMapElement (true)
-				.IsInteractive (true)
-				.IsImpassable (impassable);
-		}
-	}
+
 
 
 }
