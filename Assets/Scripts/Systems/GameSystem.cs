@@ -108,6 +108,11 @@ public class GameSystem : MonoBehaviour {
 		}
 	}
 
+	private void currentTurn(GameObject entity) {
+		MovementComponent movementComponent = entity.GetComponent <MovementComponent> ();
+		movementComponent.currentTile.GetComponent <SpriteRenderer> ().color = Color.cyan;
+	}
+
 	private void handleMoveButtonClicked() {
 		switch (state) {
 		case States.Move:
@@ -174,6 +179,7 @@ public class GameSystem : MonoBehaviour {
 	private void changeSelectedEntity(GameObject entity) {
 		//Grab the first entity by initiative
 		selectedEntity = entity;
+		currentTurn(entity);
 	}
 		
 		
