@@ -18,6 +18,9 @@ public class GameSystem : MonoBehaviour {
 	public delegate void BeginGame();
 	public static event BeginGame gameStartRequested;
 
+	public delegate void SwitchUnits(GameObject pastEntity, GameObject newEntity);
+	public static event SwitchUnits switchUnits;
+
 	public delegate void MoveRequested(GameObject entityToMove, GameObject entityWithLocation);
 	public static event MoveRequested moveRequested;
 
@@ -157,24 +160,21 @@ public class GameSystem : MonoBehaviour {
 			state = States.Attacked;
 		}
 	}
-
+		
 	private void handleRestButtonClicked() {
 		if (state != States.StopPressingButtonsWhileThingsAreHappeningTopaz) {
 			state = States.Rest;
 			if (restRequested != null) {
 				restRequested (units[currentUnit]);
 			}
+			if (switchUnits != null) {
+				switchUnits (units[currentUnit], units[(currentUnit + 1) % units.Count]);
+			}
 			currentUnit = (currentUnit + 1) % units.Count;
 		}
 	}
 
 
-
-
-	private void changeSelectedEntity(GameObject entity) {
-		//Grab the first entity by initiative
-		selectedEntity = entity;
-	}
 		
 		
 

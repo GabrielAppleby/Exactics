@@ -123,7 +123,10 @@ public class MovementSystem : MonoBehaviour {
 			yield return StartCoroutine(moveTest(entityToMove.transform, entityToMove.transform.position, path[i].transform.position, 1));;
 		}
 		movementComponent.currentMovement = movementComponent.currentMovement - (path.Count - 1);
-		movementFinished ();
+		if (movementFinished != null) {
+			movementFinished ();
+		}
+
 	}
 	
 

@@ -59,6 +59,7 @@ public class UISystem : MonoBehaviour {
 	void OnEnable()
 	{
 		GameSystem.gameStartRequested += beginGame;
+		GameSystem.switchUnits += highLightCurrentTile;
 		GameSystem.movementHighlightRequested += highlightMove;
 		GameSystem.entityInfoUpdateRequested += updateMenu;
 
@@ -68,6 +69,7 @@ public class UISystem : MonoBehaviour {
 	void OnDisable()
 	{
 		GameSystem.gameStartRequested -= beginGame;
+		GameSystem.switchUnits -= highLightCurrentTile;
 		GameSystem.movementHighlightRequested -= highlightMove;
 		GameSystem.entityInfoUpdateRequested -= updateMenu;
 	}
@@ -112,4 +114,14 @@ public class UISystem : MonoBehaviour {
 	private void beginGame() {
 		canvas.SetActive (true);
 	}
+
+	private void highLightCurrentTile(GameObject oldUnit, GameObject newUnit) {
+		SpriteRenderer spriteRenderer = newUnit.GetComponent<MovementComponent> ().currentTile.AddComponent<SpriteRenderer> ();
+		if (spriteRenderer != null) {
+			DestroyImmediate (spriteRenderer);
+		}
+		spriteRenderer = newUnit.AddComponent<SpriteRenderer> ();
+		spriteRenderer.sprite = (Sprite) Resources.Load<Sprite> ("ToBeDetermined");
+	}
+
 }
