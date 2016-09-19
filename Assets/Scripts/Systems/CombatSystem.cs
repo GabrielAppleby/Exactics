@@ -13,12 +13,13 @@ public class CombatSystem : MonoBehaviour {
 
 	private void OnDisable()
 	{
-		GameSystem.attackRequested += handleAttackRequested;
+		GameSystem.attackRequested -= handleAttackRequested;
 	}
 
 	private void handleAttackRequested(GameObject attacking, GameObject defending) {
+		Debug.Log (defending);
 		TeamComponent defendingTeamComponent = defending.GetComponent<TeamComponent> ();
-		if ((defendingTeamComponent != null) && (attacking.GetComponent<TeamComponent> ().team == defending.GetComponent<TeamComponent> ().team)) {
+		if ((defendingTeamComponent == null) || (attacking.GetComponent<TeamComponent> ().team == defendingTeamComponent.team)) {
 			if (attackFinished != null) {
 				attackFinished (false);
 			}

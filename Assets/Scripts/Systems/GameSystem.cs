@@ -164,6 +164,8 @@ public class GameSystem : MonoBehaviour {
 	private void handleAttackFinished(bool success) {
 		if (success == true) {
 			state = States.Attacked;
+		} else {
+			state = States.Attack;
 		}
 	}
 
