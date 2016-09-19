@@ -7,6 +7,9 @@ using System.Collections;
 
 
 public class MovementSystem : MonoBehaviour {
+	public delegate void MovementStarted(GameObject fromTile, GameObject toTile);
+	public static event MovementStarted movementStarted;
+
 
 	public delegate void MovementFinished();
 	public static event MovementFinished movementFinished;
@@ -93,6 +96,9 @@ public class MovementSystem : MonoBehaviour {
 			while (current != entityToMove.GetComponent<MovementComponent> ().currentTile) {
 				cameFrom.TryGetValue (current, out current);
 				path.Add (current);
+			}
+			if (movementStarted != null) {
+				movementStarted (entityToMove.GetComponent<MovementComponent> ().currentTile, entityWithLocation);
 			}
 			StartCoroutine (moveRawr (entityToMove, entityWithLocation, path));
 		} else {

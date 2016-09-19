@@ -69,6 +69,7 @@ public class GameSystem : MonoBehaviour {
 		state = States.Rest;
 		if (gameStartRequested != null) {
 			gameStartRequested ();
+			switchUnits (units [0], units [0]);
 		}
 	}
 
@@ -109,6 +110,11 @@ public class GameSystem : MonoBehaviour {
 				movementHighlightRequested (entity);
 			}
 		}
+	}
+
+	private void currentTurn(GameObject entity) {
+		MovementComponent movementComponent = entity.GetComponent <MovementComponent> ();
+		movementComponent.currentTile.GetComponent <SpriteRenderer> ().color = Color.cyan;
 	}
 
 	private void handleMoveButtonClicked() {
@@ -160,7 +166,7 @@ public class GameSystem : MonoBehaviour {
 			state = States.Attacked;
 		}
 	}
-		
+
 	private void handleRestButtonClicked() {
 		if (state != States.StopPressingButtonsWhileThingsAreHappeningTopaz) {
 			state = States.Rest;
@@ -175,7 +181,7 @@ public class GameSystem : MonoBehaviour {
 	}
 
 
-		
-		
+
+
 
 }

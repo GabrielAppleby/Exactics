@@ -20,7 +20,7 @@ public class UnitFactory {
 
 		parentUnit = new GameObject ("Unit Holder");
 		parentUnitTransform = parentUnit.GetComponent<Transform> ();
-		unitSpriteName = "Ephraim";
+		unitSpriteName = "EphraimCenter";
 		unitSprite = (Sprite) Resources.Load<Sprite> (unitSpriteName);
 
 		unitName = "Unit";
@@ -36,7 +36,7 @@ public class UnitFactory {
 		unit.transform.SetParent (parentUnitTransform);
 		SpriteRenderer spriteRenderer = unit.AddComponent <SpriteRenderer>();
 		spriteRenderer.sprite = unitSprite;
-		spriteRenderer.sortingOrder = 1;
+		spriteRenderer.sortingOrder = 2;
 		unit.AddComponent<PolygonCollider2D>();
 		unit.AddComponent<DefenseComponent> ();
 		unit.AddComponent<InitiativeComponent> ();

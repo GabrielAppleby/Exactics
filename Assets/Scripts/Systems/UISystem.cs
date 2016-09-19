@@ -30,7 +30,7 @@ public class UISystem : MonoBehaviour {
 		canvas.SetActive (false);
 		Button button;
 		//Only one child
-		foreach (Transform child in canvas.GetComponent<Transform>().GetChild(0)) {
+		foreach (Transform child in canvas.GetComponent<Transform>().GetChild(1)) {
 			button = child.GetComponent<Button> ();
 			switch (child.name) {
 			case "moveBtn":
@@ -59,7 +59,8 @@ public class UISystem : MonoBehaviour {
 	void OnEnable()
 	{
 		GameSystem.gameStartRequested += beginGame;
-		GameSystem.switchUnits += highLightCurrentTile;
+		GameSystem.switchUnits += switchCurrentTileUnits;
+		MovementSystem.movementStarted += switchCurrentTileHighLight;
 		GameSystem.movementHighlightRequested += highlightMove;
 		GameSystem.entityInfoUpdateRequested += updateMenu;
 
@@ -69,9 +70,10 @@ public class UISystem : MonoBehaviour {
 	void OnDisable()
 	{
 		GameSystem.gameStartRequested -= beginGame;
-		GameSystem.switchUnits -= highLightCurrentTile;
+		GameSystem.switchUnits -= switchCurrentTileUnits;
 		GameSystem.movementHighlightRequested -= highlightMove;
 		GameSystem.entityInfoUpdateRequested -= updateMenu;
+		MovementSystem.movementStarted -= switchCurrentTileHighLight;
 	}
 
 	private void handleMoveButtonClicked() {
@@ -115,13 +117,19 @@ public class UISystem : MonoBehaviour {
 		canvas.SetActive (true);
 	}
 
-	private void highLightCurrentTile(GameObject oldUnit, GameObject newUnit) {
-		SpriteRenderer spriteRenderer = newUnit.GetComponent<MovementComponent> ().currentTile.AddComponent<SpriteRenderer> ();
+	private void switchCurrentTileUnits(GameObject oldUnit, GameObject newUnit) {
+		switchCurrentTileHighLight (oldUnit.GetComponent<MovementComponent> ().currentTile, newUnit.GetComponent<MovementComponent> ().currentTile);
+	}
+
+	private void switchCurrentTileHighLight(GameObject oldTile, GameObject newTile) {
+		SpriteRenderer spriteRenderer = oldTile.GetComponent<SpriteRenderer> ();
 		if (spriteRenderer != null) {
 			DestroyImmediate (spriteRenderer);
 		}
-		spriteRenderer = newUnit.AddComponent<SpriteRenderer> ();
-		spriteRenderer.sprite = (Sprite) Resources.Load<Sprite> ("ToBeDetermined");
+		spriteRenderer = newTile.AddComponent<SpriteRenderer> ();
+		spriteRenderer.sprite = (Sprite) Resources.Load<Sprite> ("SelectedHighlight 1");
+		spriteRenderer.sortingOrder = 1;
 	}
+		
 
 }
