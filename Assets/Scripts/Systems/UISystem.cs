@@ -73,19 +73,29 @@ public class UISystem : MonoBehaviour {
 	}
 
 	private void handleMoveButtonClicked() {
-		moveButtonClicked ();
+		if (moveButtonClicked != null) {
+			moveButtonClicked ();
+		}
 	}
 	private void handleAttackButtonClicked() {
-		attackButtonClicked ();
+		if (attackButtonClicked != null) {
+			attackButtonClicked ();
+		}
 	}
 	private void handleActionButtonClicked() {
-		actionButtonClicked ();
+		if (actionButtonClicked != null) {
+			actionButtonClicked ();
+		}
 	}
 	private void handleDelayButtonClicked() {
-		delayButtonClicked ();
+		if (delayButtonClicked != null) {
+			delayButtonClicked ();
+		}
 	}
 	private void handleRestButtonClicked() {
-		restButtonClicked ();
+		if (restButtonClicked != null) {
+			restButtonClicked ();
+		}
 	}
 
 	public void highlightMove(GameObject entity) {

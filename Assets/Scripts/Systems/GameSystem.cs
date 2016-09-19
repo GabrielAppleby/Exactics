@@ -64,18 +64,24 @@ public class GameSystem : MonoBehaviour {
 		this.units = units;
 		currentUnit = 0;
 		state = States.Rest;
-		gameStartRequested ();
+		if (gameStartRequested != null) {
+			gameStartRequested ();
+		}
 	}
 
 	private void directClick(GameObject entity) {
 		switch (state) {
 		case States.Move:
 			state = States.StopPressingButtonsWhileThingsAreHappeningTopaz;
-			moveRequested (units [currentUnit], entity);
+			if (moveRequested != null) {
+				moveRequested (units [currentUnit], entity);
+			}
 			break;
 		case States.Attack:
 			state = States.StopPressingButtonsWhileThingsAreHappeningTopaz;
-			attackRequested (units [currentUnit], entity);
+			if (attackRequested != null) {
+				attackRequested (units [currentUnit], entity);
+			}
 			break;
 		case States.Attacked:
 			break;
@@ -155,7 +161,9 @@ public class GameSystem : MonoBehaviour {
 	private void handleRestButtonClicked() {
 		if (state != States.StopPressingButtonsWhileThingsAreHappeningTopaz) {
 			state = States.Rest;
-			restRequested (units[currentUnit]);
+			if (restRequested != null) {
+				restRequested (units[currentUnit]);
+			}
 			currentUnit = (currentUnit + 1) % units.Count;
 		}
 	}

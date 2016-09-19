@@ -96,7 +96,10 @@ public class MovementSystem : MonoBehaviour {
 			}
 			StartCoroutine (moveRawr (entityToMove, entityWithLocation, path));
 		} else {
-			movementFinished ();
+			if (movementFinished != null) {
+				movementFinished ();
+			}
+
 		}
 	}
 

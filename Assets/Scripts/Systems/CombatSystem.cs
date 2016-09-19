@@ -19,7 +19,9 @@ public class CombatSystem : MonoBehaviour {
 	private void handleAttackRequested(GameObject attacking, GameObject defending) {
 		TeamComponent defendingTeamComponent = defending.GetComponent<TeamComponent> ();
 		if ((defendingTeamComponent != null) && (attacking.GetComponent<TeamComponent> ().team == defending.GetComponent<TeamComponent> ().team)) {
-			attackFinished (false);
+			if (attackFinished != null) {
+				attackFinished (false);
+			}
 			return;
 		}
 		GameObject[] neighboringTiles = attacking.GetComponent<MovementComponent> ().currentTile.GetComponent<TerrainInfoComponent> ().neighbors;
@@ -32,6 +34,8 @@ public class CombatSystem : MonoBehaviour {
 
 	private void attack(GameObject attacking, GameObject defending) {
 		Debug.Log ("Insert an equation for attacking here");
-		attackFinished (true);
+		if (attackFinished != null) {
+			attackFinished (true);
+		}
 	}
 }
