@@ -133,7 +133,7 @@ namespace Tiled2Unity
 
                 // Set the position
                 float x = ImportUtils.GetAttributeAsFloat(goXml, "x", 0);
-                float y = ImportUtils.GetAttributeAsFloat(goXml, "y", 0);
+				float y = ImportUtils.GetAttributeAsFloat(goXml, "y", 0);
                 float z = ImportUtils.GetAttributeAsFloat(goXml, "z", 0);
                 child.transform.localPosition = new Vector3(x, y, z);
 
@@ -246,6 +246,7 @@ namespace Tiled2Unity
 
         private void AddCollidersTo(GameObject gameObject, bool isTrigger, XElement xml)
         {
+			TiledMap tiledMap = gameObject.GetComponentsInParent<TiledMap> () [0];
             // Box colliders
             foreach (XElement xmlBoxCollider2D in xml.Elements("BoxCollider2D"))
             {
@@ -298,6 +299,13 @@ namespace Tiled2Unity
             // Edge colliders
             foreach (XElement xmlEdgeCollider2D in xml.Elements("EdgeCollider2D"))
             {
+				//Gabes nonsense
+				if (tiledMap != null) {
+					Debug.Log ("Messing with local position -- Love Gabe");
+					gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, (gameObject.transform.localPosition.y - (tiledMap.TileHeight / 2)), 0);
+				} else {
+					Debug.Log ("Whoops? -- Love Gabe");
+				}
                 EdgeCollider2D collider = gameObject.AddComponent<EdgeCollider2D>();
                 collider.isTrigger = isTrigger;
                 string data = xmlEdgeCollider2D.Element("Points").Value;
@@ -311,9 +319,12 @@ namespace Tiled2Unity
 
                 collider.points = points.ToArray();
 
-                // Apply the offsets (if any)
-                float offset_x = ImportUtils.GetAttributeAsFloat(xmlEdgeCollider2D, "offsetX", 0);
-                float offset_y = ImportUtils.GetAttributeAsFloat(xmlEdgeCollider2D, "offsetY", 0);
+				//More nonsense I messed with
+				//Apply the offsets (if any)
+				float offset_x = 0;
+				float offset_y = (tiledMap.TileHeight / 2);
+                //float offset_x = ImportUtils.GetAttributeAsFloat(xmlEdgeCollider2D, "offsetX", 0);
+				//float offset_y = ImportUtils.GetAttributeAsFloat(xmlEdgeCollider2D, "offsetY", 0);
 
 #if T2U_IS_UNITY_4
                 // This is kind of a hack for Unity 4.x which doesn't support offset/center on the edge collider
