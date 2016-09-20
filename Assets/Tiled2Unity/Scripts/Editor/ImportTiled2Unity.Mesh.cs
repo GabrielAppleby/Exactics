@@ -302,12 +302,12 @@ namespace Tiled2Unity
 				//Gabes nonsense
 				if (tiledMap != null) {
 					Debug.Log ("Messing with local position -- Love Gabe");
-					gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, (gameObject.transform.localPosition.y - (tiledMap.TileHeight / 2)), 0);
+					gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, (gameObject.transform.localPosition.y - ((tiledMap.TileHeight / 2) * tiledMap.ExportScale)), 0);
 				} else {
 					Debug.Log ("Whoops? -- Love Gabe");
 				}
-                EdgeCollider2D collider = gameObject.AddComponent<EdgeCollider2D>();
-                collider.isTrigger = isTrigger;
+				PolygonCollider2D collider = gameObject.AddComponent<PolygonCollider2D>();
+				collider.isTrigger = isTrigger;
                 string data = xmlEdgeCollider2D.Element("Points").Value;
 
                 // The data looks like this:
@@ -322,7 +322,7 @@ namespace Tiled2Unity
 				//More nonsense I messed with
 				//Apply the offsets (if any)
 				float offset_x = 0;
-				float offset_y = (tiledMap.TileHeight / 2);
+				float offset_y = (tiledMap.TileHeight / 2) * tiledMap.ExportScale;
                 //float offset_x = ImportUtils.GetAttributeAsFloat(xmlEdgeCollider2D, "offsetX", 0);
 				//float offset_y = ImportUtils.GetAttributeAsFloat(xmlEdgeCollider2D, "offsetY", 0);
 

@@ -3,7 +3,7 @@ using Entitas;
 using System.Collections.Generic;
 using System;
 
-public sealed class GameMapSystem : IInitializeSystem, ISetPool {
+public sealed class CreateGameMapSystem : IInitializeSystem, ISetPool {
 	Pool _pool;
 	//This is a github test
 
@@ -33,6 +33,8 @@ public sealed class GameMapSystem : IInitializeSystem, ISetPool {
 
 		//Tiled map info necessary to create fake coordinates, and log neighbors easily
 		Tiled2Unity.TiledMap tileMap = map.GetComponent<Tiled2Unity.TiledMap> ();
+
+		//map.transform.position = new Vector2 ((tileMap.MapWidthInPixels / -2f), (tileMap.MapHeightInPixels / 2f));
 
 		//Storing inside local intergers for convenience
 		int numTilesWide = tileMap.NumTilesWide;

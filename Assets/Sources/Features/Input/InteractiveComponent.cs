@@ -1,6 +1,6 @@
 ﻿
 using Entitas;
 
-[Core]
+[Core, Tiles]
 public class InteractiveComponent : IComponent {
 }

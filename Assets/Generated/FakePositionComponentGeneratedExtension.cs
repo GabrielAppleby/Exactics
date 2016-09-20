@@ -50,3 +50,19 @@ namespace Entitas {
             }
         }
     }
+
+    public partial class TilesMatcher {
+        static IMatcher _matcherFakePosition;
+
+        public static IMatcher FakePosition {
+            get {
+                if (_matcherFakePosition == null) {
+                    var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.FakePosition);
+                    matcher.componentNames = TilesComponentIds.componentNames;
+                    _matcherFakePosition = matcher;
+                }
+
+                return _matcherFakePosition;
+            }
+        }
+    }

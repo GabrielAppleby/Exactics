@@ -47,3 +47,19 @@ namespace Entitas {
             }
         }
     }
+
+    public partial class TilesMatcher {
+        static IMatcher _matcherInteractive;
+
+        public static IMatcher Interactive {
+            get {
+                if (_matcherInteractive == null) {
+                    var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.Interactive);
+                    matcher.componentNames = TilesComponentIds.componentNames;
+                    _matcherInteractive = matcher;
+                }
+
+                return _matcherInteractive;
+            }
+        }
+    }

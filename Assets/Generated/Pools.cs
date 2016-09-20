@@ -18,19 +18,25 @@ namespace Entitas {
             return CreatePool("Input", InputComponentIds.TotalComponents, InputComponentIds.componentNames, InputComponentIds.componentTypes);
         }
 
+        public static Pool CreateTilesPool() {
+            return CreatePool("Tiles", TilesComponentIds.TotalComponents, TilesComponentIds.componentNames, TilesComponentIds.componentTypes);
+        }
+
         public static Pool CreateUIPool() {
             return CreatePool("UI", UIComponentIds.TotalComponents, UIComponentIds.componentNames, UIComponentIds.componentTypes);
         }
 
-        public Pool[] allPools { get { return new [] { core, input, uI }; } }
+        public Pool[] allPools { get { return new [] { core, input, tiles, uI }; } }
 
         public Pool core;
         public Pool input;
+        public Pool tiles;
         public Pool uI;
 
         public void SetAllPools() {
             core = CreateCorePool();
             input = CreateInputPool();
+            tiles = CreateTilesPool();
             uI = CreateUIPool();
         }
     }

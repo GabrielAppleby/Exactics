@@ -10,37 +10,37 @@ using Entitas;
 
 namespace Entitas {
     public partial class Entity {
-        public NeighborsComponent neighbors { get { return (NeighborsComponent)GetComponent(CoreComponentIds.Neighbors); } }
+        public NeighborsComponent neighbors { get { return (NeighborsComponent)GetComponent(TilesComponentIds.Neighbors); } }
 
-        public bool hasNeighbors { get { return HasComponent(CoreComponentIds.Neighbors); } }
+        public bool hasNeighbors { get { return HasComponent(TilesComponentIds.Neighbors); } }
 
         public Entity AddNeighbors(Entitas.Entity[] newNeighbors) {
-            var component = CreateComponent<NeighborsComponent>(CoreComponentIds.Neighbors);
+            var component = CreateComponent<NeighborsComponent>(TilesComponentIds.Neighbors);
             component.neighbors = newNeighbors;
-            return AddComponent(CoreComponentIds.Neighbors, component);
+            return AddComponent(TilesComponentIds.Neighbors, component);
         }
 
         public Entity ReplaceNeighbors(Entitas.Entity[] newNeighbors) {
-            var component = CreateComponent<NeighborsComponent>(CoreComponentIds.Neighbors);
+            var component = CreateComponent<NeighborsComponent>(TilesComponentIds.Neighbors);
             component.neighbors = newNeighbors;
-            ReplaceComponent(CoreComponentIds.Neighbors, component);
+            ReplaceComponent(TilesComponentIds.Neighbors, component);
             return this;
         }
 
         public Entity RemoveNeighbors() {
-            return RemoveComponent(CoreComponentIds.Neighbors);
+            return RemoveComponent(TilesComponentIds.Neighbors);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class TilesMatcher {
         static IMatcher _matcherNeighbors;
 
         public static IMatcher Neighbors {
             get {
                 if (_matcherNeighbors == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Neighbors);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.Neighbors);
+                    matcher.componentNames = TilesComponentIds.componentNames;
                     _matcherNeighbors = matcher;
                 }
 

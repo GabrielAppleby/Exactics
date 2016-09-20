@@ -2,7 +2,7 @@
 
 using Entitas;
 
-[Core]
+[Core, Tiles]
 public class FakePositionComponent : IComponent {
 	public int x;
 	public int y;

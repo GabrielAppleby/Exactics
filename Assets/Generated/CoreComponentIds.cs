@@ -8,32 +8,47 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
     public const int FakePosition = 0;
-    public const int GameMap = 1;
-    public const int GameMapElement = 2;
-    public const int Impassable = 3;
-    public const int Interactive = 4;
-    public const int Neighbors = 5;
-    public const int Position = 6;
+    public const int Interactive = 1;
+    public const int Position = 2;
+    public const int Defense = 3;
+    public const int GameMap = 4;
+    public const int GameMapElement = 5;
+    public const int Impassable = 6;
+    public const int Initiative = 7;
+    public const int Mana = 8;
+    public const int Movement = 9;
+    public const int Offense = 10;
+    public const int Stamina = 11;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "FakePosition",
+        "Interactive",
+        "Position",
+        "Defense",
         "GameMap",
         "GameMapElement",
         "Impassable",
-        "Interactive",
-        "Neighbors",
-        "Position"
+        "Initiative",
+        "Mana",
+        "Movement",
+        "Offense",
+        "Stamina"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(FakePositionComponent),
+        typeof(InteractiveComponent),
+        typeof(PositionComponent),
+        typeof(DefenseComponent),
         typeof(GameMapComponent),
         typeof(GameMapElementComponent),
         typeof(ImpassableComponent),
-        typeof(InteractiveComponent),
-        typeof(NeighborsComponent),
-        typeof(PositionComponent)
+        typeof(InitiativeComponent),
+        typeof(ManaComponent),
+        typeof(MovementComponent),
+        typeof(OffenseComponent),
+        typeof(StaminaComponent)
     };
 }

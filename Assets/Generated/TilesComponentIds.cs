@@ -6,16 +6,25 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public static class InputComponentIds {
-    public const int Input = 0;
+public static class TilesComponentIds {
+    public const int FakePosition = 0;
+    public const int Interactive = 1;
+    public const int Position = 2;
+    public const int Neighbors = 3;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-        "Input"
+        "FakePosition",
+        "Interactive",
+        "Position",
+        "Neighbors"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(InputComponent)
+        typeof(FakePositionComponent),
+        typeof(InteractiveComponent),
+        typeof(PositionComponent),
+        typeof(NeighborsComponent)
     };
 }

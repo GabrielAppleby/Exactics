@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour {
 
 	Systems createSystems(Pools pools) {
 		return new Feature("Systems")
-			.Add(pools.core.CreateSystem(new GameMapSystem()));
+			.Add(pools.core.CreateSystem(new CreateGameMapSystem()))
+			.Add(pools.input.CreateSystem(new InputSystem()));
 	}
 }
