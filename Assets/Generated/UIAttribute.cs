@@ -9,6 +9,7 @@
 using Entitas.CodeGenerator;
 
 public class UIAttribute : PoolAttribute {
+
     public UIAttribute() : base("UI") {
     }
 }

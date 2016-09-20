@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace Entitas.Serialization.Configuration {
@@ -13,9 +13,8 @@ namespace Entitas.Serialization.Configuration {
         }
 
         public const string POOLS_KEY = "Entitas.CodeGenerator.Pools";
-        public const string DEFAULT_POOLS = "Pool";
         public string[] pools {
-            get { return separateValues(_config.GetValueOrDefault(POOLS_KEY, DEFAULT_POOLS)); }
+            get { return separateValues(_config.GetValueOrDefault(POOLS_KEY, string.Empty)); }
             set { _config[POOLS_KEY] = joinValues(value); }
         }
 
@@ -49,7 +48,7 @@ namespace Entitas.Serialization.Configuration {
 
         static string[] separateValues(string values) {
             return values
-                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Split(new [] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(value => value.Trim())
                         .ToArray();
         }

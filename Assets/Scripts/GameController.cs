@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		_systems.Deinitialize();
+		_systems.TearDown();
 	}
 
 	Systems createSystems(Pools pools) {

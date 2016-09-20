@@ -22,7 +22,7 @@ namespace Entitas {
             return CreatePool("UI", UIComponentIds.TotalComponents, UIComponentIds.componentNames, UIComponentIds.componentTypes);
         }
 
-        public Pool[] allPools { get { return new[] { core, input, uI }; } }
+        public Pool[] allPools { get { return new [] { core, input, uI }; } }
 
         public Pool core;
         public Pool input;
