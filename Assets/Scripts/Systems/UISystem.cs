@@ -60,6 +60,7 @@ public class UISystem : MonoBehaviour {
 	{
 		GameSystem.gameStartRequested += beginGame;
 		GameSystem.switchUnits += switchCurrentTileUnits;
+		GameSystem.moveRequested += deHighlightMove;
 		MovementSystem.movementStarted += switchCurrentTileHighLight;
 		GameSystem.movementHighlightRequested += highlightMove;
 		GameSystem.entityInfoUpdateRequested += updateMenu;
@@ -71,6 +72,7 @@ public class UISystem : MonoBehaviour {
 	{
 		GameSystem.gameStartRequested -= beginGame;
 		GameSystem.switchUnits -= switchCurrentTileUnits;
+		GameSystem.moveRequested -= deHighlightMove;
 		GameSystem.movementHighlightRequested -= highlightMove;
 		GameSystem.entityInfoUpdateRequested -= updateMenu;
 		MovementSystem.movementStarted -= switchCurrentTileHighLight;
@@ -103,9 +105,29 @@ public class UISystem : MonoBehaviour {
 	}
 
 	public void highlightMove(GameObject entity) {
+		SpriteRenderer spriteRenderer;
 		foreach(KeyValuePair<GameObject, GameObject> entry in entity.GetComponent<MovementComponent>().camefrom)
 		{	
+			if (entry.Value != null) {
+				if (entry.Value.GetComponent<SpriteRenderer> () == null) {
+					spriteRenderer = entry.Value.AddComponent<SpriteRenderer> ();
+					spriteRenderer.sprite = (Sprite) Resources.Load<Sprite> ("MoveHighlight");
+					spriteRenderer.sortingOrder = 1;
+				}
+			}
+		}
+	}
 
+	public void deHighlightMove(GameObject entity, GameObject garbage) {
+		SpriteRenderer spriteRenderer;
+		foreach(KeyValuePair<GameObject, GameObject> entry in entity.GetComponent<MovementComponent>().camefrom)
+		{	
+			if (entry.Value != null) {
+				spriteRenderer = entry.Value.GetComponent<SpriteRenderer> ();
+				if (spriteRenderer != null) {
+					DestroyImmediate (spriteRenderer);
+				}
+			}
 		}
 	}
 

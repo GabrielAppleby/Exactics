@@ -99,25 +99,18 @@ public class GameSystem : MonoBehaviour {
 		}
 	}
 
-	private void directHover(GameObject entity) {
-		//Will depend on what components attached
-		MovementComponent movementComponent = entity.GetComponent<MovementComponent> ();
-		if (movementComponent != null) {
-			if (movementCalculationRequested != null) {
-				movementCalculationRequested (entity);
-			}
-			if (movementHighlightRequested != null) {
-				movementHighlightRequested (entity);
-			}
-		}
-	}
-
 	private void currentTurn(GameObject entity) {
 		MovementComponent movementComponent = entity.GetComponent <MovementComponent> ();
 		movementComponent.currentTile.GetComponent <SpriteRenderer> ().color = Color.cyan;
 	}
 
 	private void handleMoveButtonClicked() {
+		if (movementCalculationRequested != null) {
+			movementCalculationRequested (units [currentUnit]);
+		}
+		if (movementHighlightRequested != null) {
+			movementHighlightRequested(units [currentUnit]);
+		}
 		switch (state) {
 		case States.Move:
 			break;
