@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 
 	void Start() {
 
-		var pools = Pools.sharedInstance;
+		Pools pools = Pools.sharedInstance;
 		pools.SetAllPools();
 
 		// Manually add entity indices.
@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour {
 	Systems createSystems(Pools pools) {
 		return new Feature("Systems")
 			.Add(pools.core.CreateSystem(new CreateGameMapSystem()))
+			.Add(pools.scene.CreateSystem(new SceneSystem()))
 			.Add(pools.input.CreateSystem(new InputSystem()));
 	}
 }
