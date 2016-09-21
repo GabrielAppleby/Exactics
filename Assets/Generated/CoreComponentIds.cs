@@ -11,22 +11,24 @@ public static class CoreComponentIds {
     public const int Interactive = 1;
     public const int Position = 2;
     public const int Defense = 3;
-    public const int GameMap = 4;
-    public const int GameMapElement = 5;
-    public const int Impassable = 6;
-    public const int Initiative = 7;
-    public const int Mana = 8;
-    public const int Movement = 9;
-    public const int Offense = 10;
-    public const int Stamina = 11;
+    public const int GameEnd = 4;
+    public const int GameMap = 5;
+    public const int GameMapElement = 6;
+    public const int Impassable = 7;
+    public const int Initiative = 8;
+    public const int Mana = 9;
+    public const int Movement = 10;
+    public const int Offense = 11;
+    public const int Stamina = 12;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
         "FakePosition",
         "Interactive",
         "Position",
         "Defense",
+        "GameEnd",
         "GameMap",
         "GameMapElement",
         "Impassable",
@@ -42,6 +44,7 @@ public static class CoreComponentIds {
         typeof(InteractiveComponent),
         typeof(PositionComponent),
         typeof(DefenseComponent),
+        typeof(GameEndComponent),
         typeof(GameMapComponent),
         typeof(GameMapElementComponent),
         typeof(ImpassableComponent),
