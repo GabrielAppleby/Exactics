@@ -5,7 +5,6 @@ using System;
 
 public sealed class CreateGameMapSystem : IInitializeSystem, ISetPool {
 	Pool _pool;
-	//This is a github test
 
 	public void SetPool(Pool pool) {
 		_pool = pool;

@@ -1,31 +1,29 @@
 ﻿using Entitas;
 using UnityEngine;
+using Entitas.Unity.Serialization.Blueprints;
 
-public sealed class CreatePlayerSystem : ISetPools, IInitializeSystem {
+public sealed class CreatePlayerSystem : ISetPool, IInitializeSystem {
 
-	Pools _pools;
+	Pool _pool;
 
-	public void SetPools(Pools pools) {
-		_pools = pools;
+	public void SetPool(Pool pool) {
+		_pool = pool;
 	}
+		
 	public void Initialize() {
 
 	}
-
 	//Temporary for testing purposes
 	//This sort of stuff will live in start in the future
 	//Don't move them in now as then it would be possible for place units to
 	//try to reference an uninitialized array
 	/*public void Initialize() {
-		MovementComponent moveComponent;
-		GameObject tempUnit;
-		List<GameObject> units = new List<GameObject>();
-		UnitFactory unitFactory = new UnitFactory ();
-		unitFactory.position = new Vector2 (-1, -1);
-		unitFactory.fakePosition = new Vector2 (-1, -1);
-
+		Entity unit;
 		for (int i = 0; i < 6; i++) {
-			tempUnit = unitFactory.createUnit ();
+			unit = _pool.CreateEntity ()
+				.AddFakePosition(0,0)
+				.AddPosition(0,0)
+				.IsInteractive(true);
 			changeJob (tempUnit, Constants.Jobs.Arcanist);
 			changeRace (tempUnit, Constants.Races.Avian);
 			tempUnit.GetComponent<FakeTransformComponent>().position = tiles[i].GetComponent<FakeTransformComponent>().position;
@@ -46,7 +44,7 @@ public sealed class CreatePlayerSystem : ISetPools, IInitializeSystem {
 
 			units.Add (tempUnit);
 		}
-		units.Sort (new InitiativeComparator ());
+		//units.Sort (new InitiativeComparator ());
 	}
 
 	//Change jobs and update stats

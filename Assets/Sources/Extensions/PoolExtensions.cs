@@ -1,26 +1,16 @@
-﻿using System.Collections.Generic;
-using Entitas;
+﻿using Entitas;
 using UnityEngine;
 
 public static class PoolExtensions {
 
 
-	public static void AddEntityIndices(this Pools pools) {
-		var positionIndex = new EntityIndex<string>(
-			pools.core.GetGroup(CoreMatcher.Position),
-			(e, c) => {
-				var positionComponent = c as PositionComponent;
-				return positionComponent != null
-					? positionComponent.x + "," + positionComponent.y
-						: e.position.x + "," + e.position.y;
-			}
-		);
+	/*public static Entity CreateRandomPiece(this Pool pool, int x, int y) {
+		return pool.CreateEntity()
+			.IsGameBoardElement(true)
+			.AddPosition(x, y)
+			.IsMovable(true)
+			.IsInteractive(true)
+			.AddAsset(_pieces[Random.Range(0, _pieces.Length)]);
+	}*/
 
-		pools.core.AddEntityIndex(CoreComponentIds.Position.ToString(), positionIndex);
-	}
-
-	public static HashSet<Entity> GetEntitiesWithPosition(this Pool pool, float x, float y) {
-		var index = (EntityIndex<string>)pool.GetEntityIndex(CoreComponentIds.Position.ToString());
-		return index.GetEntities(x + "," + y);
-	}
 }
