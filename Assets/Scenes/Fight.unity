@@ -690,7 +690,7 @@ GameObject:
   - 4: {fileID: 1560249092}
   - 114: {fileID: 1560249091}
   m_Layer: 0
-  m_Name: Game Controller
+  m_Name: FightController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1560249090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32aa0c4fdc0ed447aa1a44a4731cceb5, type: 3}
+  m_Script: {fileID: 11500000, guid: d274f223972ad42f18e7f08ff8a20764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1560249092
