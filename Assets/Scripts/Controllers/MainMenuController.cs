@@ -9,8 +9,9 @@ public class MainMenuController : MonoBehaviour {
 	void Start() {
 
 		_pools = Pools.sharedInstance;
-		_pools.SetAllPools();
-
+		if (_pools.allPools [0] == null) {
+			_pools.SetAllPools ();
+		}
 		// Manually add entity indices.
 		// It's planned to generate this in future versions of Entitas
 		//pools.AddEntityIndices();
@@ -28,7 +29,6 @@ public class MainMenuController : MonoBehaviour {
 		_systems.TearDown();
 		_systems.DeactivateReactiveSystems ();
 		foreach (Pool pool in _pools.allPools) {
-			Debug.Log ("test");
 			pool.Reset ();
 		}
 	}

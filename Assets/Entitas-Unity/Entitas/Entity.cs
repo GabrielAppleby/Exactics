@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -327,7 +327,7 @@ namespace Entitas {
 #if ENTITAS_FAST_AND_UNSAFE
             
             _retainCount -= 1;
-            if (_retainCount == 0) {
+            if(_retainCount == 0) {
 
 #else
 
@@ -437,4 +437,3 @@ namespace Entitas {
         }
     }
 }
-

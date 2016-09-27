@@ -4,14 +4,16 @@ using UnityEngine;
 public class FightController : MonoBehaviour {
 
 	Systems _systems;
+	Pools _pools;
 
 	void Start() {
 
-		Pools pools = Pools.sharedInstance;
-		pools.SetAllPools();
-	
+		_pools = Pools.sharedInstance;
+		if (_pools.allPools [0] == null) {
+			_pools.SetAllPools ();
+		}
 
-		_systems = createSystems(pools);
+		_systems = createSystems(_pools);
 		_systems.Initialize();
 	}
 
@@ -22,6 +24,10 @@ public class FightController : MonoBehaviour {
 
 	void OnDestroy() {
 		_systems.TearDown();
+		_systems.DeactivateReactiveSystems ();
+		foreach (Pool pool in _pools.allPools) {
+			pool.Reset ();
+		}
 	}
 
 	Systems createSystems(Pools pools) {

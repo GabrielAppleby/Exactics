@@ -157,7 +157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Character
+  m_Text: No Character
 --- !u!222 &70809223
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Character
+  m_Text: No Character
 --- !u!222 &140694067
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -305,13 +305,53 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Team
+  m_Text: No Team
 --- !u!222 &203326684
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 203326681}
+--- !u!1 &217857334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 217857336}
+  - 114: {fileID: 217857335}
+  m_Layer: 0
+  m_Name: TeamCreationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &217857335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 217857334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc79c5ceb1c04fafb1e802ea6bea1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &217857336
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 217857334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 375.5, y: 209, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &418161452
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +530,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Character
+  m_Text: No Character
 --- !u!222 &427919867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -595,6 +635,7 @@ GameObject:
   - 222: {fileID: 564892449}
   - 114: {fileID: 564892448}
   - 114: {fileID: 564892447}
+  - 114: {fileID: 564892450}
   m_Layer: 5
   m_Name: TeamFive
   m_TagString: Untagged
@@ -659,7 +700,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 564892448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 564892450}
+        m_MethodName: HandleTeamButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &564892448
@@ -695,6 +747,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 564892445}
+--- !u!114 &564892450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564892445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353177f8ac7942558bdb0e517542a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 203326683}
 --- !u!1 &685533681
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +770,7 @@ GameObject:
   - 222: {fileID: 685533685}
   - 114: {fileID: 685533684}
   - 114: {fileID: 685533683}
+  - 114: {fileID: 685533686}
   m_Layer: 5
   m_Name: TeamThree
   m_TagString: Untagged
@@ -770,7 +835,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 685533684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685533686}
+        m_MethodName: HandleTeamButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &685533684
@@ -806,6 +882,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685533681}
+--- !u!114 &685533686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685533681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353177f8ac7942558bdb0e517542a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 1427258167}
 --- !u!1 &768756250
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +905,7 @@ GameObject:
   - 222: {fileID: 768756254}
   - 114: {fileID: 768756253}
   - 114: {fileID: 768756252}
+  - 114: {fileID: 768756255}
   m_Layer: 5
   m_Name: TeamFour
   m_TagString: Untagged
@@ -881,7 +970,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 768756253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 768756255}
+        m_MethodName: HandleTeamButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &768756253
@@ -917,6 +1017,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 768756250}
+--- !u!114 &768756255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 768756250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353177f8ac7942558bdb0e517542a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 1827744607}
 --- !u!1 &818758848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1158,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Team
+  m_Text: No Team
 --- !u!222 &916476856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1120,7 +1232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Character
+  m_Text: No Character
 --- !u!222 &1121042093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1305,7 +1417,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Team
+  m_Text: No Team
 --- !u!222 &1293026423
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1379,7 +1491,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Team
+  m_Text: No Team
 --- !u!222 &1427258168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1453,7 +1565,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Character
+  m_Text: No Character
 --- !u!222 &1574276823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1607,7 +1719,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -40}
+  m_AnchoredPosition: {x: 170, y: -40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1657638148
@@ -1918,7 +2030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Team
+  m_Text: No Team
 --- !u!222 &1827744608
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2044,6 +2156,7 @@ GameObject:
   - 222: {fileID: 1915688282}
   - 114: {fileID: 1915688281}
   - 114: {fileID: 1915688280}
+  - 114: {fileID: 1915688283}
   m_Layer: 5
   m_Name: TeamTwo
   m_TagString: Untagged
@@ -2108,7 +2221,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1915688281}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1915688283}
+        m_MethodName: HandleTeamButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1915688281
@@ -2144,6 +2268,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1915688278}
+--- !u!114 &1915688283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1915688278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353177f8ac7942558bdb0e517542a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 1293026422}
 --- !u!1 &2012548622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,6 +2550,7 @@ GameObject:
   - 222: {fileID: 2113419125}
   - 114: {fileID: 2113419124}
   - 114: {fileID: 2113419123}
+  - 114: {fileID: 2113419126}
   m_Layer: 5
   m_Name: TeamOne
   m_TagString: Untagged
@@ -2478,7 +2615,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113419124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2113419126}
+        m_MethodName: HandleTeamButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2113419124
@@ -2514,6 +2662,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2113419121}
+--- !u!114 &2113419126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113419121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353177f8ac7942558bdb0e517542a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 916476855}
 --- !u!1 &2117779785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,6 +2685,7 @@ GameObject:
   - 222: {fileID: 2117779789}
   - 114: {fileID: 2117779788}
   - 114: {fileID: 2117779787}
+  - 114: {fileID: 2117779790}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -2589,7 +2750,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2117779788}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2117779790}
+        m_MethodName: HandleBackButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2117779788
@@ -2625,6 +2797,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2117779785}
+--- !u!114 &2117779790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117779785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8353177f8ac7942558bdb0e517542a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 0}
 --- !u!1 &2141782606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2845,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -40}
+  m_AnchoredPosition: {x: -219, y: -40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

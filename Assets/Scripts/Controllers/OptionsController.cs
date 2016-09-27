@@ -9,6 +9,9 @@ public class OptionsController : MonoBehaviour {
 	void Start() {
 
 		_pools = Pools.sharedInstance;
+		if (_pools.allPools [0] == null) {
+			_pools.SetAllPools ();
+		}
 
 		// Manually add entity indices.
 		// It's planned to generate this in future versions of Entitas

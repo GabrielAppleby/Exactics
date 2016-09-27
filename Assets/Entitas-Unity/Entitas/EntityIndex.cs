@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Entitas {
@@ -64,6 +64,11 @@ namespace Entitas {
             Activate();
         }
 
+        public PrimaryEntityIndex(Group group, Func<Entity, IComponent, T> getKey, IEqualityComparer<T> comparer) : base(group, getKey) {
+            _index = new Dictionary<T, Entity>(comparer);
+            Activate();
+        }
+
         public override void Activate() {
             base.Activate();
             indexEntities(_group);
@@ -75,7 +80,7 @@ namespace Entitas {
 
         public Entity GetEntity(T key) {
             var entity = TryGetEntity(key);
-            if (entity == null) {
+            if(entity == null) {
                 throw new EntityIndexException("Entity for key '" + key + "' doesn't exist!",
                     "You should check if an entity with that key exists before getting it.");
             }
@@ -90,7 +95,7 @@ namespace Entitas {
         }
 
         protected override void clear() {
-            foreach (var entity in _index.Values) {
+            foreach(var entity in _index.Values) {
                 entity.Release(this);
             }
 
@@ -99,7 +104,7 @@ namespace Entitas {
 
         protected override void addEntity(Entity entity, IComponent component) {
             var key = _getKey(entity, component);
-            if (_index.ContainsKey(key)) {
+            if(_index.ContainsKey(key)) {
                 throw new EntityIndexException("Entity for key '" + key + "' already exists!",
                     "Only one entity for a primary key is allowed.");
             }
@@ -123,6 +128,11 @@ namespace Entitas {
             Activate();
         }
 
+        public EntityIndex(Group group, Func<Entity, IComponent, T> getKey, IEqualityComparer<T> comparer) : base(group, getKey) {
+            _index = new Dictionary<T, HashSet<Entity>>(comparer);
+            Activate();
+        }
+
         public override void Activate() {
             base.Activate();
             indexEntities(_group);
@@ -130,7 +140,7 @@ namespace Entitas {
 
         public HashSet<Entity> GetEntities(T key) {
             HashSet<Entity> entities;
-            if (!_index.TryGetValue(key, out entities)) {
+            if(!_index.TryGetValue(key, out entities)) {
                 entities = new HashSet<Entity>(EntityEqualityComparer.comparer);
                 _index.Add(key, entities);
             }
@@ -139,8 +149,8 @@ namespace Entitas {
         }
 
         protected override void clear() {
-            foreach (var entities in _index.Values) {
-                foreach (var entity in entities) {
+            foreach(var entities in _index.Values) {
+                foreach(var entity in entities) {
                     entity.Release(this);
                 }
             }
