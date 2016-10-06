@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour {
+public class MenuController : MonoBehaviour {
 
 	Systems _systems;
 	Pools _pools;

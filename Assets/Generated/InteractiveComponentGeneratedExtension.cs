@@ -15,8 +15,8 @@ namespace Entitas {
         public bool isInteractive {
             get { return HasComponent(CoreComponentIds.Interactive); }
             set {
-                if (value != isInteractive) {
-                    if (value) {
+                if(value != isInteractive) {
+                    if(value) {
                         AddComponent(CoreComponentIds.Interactive, interactiveComponent);
                     } else {
                         RemoveComponent(CoreComponentIds.Interactive);
@@ -37,7 +37,7 @@ namespace Entitas {
 
         public static IMatcher Interactive {
             get {
-                if (_matcherInteractive == null) {
+                if(_matcherInteractive == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Interactive);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherInteractive = matcher;
@@ -53,7 +53,7 @@ namespace Entitas {
 
         public static IMatcher Interactive {
             get {
-                if (_matcherInteractive == null) {
+                if(_matcherInteractive == null) {
                     var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.Interactive);
                     matcher.componentNames = TilesComponentIds.componentNames;
                     _matcherInteractive = matcher;

@@ -48,7 +48,7 @@ namespace Entitas {
 
         public static IMatcher Defense {
             get {
-                if (_matcherDefense == null) {
+                if(_matcherDefense == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Defense);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherDefense = matcher;

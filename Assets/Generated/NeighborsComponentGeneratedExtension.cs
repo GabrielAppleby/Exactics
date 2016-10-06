@@ -38,7 +38,7 @@ namespace Entitas {
 
         public static IMatcher Neighbors {
             get {
-                if (_matcherNeighbors == null) {
+                if(_matcherNeighbors == null) {
                     var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.Neighbors);
                     matcher.componentNames = TilesComponentIds.componentNames;
                     _matcherNeighbors = matcher;

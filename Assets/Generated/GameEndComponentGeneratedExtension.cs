@@ -15,8 +15,8 @@ namespace Entitas {
         public bool isGameEnd {
             get { return HasComponent(CoreComponentIds.GameEnd); }
             set {
-                if (value != isGameEnd) {
-                    if (value) {
+                if(value != isGameEnd) {
+                    if(value) {
                         AddComponent(CoreComponentIds.GameEnd, gameEndComponent);
                     } else {
                         RemoveComponent(CoreComponentIds.GameEnd);
@@ -38,8 +38,8 @@ namespace Entitas {
             get { return gameEndEntity != null; }
             set {
                 var entity = gameEndEntity;
-                if (value != (entity != null)) {
-                    if (value) {
+                if(value != (entity != null)) {
+                    if(value) {
                         CreateEntity().isGameEnd = true;
                     } else {
                         DestroyEntity(entity);
@@ -55,7 +55,7 @@ namespace Entitas {
 
         public static IMatcher GameEnd {
             get {
-                if (_matcherGameEnd == null) {
+                if(_matcherGameEnd == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameEnd);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherGameEnd = matcher;

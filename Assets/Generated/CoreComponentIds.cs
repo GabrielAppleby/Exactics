@@ -20,7 +20,7 @@ public static class CoreComponentIds {
     public const int Movement = 10;
     public const int Offense = 11;
     public const int Stamina = 12;
-    public const int TeamSave = 13;
+    public const int TeamCreation = 13;
     public const int UnitSave = 14;
 
     public const int TotalComponents = 15;
@@ -39,7 +39,7 @@ public static class CoreComponentIds {
         "Movement",
         "Offense",
         "Stamina",
-        "TeamSave",
+        "TeamCreation",
         "UnitSave"
     };
 

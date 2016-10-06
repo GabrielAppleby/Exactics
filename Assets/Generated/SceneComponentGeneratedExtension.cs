@@ -40,7 +40,7 @@ namespace Entitas {
         public bool hasScene { get { return sceneEntity != null; } }
 
         public Entity SetScene(string newSceneName) {
-            if (hasScene) {
+            if(hasScene) {
                 throw new EntitasException("Could not set scene!\n" + this + " already has an entity with SceneComponent!",
                     "You should check if the pool already has a sceneEntity before setting it or use pool.ReplaceScene().");
             }
@@ -51,7 +51,7 @@ namespace Entitas {
 
         public Entity ReplaceScene(string newSceneName) {
             var entity = sceneEntity;
-            if (entity == null) {
+            if(entity == null) {
                 entity = SetScene(newSceneName);
             } else {
                 entity.ReplaceScene(newSceneName);
@@ -71,7 +71,7 @@ namespace Entitas {
 
         public static IMatcher Scene {
             get {
-                if (_matcherScene == null) {
+                if(_matcherScene == null) {
                     var matcher = (Matcher)Matcher.AllOf(SceneComponentIds.Scene);
                     matcher.componentNames = SceneComponentIds.componentNames;
                     _matcherScene = matcher;

@@ -10,40 +10,40 @@ using Entitas;
 
 namespace Entitas {
     public partial class Entity {
-        static readonly ImpassableComponent impassableComponent = new ImpassableComponent();
+        static readonly TeamCreationComponent teamCreationComponent = new TeamCreationComponent();
 
-        public bool isImpassable {
-            get { return HasComponent(CoreComponentIds.Impassable); }
+        public bool isTeamCreation {
+            get { return HasComponent(CoreComponentIds.TeamCreation); }
             set {
-                if(value != isImpassable) {
+                if(value != isTeamCreation) {
                     if(value) {
-                        AddComponent(CoreComponentIds.Impassable, impassableComponent);
+                        AddComponent(CoreComponentIds.TeamCreation, teamCreationComponent);
                     } else {
-                        RemoveComponent(CoreComponentIds.Impassable);
+                        RemoveComponent(CoreComponentIds.TeamCreation);
                     }
                 }
             }
         }
 
-        public Entity IsImpassable(bool value) {
-            isImpassable = value;
+        public Entity IsTeamCreation(bool value) {
+            isTeamCreation = value;
             return this;
         }
     }
 }
 
     public partial class CoreMatcher {
-        static IMatcher _matcherImpassable;
+        static IMatcher _matcherTeamCreation;
 
-        public static IMatcher Impassable {
+        public static IMatcher TeamCreation {
             get {
-                if(_matcherImpassable == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Impassable);
+                if(_matcherTeamCreation == null) {
+                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.TeamCreation);
                     matcher.componentNames = CoreComponentIds.componentNames;
-                    _matcherImpassable = matcher;
+                    _matcherTeamCreation = matcher;
                 }
 
-                return _matcherImpassable;
+                return _matcherTeamCreation;
             }
         }
     }

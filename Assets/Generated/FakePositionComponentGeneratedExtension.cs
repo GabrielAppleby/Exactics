@@ -40,7 +40,7 @@ namespace Entitas {
 
         public static IMatcher FakePosition {
             get {
-                if (_matcherFakePosition == null) {
+                if(_matcherFakePosition == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.FakePosition);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherFakePosition = matcher;
@@ -56,7 +56,7 @@ namespace Entitas {
 
         public static IMatcher FakePosition {
             get {
-                if (_matcherFakePosition == null) {
+                if(_matcherFakePosition == null) {
                     var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.FakePosition);
                     matcher.componentNames = TilesComponentIds.componentNames;
                     _matcherFakePosition = matcher;

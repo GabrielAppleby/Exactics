@@ -38,7 +38,7 @@ namespace Entitas {
 
         public static IMatcher Mana {
             get {
-                if (_matcherMana == null) {
+                if(_matcherMana == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Mana);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherMana = matcher;

@@ -11,13 +11,17 @@ public sealed class TeamCreationUI : MonoBehaviour {
 		_pool = Pools.sharedInstance.scene;
 	}
 
-
-	public void HandleBackButtonClick() {
-		_pool.CreateEntity().AddScene("MainMenu");
+	public void HandleCharacterButtonClick() {
+		_pool.CreateEntity().AddScene("CharacterCreation");
 	}
 
-	public void HandleTeamButtonClick(int team) {
-		label.text = "Team: " + team;
+	public void HandleBackButtonClick() {
+		_pool.CreateEntity().AddScene("TeamCreationPicker");
+	}
+
+
+	public void HandleSaveButtonClick() {
+		//
 	}
 
 }

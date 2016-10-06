@@ -15,8 +15,8 @@ namespace Entitas {
         public bool isUnitSave {
             get { return HasComponent(CoreComponentIds.UnitSave); }
             set {
-                if (value != isUnitSave) {
-                    if (value) {
+                if(value != isUnitSave) {
+                    if(value) {
                         AddComponent(CoreComponentIds.UnitSave, unitSaveComponent);
                     } else {
                         RemoveComponent(CoreComponentIds.UnitSave);
@@ -37,7 +37,7 @@ namespace Entitas {
 
         public static IMatcher UnitSave {
             get {
-                if (_matcherUnitSave == null) {
+                if(_matcherUnitSave == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.UnitSave);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherUnitSave = matcher;

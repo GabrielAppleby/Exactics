@@ -40,7 +40,7 @@ namespace Entitas {
 
         public static IMatcher Movement {
             get {
-                if (_matcherMovement == null) {
+                if(_matcherMovement == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Movement);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherMovement = matcher;

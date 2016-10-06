@@ -12,13 +12,11 @@ public sealed class MainMenuUI : MonoBehaviour {
 		
 
 	public void HandleFightButtonClick() {
-		
-		Debug.Log (_pool);
 		_pool.CreateEntity().AddScene("TeamPicker");
 	}
 
 	public void HandleTeamBuilderButtonClick() {
-		_pool.CreateEntity().AddScene("TeamCreation");
+		_pool.CreateEntity().AddScene("TeamCreationPicker");
 	}
 
 	public void HandleOptionsButtonClick() {

@@ -42,7 +42,7 @@ namespace Entitas {
         public bool hasGameMap { get { return gameMapEntity != null; } }
 
         public Entity SetGameMap(int newColumns, int newRows) {
-            if (hasGameMap) {
+            if(hasGameMap) {
                 throw new EntitasException("Could not set gameMap!\n" + this + " already has an entity with GameMapComponent!",
                     "You should check if the pool already has a gameMapEntity before setting it or use pool.ReplaceGameMap().");
             }
@@ -53,7 +53,7 @@ namespace Entitas {
 
         public Entity ReplaceGameMap(int newColumns, int newRows) {
             var entity = gameMapEntity;
-            if (entity == null) {
+            if(entity == null) {
                 entity = SetGameMap(newColumns, newRows);
             } else {
                 entity.ReplaceGameMap(newColumns, newRows);
@@ -73,7 +73,7 @@ namespace Entitas {
 
         public static IMatcher GameMap {
             get {
-                if (_matcherGameMap == null) {
+                if(_matcherGameMap == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameMap);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherGameMap = matcher;

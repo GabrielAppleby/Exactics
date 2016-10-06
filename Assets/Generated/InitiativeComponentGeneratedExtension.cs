@@ -38,7 +38,7 @@ namespace Entitas {
 
         public static IMatcher Initiative {
             get {
-                if (_matcherInitiative == null) {
+                if(_matcherInitiative == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Initiative);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherInitiative = matcher;

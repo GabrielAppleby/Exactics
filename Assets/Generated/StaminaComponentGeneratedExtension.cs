@@ -38,7 +38,7 @@ namespace Entitas {
 
         public static IMatcher Stamina {
             get {
-                if (_matcherStamina == null) {
+                if(_matcherStamina == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Stamina);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherStamina = matcher;

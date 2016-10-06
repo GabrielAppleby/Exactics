@@ -40,7 +40,7 @@ namespace Entitas {
 
         public static IMatcher Input {
             get {
-                if (_matcherInput == null) {
+                if(_matcherInput == null) {
                     var matcher = (Matcher)Matcher.AllOf(InputComponentIds.Input);
                     matcher.componentNames = InputComponentIds.componentNames;
                     _matcherInput = matcher;

@@ -15,8 +15,8 @@ namespace Entitas {
         public bool isGameMapElement {
             get { return HasComponent(CoreComponentIds.GameMapElement); }
             set {
-                if (value != isGameMapElement) {
-                    if (value) {
+                if(value != isGameMapElement) {
+                    if(value) {
                         AddComponent(CoreComponentIds.GameMapElement, gameMapElementComponent);
                     } else {
                         RemoveComponent(CoreComponentIds.GameMapElement);
@@ -37,7 +37,7 @@ namespace Entitas {
 
         public static IMatcher GameMapElement {
             get {
-                if (_matcherGameMapElement == null) {
+                if(_matcherGameMapElement == null) {
                     var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameMapElement);
                     matcher.componentNames = CoreComponentIds.componentNames;
                     _matcherGameMapElement = matcher;
