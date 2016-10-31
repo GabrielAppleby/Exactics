@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 using Entitas.CodeGenerator;
 
-public class SceneAttribute : PoolAttribute {
+public class MenuAttribute : PoolAttribute {
 
-    public SceneAttribute() : base("Scene") {
+    public MenuAttribute() : base("Menu") {
     }
 }
 

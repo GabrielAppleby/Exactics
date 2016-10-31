@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public sealed class SceneSystem : ISetPool, IReactiveSystem {
+
 	Pool _pool;
 
-	public TriggerOnEvent trigger { get { return SceneMatcher.Scene.OnEntityAdded (); } }
+	public TriggerOnEvent trigger { get { return MenuMatcher.Scene.OnEntityAdded (); } }
 
 	public void SetPool(Pool pool) {
 		_pool = pool;

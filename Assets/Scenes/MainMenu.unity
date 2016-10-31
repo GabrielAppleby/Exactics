@@ -365,6 +365,7 @@ GameObject:
   - 222: {fileID: 823407713}
   - 114: {fileID: 823407712}
   - 114: {fileID: 823407711}
+  - 114: {fileID: 823407714}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428958329}
+      - m_Target: {fileID: 823407714}
         m_MethodName: HandleOptionsButtonClick
         m_Mode: 1
         m_Arguments:
@@ -476,6 +477,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 823407709}
+--- !u!114 &823407714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 823407709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1c9d98fba1a4f08b04e9313a1abf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &828770467
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +586,7 @@ GameObject:
   - 222: {fileID: 951934852}
   - 114: {fileID: 951934851}
   - 114: {fileID: 951934850}
+  - 114: {fileID: 951934853}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -639,7 +652,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428958329}
+      - m_Target: {fileID: 951934853}
         m_MethodName: HandleQuitButtonClick
         m_Mode: 1
         m_Arguments:
@@ -685,6 +698,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 951934848}
+--- !u!114 &951934853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951934848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1c9d98fba1a4f08b04e9313a1abf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1124119231
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,46 +820,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1130326153}
---- !u!1 &1428958328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1428958330}
-  - 114: {fileID: 1428958329}
-  m_Layer: 0
-  m_Name: UISystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1428958329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1428958328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1c9d98fba1a4f08b04e9313a1abf43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1428958330
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1428958328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 505.5, y: 103, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &1647803703
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,6 +945,7 @@ GameObject:
   - 222: {fileID: 1866134307}
   - 114: {fileID: 1866134306}
   - 114: {fileID: 1866134305}
+  - 114: {fileID: 1866134308}
   m_Layer: 5
   m_Name: TeamBuilderButton
   m_TagString: Untagged
@@ -1026,7 +1011,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428958329}
+      - m_Target: {fileID: 1866134308}
         m_MethodName: HandleTeamBuilderButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1072,6 +1057,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1866134303}
+--- !u!114 &1866134308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866134303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1c9d98fba1a4f08b04e9313a1abf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2028030741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1153,7 @@ GameObject:
   - 222: {fileID: 2076563962}
   - 114: {fileID: 2076563961}
   - 114: {fileID: 2076563960}
+  - 114: {fileID: 2076563963}
   m_Layer: 5
   m_Name: FightButton
   m_TagString: Untagged
@@ -1222,7 +1219,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428958329}
+      - m_Target: {fileID: 2076563963}
         m_MethodName: HandleFightButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1268,3 +1265,14 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076563958}
+--- !u!114 &2076563963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076563958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1c9d98fba1a4f08b04e9313a1abf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

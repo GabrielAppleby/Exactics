@@ -19,11 +19,10 @@ public static class CoreComponentIds {
     public const int Mana = 9;
     public const int Movement = 10;
     public const int Offense = 11;
-    public const int Stamina = 12;
-    public const int TeamCreation = 13;
-    public const int UnitSave = 14;
+    public const int Selected = 12;
+    public const int Stamina = 13;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "FakePosition",
@@ -38,9 +37,8 @@ public static class CoreComponentIds {
         "Mana",
         "Movement",
         "Offense",
-        "Stamina",
-        "TeamCreation",
-        "UnitSave"
+        "Selected",
+        "Stamina"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -56,8 +54,7 @@ public static class CoreComponentIds {
         typeof(ManaComponent),
         typeof(MovementComponent),
         typeof(OffenseComponent),
-        typeof(StaminaComponent),
-        typeof(TeamCreationComponent),
-        typeof(UnitSaveComponent)
+        typeof(SelectedComponent),
+        typeof(StaminaComponent)
     };
 }

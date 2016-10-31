@@ -8,7 +8,7 @@ public sealed class TeamCreationUI : MonoBehaviour {
 	public Text label;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.scene;
+		_pool = Pools.sharedInstance.menu;
 	}
 
 	public void HandleCharacterButtonClick() {

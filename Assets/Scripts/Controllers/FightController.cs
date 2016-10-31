@@ -32,6 +32,6 @@ public class FightController : MonoBehaviour {
 
 	Systems createSystems(Pools pools) {
 		return new Feature ("Systems")
-			.Add (pools.scene.CreateSystem (new CreateGameMapSystem ()));
+			.Add (pools.menu.CreateSystem (new CreateGameMapSystem ()));
 	}
 }

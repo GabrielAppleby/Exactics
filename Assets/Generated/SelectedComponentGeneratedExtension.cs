@@ -10,40 +10,40 @@ using Entitas;
 
 namespace Entitas {
     public partial class Entity {
-        static readonly TeamCreationComponent teamCreationComponent = new TeamCreationComponent();
+        static readonly SelectedComponent selectedComponent = new SelectedComponent();
 
-        public bool isTeamCreation {
-            get { return HasComponent(CoreComponentIds.TeamCreation); }
+        public bool isSelected {
+            get { return HasComponent(CoreComponentIds.Selected); }
             set {
-                if(value != isTeamCreation) {
+                if(value != isSelected) {
                     if(value) {
-                        AddComponent(CoreComponentIds.TeamCreation, teamCreationComponent);
+                        AddComponent(CoreComponentIds.Selected, selectedComponent);
                     } else {
-                        RemoveComponent(CoreComponentIds.TeamCreation);
+                        RemoveComponent(CoreComponentIds.Selected);
                     }
                 }
             }
         }
 
-        public Entity IsTeamCreation(bool value) {
-            isTeamCreation = value;
+        public Entity IsSelected(bool value) {
+            isSelected = value;
             return this;
         }
     }
 }
 
     public partial class CoreMatcher {
-        static IMatcher _matcherTeamCreation;
+        static IMatcher _matcherSelected;
 
-        public static IMatcher TeamCreation {
+        public static IMatcher Selected {
             get {
-                if(_matcherTeamCreation == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.TeamCreation);
+                if(_matcherSelected == null) {
+                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Selected);
                     matcher.componentNames = CoreComponentIds.componentNames;
-                    _matcherTeamCreation = matcher;
+                    _matcherSelected = matcher;
                 }
 
-                return _matcherTeamCreation;
+                return _matcherSelected;
             }
         }
     }

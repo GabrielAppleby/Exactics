@@ -8,7 +8,7 @@ public sealed class CharacterCreationUI : MonoBehaviour {
 	public Text label;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.scene;
+		_pool = Pools.sharedInstance.menu;
 	}
 		
 
@@ -18,6 +18,7 @@ public sealed class CharacterCreationUI : MonoBehaviour {
 
 
 	public void HandleContinueButtonClick() {
+
 		//
 	}
 

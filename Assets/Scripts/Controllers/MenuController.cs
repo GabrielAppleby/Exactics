@@ -7,7 +7,6 @@ public class MenuController : MonoBehaviour {
 	Pools _pools;
 
 	void Start() {
-
 		_pools = Pools.sharedInstance;
 		if (_pools.allPools [0] == null) {
 			_pools.SetAllPools ();
@@ -33,8 +32,8 @@ public class MenuController : MonoBehaviour {
 		}
 	}
 
-	Systems createSystems(Pools pools) {
+	protected Systems createSystems(Pools pools) {
 		return new Feature ("Systems")
-			.Add (pools.scene.CreateSystem (new SceneSystem ()));
+			.Add (pools.menu.CreateSystem (new SceneSystem ()));
 	}
 }

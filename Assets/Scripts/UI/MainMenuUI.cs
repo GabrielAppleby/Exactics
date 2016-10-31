@@ -7,7 +7,7 @@ public sealed class MainMenuUI : MonoBehaviour {
 	Pool _pool;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.scene;
+		_pool = Pools.sharedInstance.menu;
 	}
 		
 

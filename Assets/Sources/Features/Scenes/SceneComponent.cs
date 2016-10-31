@@ -2,7 +2,7 @@
 using Entitas.CodeGenerator;
 using Entitas;
 
-[Scene, SingleEntity]
+[Menu, SingleEntity]
 public class SceneComponent : IComponent {
 	public string sceneName;
 }

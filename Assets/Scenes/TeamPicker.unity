@@ -1459,46 +1459,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1395481807}
---- !u!1 &1597439439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1597439441}
-  - 114: {fileID: 1597439440}
-  m_Layer: 0
-  m_Name: UISystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1597439440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1597439439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d43c49f2dec7341cdac25eea2a475a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1597439441
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1597439439}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 375.5, y: 209, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &1613551300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1717,7 @@ GameObject:
   - 222: {fileID: 2121164326}
   - 114: {fileID: 2121164325}
   - 114: {fileID: 2121164324}
+  - 114: {fileID: 2121164327}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1822,7 +1783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597439440}
+      - m_Target: {fileID: 2121164327}
         m_MethodName: HandleBackButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1868,3 +1829,14 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2121164322}
+--- !u!114 &2121164327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121164322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43c49f2dec7341cdac25eea2a475a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

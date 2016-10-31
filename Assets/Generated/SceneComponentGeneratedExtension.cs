@@ -10,30 +10,30 @@ using Entitas;
 
 namespace Entitas {
     public partial class Entity {
-        public SceneComponent scene { get { return (SceneComponent)GetComponent(SceneComponentIds.Scene); } }
+        public SceneComponent scene { get { return (SceneComponent)GetComponent(MenuComponentIds.Scene); } }
 
-        public bool hasScene { get { return HasComponent(SceneComponentIds.Scene); } }
+        public bool hasScene { get { return HasComponent(MenuComponentIds.Scene); } }
 
         public Entity AddScene(string newSceneName) {
-            var component = CreateComponent<SceneComponent>(SceneComponentIds.Scene);
+            var component = CreateComponent<SceneComponent>(MenuComponentIds.Scene);
             component.sceneName = newSceneName;
-            return AddComponent(SceneComponentIds.Scene, component);
+            return AddComponent(MenuComponentIds.Scene, component);
         }
 
         public Entity ReplaceScene(string newSceneName) {
-            var component = CreateComponent<SceneComponent>(SceneComponentIds.Scene);
+            var component = CreateComponent<SceneComponent>(MenuComponentIds.Scene);
             component.sceneName = newSceneName;
-            ReplaceComponent(SceneComponentIds.Scene, component);
+            ReplaceComponent(MenuComponentIds.Scene, component);
             return this;
         }
 
         public Entity RemoveScene() {
-            return RemoveComponent(SceneComponentIds.Scene);
+            return RemoveComponent(MenuComponentIds.Scene);
         }
     }
 
     public partial class Pool {
-        public Entity sceneEntity { get { return GetGroup(SceneMatcher.Scene).GetSingleEntity(); } }
+        public Entity sceneEntity { get { return GetGroup(MenuMatcher.Scene).GetSingleEntity(); } }
 
         public SceneComponent scene { get { return sceneEntity.scene; } }
 
@@ -66,14 +66,14 @@ namespace Entitas {
     }
 }
 
-    public partial class SceneMatcher {
+    public partial class MenuMatcher {
         static IMatcher _matcherScene;
 
         public static IMatcher Scene {
             get {
                 if(_matcherScene == null) {
-                    var matcher = (Matcher)Matcher.AllOf(SceneComponentIds.Scene);
-                    matcher.componentNames = SceneComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(MenuComponentIds.Scene);
+                    matcher.componentNames = MenuComponentIds.componentNames;
                     _matcherScene = matcher;
                 }
 

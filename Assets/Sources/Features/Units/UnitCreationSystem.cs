@@ -1,18 +1,27 @@
 ﻿using Entitas;
-using UnityEngine;
-using Entitas.Unity.Serialization.Blueprints;
 
-public sealed class CreatePlayerSystem : ISetPool, IInitializeSystem {
+public sealed class UnitCreationSystem : ISetPool, IInitializeSystem {
 
 	Pool _pool;
+	//Group _group;
 
 	public void SetPool(Pool pool) {
 		_pool = pool;
 	}
-		
-	public void Initialize() {
 
+	public void Initialize() {
+		//_group = _pool.GetGroup(Matcher.AnyOf (CoreMatcher.Selected, CoreMatcher.TeamCreation));
+		//TeamComponent currentTeam = _group.GetSingleEntity ().team;
+		//_pool.CreateEntity ()
+			//.IsInteractive (true)
+			//.IsSelected (true)
+			//.AddTeam(currentTeam.guid, currentTeam.name);
 	}
+
+	/*
+	public void Execute() {
+
+	}*/
 	//Temporary for testing purposes
 	//This sort of stuff will live in start in the future
 	//Don't move them in now as then it would be possible for place units to

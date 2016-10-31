@@ -6,16 +6,22 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public static class SceneComponentIds {
+public static class MenuComponentIds {
     public const int Scene = 0;
+    public const int TeamLoadedListener = 1;
+    public const int TeamMenu = 2;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-        "Scene"
+        "Scene",
+        "TeamLoadedListener",
+        "TeamMenu"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(SceneComponent)
+        typeof(SceneComponent),
+        typeof(TeamLoadedListenerComponent),
+        typeof(TeamMenuComponent)
     };
 }

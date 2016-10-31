@@ -18,8 +18,8 @@ namespace Entitas {
             return CreatePool("Input", InputComponentIds.TotalComponents, InputComponentIds.componentNames, InputComponentIds.componentTypes);
         }
 
-        public static Pool CreateScenePool() {
-            return CreatePool("Scene", SceneComponentIds.TotalComponents, SceneComponentIds.componentNames, SceneComponentIds.componentTypes);
+        public static Pool CreateMenuPool() {
+            return CreatePool("Menu", MenuComponentIds.TotalComponents, MenuComponentIds.componentNames, MenuComponentIds.componentTypes);
         }
 
         public static Pool CreateTilesPool() {
@@ -30,18 +30,18 @@ namespace Entitas {
             return CreatePool("UI", UIComponentIds.TotalComponents, UIComponentIds.componentNames, UIComponentIds.componentTypes);
         }
 
-        public Pool[] allPools { get { return new [] { core, input, scene, tiles, uI }; } }
+        public Pool[] allPools { get { return new [] { core, input, menu, tiles, uI }; } }
 
         public Pool core;
         public Pool input;
-        public Pool scene;
+        public Pool menu;
         public Pool tiles;
         public Pool uI;
 
         public void SetAllPools() {
             core = CreateCorePool();
             input = CreateInputPool();
-            scene = CreateScenePool();
+            menu = CreateMenuPool();
             tiles = CreateTilesPool();
             uI = CreateUIPool();
         }
