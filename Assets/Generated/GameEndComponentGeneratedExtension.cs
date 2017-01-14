@@ -9,7 +9,9 @@
 using Entitas;
 
 namespace Entitas {
+
     public partial class Entity {
+
         static readonly GameEndComponent gameEndComponent = new GameEndComponent();
 
         public bool isGameEnd {
@@ -32,6 +34,7 @@ namespace Entitas {
     }
 
     public partial class Pool {
+
         public Entity gameEndEntity { get { return GetGroup(CoreMatcher.GameEnd).GetSingleEntity(); } }
 
         public bool isGameEnd {
@@ -51,6 +54,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherGameEnd;
 
         public static IMatcher GameEnd {

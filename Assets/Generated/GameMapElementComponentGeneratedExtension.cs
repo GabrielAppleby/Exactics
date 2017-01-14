@@ -9,7 +9,9 @@
 using Entitas;
 
 namespace Entitas {
+
     public partial class Entity {
+
         static readonly GameMapElementComponent gameMapElementComponent = new GameMapElementComponent();
 
         public bool isGameMapElement {
@@ -33,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherGameMapElement;
 
         public static IMatcher GameMapElement {

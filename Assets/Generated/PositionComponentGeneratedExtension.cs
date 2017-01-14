@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public PositionComponent position { get { return (PositionComponent)GetComponent(CoreComponentIds.Position); } }
 
+    public partial class Entity {
+
+        public PositionComponent position { get { return (PositionComponent)GetComponent(CoreComponentIds.Position); } }
         public bool hasPosition { get { return HasComponent(CoreComponentIds.Position); } }
 
         public Entity AddPosition(float newX, float newY) {
@@ -36,6 +37,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherPosition;
 
         public static IMatcher Position {
@@ -52,6 +54,7 @@ namespace Entitas {
     }
 
     public partial class TilesMatcher {
+
         static IMatcher _matcherPosition;
 
         public static IMatcher Position {

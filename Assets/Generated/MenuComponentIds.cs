@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class MenuComponentIds {
+
     public const int Scene = 0;
     public const int TeamLoadedListener = 1;
     public const int TeamMenu = 2;

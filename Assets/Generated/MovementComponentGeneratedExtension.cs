@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public MovementComponent movement { get { return (MovementComponent)GetComponent(CoreComponentIds.Movement); } }
 
+    public partial class Entity {
+
+        public MovementComponent movement { get { return (MovementComponent)GetComponent(CoreComponentIds.Movement); } }
         public bool hasMovement { get { return HasComponent(CoreComponentIds.Movement); } }
 
         public Entity AddMovement(int newMovement, int newCurrentMovement) {
@@ -36,6 +37,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherMovement;
 
         public static IMatcher Movement {

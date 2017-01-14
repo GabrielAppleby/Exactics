@@ -23,8 +23,6 @@ namespace Entitas {
         int[] _anyOfIndices;
         int[] _noneOfIndices;
 
-        MatcherFilter _filter;
-
         Matcher() {
         }
 
@@ -48,17 +46,10 @@ namespace Entitas {
             return NoneOf(mergeIndices(matchers));
         }
 
-        public IMatcher Where(MatcherFilter filter) {
-            _filter = filter;
-            return this;
-        }
-
         public bool Matches(Entity entity) {
-            var matchesAllOf = _allOfIndices == null || entity.HasComponents(_allOfIndices);
-            var matchesAnyOf = _anyOfIndices == null || entity.HasAnyComponent(_anyOfIndices);
-            var matchesNoneOf = _noneOfIndices == null || !entity.HasAnyComponent(_noneOfIndices);
-            var passesFilter = _filter == null || _filter(entity);
-            return matchesAllOf && matchesAnyOf && matchesNoneOf && passesFilter;
+            return (_allOfIndices == null || entity.HasComponents(_allOfIndices))
+                && (_anyOfIndices == null || entity.HasAnyComponent(_anyOfIndices))
+                && (_noneOfIndices == null || !entity.HasAnyComponent(_noneOfIndices));
         }
 
         int[] mergeIndices() {
@@ -129,7 +120,8 @@ namespace Entitas {
     }
 
     public class MatcherException : Exception {
-        public MatcherException(IMatcher matcher) : base("matcher.indices.Length must be 1 but was " + matcher.indices.Length) {
+        public MatcherException(IMatcher matcher) : base(
+            "matcher.indices.Length must be 1 but was " + matcher.indices.Length) {
         }
     }
 }

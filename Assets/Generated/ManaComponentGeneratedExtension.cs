@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public ManaComponent mana { get { return (ManaComponent)GetComponent(CoreComponentIds.Mana); } }
 
+    public partial class Entity {
+
+        public ManaComponent mana { get { return (ManaComponent)GetComponent(CoreComponentIds.Mana); } }
         public bool hasMana { get { return HasComponent(CoreComponentIds.Mana); } }
 
         public Entity AddMana(int newMana) {
@@ -34,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherMana;
 
         public static IMatcher Mana {

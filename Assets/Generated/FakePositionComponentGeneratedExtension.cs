@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public FakePositionComponent fakePosition { get { return (FakePositionComponent)GetComponent(CoreComponentIds.FakePosition); } }
 
+    public partial class Entity {
+
+        public FakePositionComponent fakePosition { get { return (FakePositionComponent)GetComponent(CoreComponentIds.FakePosition); } }
         public bool hasFakePosition { get { return HasComponent(CoreComponentIds.FakePosition); } }
 
         public Entity AddFakePosition(int newX, int newY) {
@@ -36,6 +37,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherFakePosition;
 
         public static IMatcher FakePosition {
@@ -52,6 +54,7 @@ namespace Entitas {
     }
 
     public partial class TilesMatcher {
+
         static IMatcher _matcherFakePosition;
 
         public static IMatcher FakePosition {

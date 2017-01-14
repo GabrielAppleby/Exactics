@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public TeamLoadedListenerComponent teamLoadedListener { get { return (TeamLoadedListenerComponent)GetComponent(MenuComponentIds.TeamLoadedListener); } }
 
+    public partial class Entity {
+
+        public TeamLoadedListenerComponent teamLoadedListener { get { return (TeamLoadedListenerComponent)GetComponent(MenuComponentIds.TeamLoadedListener); } }
         public bool hasTeamLoadedListener { get { return HasComponent(MenuComponentIds.TeamLoadedListener); } }
 
         public Entity AddTeamLoadedListener(ITeamLoadedListener newListener) {
@@ -34,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class MenuMatcher {
+
         static IMatcher _matcherTeamLoadedListener;
 
         public static IMatcher TeamLoadedListener {

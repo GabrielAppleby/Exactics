@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public InputComponent input { get { return (InputComponent)GetComponent(InputComponentIds.Input); } }
 
+    public partial class Entity {
+
+        public InputComponent input { get { return (InputComponent)GetComponent(InputComponentIds.Input); } }
         public bool hasInput { get { return HasComponent(InputComponentIds.Input); } }
 
         public Entity AddInput(float newX, float newY) {
@@ -36,6 +37,7 @@ namespace Entitas {
 }
 
     public partial class InputMatcher {
+
         static IMatcher _matcherInput;
 
         public static IMatcher Input {

@@ -9,7 +9,9 @@
 using Entitas;
 
 namespace Entitas {
+
     public partial class Entity {
+
         static readonly SelectedComponent selectedComponent = new SelectedComponent();
 
         public bool isSelected {
@@ -33,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherSelected;
 
         public static IMatcher Selected {

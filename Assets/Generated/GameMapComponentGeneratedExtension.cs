@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public GameMapComponent gameMap { get { return (GameMapComponent)GetComponent(CoreComponentIds.GameMap); } }
 
+    public partial class Entity {
+
+        public GameMapComponent gameMap { get { return (GameMapComponent)GetComponent(CoreComponentIds.GameMap); } }
         public bool hasGameMap { get { return HasComponent(CoreComponentIds.GameMap); } }
 
         public Entity AddGameMap(int newColumns, int newRows) {
@@ -35,10 +36,9 @@ namespace Entitas {
     }
 
     public partial class Pool {
+
         public Entity gameMapEntity { get { return GetGroup(CoreMatcher.GameMap).GetSingleEntity(); } }
-
         public GameMapComponent gameMap { get { return gameMapEntity.gameMap; } }
-
         public bool hasGameMap { get { return gameMapEntity != null; } }
 
         public Entity SetGameMap(int newColumns, int newRows) {
@@ -69,6 +69,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherGameMap;
 
         public static IMatcher GameMap {

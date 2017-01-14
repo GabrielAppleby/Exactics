@@ -9,7 +9,9 @@
 using Entitas;
 
 namespace Entitas {
+
     public partial class Entity {
+
         static readonly InteractiveComponent interactiveComponent = new InteractiveComponent();
 
         public bool isInteractive {
@@ -33,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherInteractive;
 
         public static IMatcher Interactive {
@@ -49,6 +52,7 @@ namespace Entitas {
     }
 
     public partial class TilesMatcher {
+
         static IMatcher _matcherInteractive;
 
         public static IMatcher Interactive {

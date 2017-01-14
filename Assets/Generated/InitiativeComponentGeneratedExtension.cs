@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public InitiativeComponent initiative { get { return (InitiativeComponent)GetComponent(CoreComponentIds.Initiative); } }
 
+    public partial class Entity {
+
+        public InitiativeComponent initiative { get { return (InitiativeComponent)GetComponent(CoreComponentIds.Initiative); } }
         public bool hasInitiative { get { return HasComponent(CoreComponentIds.Initiative); } }
 
         public Entity AddInitiative(int newInitiative) {
@@ -34,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherInitiative;
 
         public static IMatcher Initiative {

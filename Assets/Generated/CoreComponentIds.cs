@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
+
     public const int FakePosition = 0;
     public const int Interactive = 1;
     public const int Position = 2;

@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public OffenseComponent offense { get { return (OffenseComponent)GetComponent(CoreComponentIds.Offense); } }
 
+    public partial class Entity {
+
+        public OffenseComponent offense { get { return (OffenseComponent)GetComponent(CoreComponentIds.Offense); } }
         public bool hasOffense { get { return HasComponent(CoreComponentIds.Offense); } }
 
         public Entity AddOffense(int newExpertise, int newAccuracy, int newDamage, int newSpellpower) {
@@ -40,6 +41,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherOffense;
 
         public static IMatcher Offense {

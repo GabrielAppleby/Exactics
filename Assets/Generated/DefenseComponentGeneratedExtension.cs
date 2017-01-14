@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public DefenseComponent defense { get { return (DefenseComponent)GetComponent(CoreComponentIds.Defense); } }
 
+    public partial class Entity {
+
+        public DefenseComponent defense { get { return (DefenseComponent)GetComponent(CoreComponentIds.Defense); } }
         public bool hasDefense { get { return HasComponent(CoreComponentIds.Defense); } }
 
         public Entity AddDefense(int newDefense, int newHealth, int newCurrentHealth, int newFortitude, int newResistance, int newEvasion) {
@@ -44,6 +45,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherDefense;
 
         public static IMatcher Defense {

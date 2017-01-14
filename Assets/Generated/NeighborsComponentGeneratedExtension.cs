@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public NeighborsComponent neighbors { get { return (NeighborsComponent)GetComponent(TilesComponentIds.Neighbors); } }
 
+    public partial class Entity {
+
+        public NeighborsComponent neighbors { get { return (NeighborsComponent)GetComponent(TilesComponentIds.Neighbors); } }
         public bool hasNeighbors { get { return HasComponent(TilesComponentIds.Neighbors); } }
 
         public Entity AddNeighbors(Entitas.Entity[] newNeighbors) {
@@ -34,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class TilesMatcher {
+
         static IMatcher _matcherNeighbors;
 
         public static IMatcher Neighbors {

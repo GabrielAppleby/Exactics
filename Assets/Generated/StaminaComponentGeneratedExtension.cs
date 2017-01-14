@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public StaminaComponent stamina { get { return (StaminaComponent)GetComponent(CoreComponentIds.Stamina); } }
 
+    public partial class Entity {
+
+        public StaminaComponent stamina { get { return (StaminaComponent)GetComponent(CoreComponentIds.Stamina); } }
         public bool hasStamina { get { return HasComponent(CoreComponentIds.Stamina); } }
 
         public Entity AddStamina(int newStamina) {
@@ -34,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherStamina;
 
         public static IMatcher Stamina {

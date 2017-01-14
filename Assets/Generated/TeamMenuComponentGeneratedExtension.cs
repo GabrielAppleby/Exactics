@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public TeamMenuComponent teamMenu { get { return (TeamMenuComponent)GetComponent(MenuComponentIds.TeamMenu); } }
 
+    public partial class Entity {
+
+        public TeamMenuComponent teamMenu { get { return (TeamMenuComponent)GetComponent(MenuComponentIds.TeamMenu); } }
         public bool hasTeamMenu { get { return HasComponent(MenuComponentIds.TeamMenu); } }
 
         public Entity AddTeamMenu(int newNumber, string newName) {
@@ -36,6 +37,7 @@ namespace Entitas {
 }
 
     public partial class MenuMatcher {
+
         static IMatcher _matcherTeamMenu;
 
         public static IMatcher TeamMenu {

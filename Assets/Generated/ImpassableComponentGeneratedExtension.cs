@@ -9,7 +9,9 @@
 using Entitas;
 
 namespace Entitas {
+
     public partial class Entity {
+
         static readonly ImpassableComponent impassableComponent = new ImpassableComponent();
 
         public bool isImpassable {
@@ -33,6 +35,7 @@ namespace Entitas {
 }
 
     public partial class CoreMatcher {
+
         static IMatcher _matcherImpassable;
 
         public static IMatcher Impassable {

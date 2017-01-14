@@ -9,9 +9,10 @@
 using Entitas;
 
 namespace Entitas {
-    public partial class Entity {
-        public SceneComponent scene { get { return (SceneComponent)GetComponent(MenuComponentIds.Scene); } }
 
+    public partial class Entity {
+
+        public SceneComponent scene { get { return (SceneComponent)GetComponent(MenuComponentIds.Scene); } }
         public bool hasScene { get { return HasComponent(MenuComponentIds.Scene); } }
 
         public Entity AddScene(string newSceneName) {
@@ -33,10 +34,9 @@ namespace Entitas {
     }
 
     public partial class Pool {
+
         public Entity sceneEntity { get { return GetGroup(MenuMatcher.Scene).GetSingleEntity(); } }
-
         public SceneComponent scene { get { return sceneEntity.scene; } }
-
         public bool hasScene { get { return sceneEntity != null; } }
 
         public Entity SetScene(string newSceneName) {
@@ -67,6 +67,7 @@ namespace Entitas {
 }
 
     public partial class MenuMatcher {
+
         static IMatcher _matcherScene;
 
         public static IMatcher Scene {
