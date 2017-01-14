@@ -16,7 +16,7 @@ public class NotifyTeamLoadedListenersSystem : IReactiveSystem, ISetPool
 	public void Execute(List<Entity> entities)
 	{
 		foreach (Entity entity in _listeners.GetEntities()) {
-			entity.teamLoadedListener.listener.TeamLoaded ();
+			//entity.teamLoadedListener.listener.TeamLoaded ();
 		}
 	}
 

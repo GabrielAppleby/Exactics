@@ -47,6 +47,7 @@ public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 			break;
 		default:
 			Debug.Log ("Something wrong with the Team Loaded function on line 30");
+			break;
 		}
 			
 	}
