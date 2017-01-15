@@ -1,19 +1,33 @@
-﻿using Entitas;
+using Entitas;
 using UnityEngine;
 using System.Collections.Generic;
 
-public sealed class GameEndSystem : ISetPool, IReactiveSystem {
+public sealed class GameEndSystem : ReactiveSystem {
 
 
-	public TriggerOnEvent trigger { get { return CoreMatcher.GameEnd.OnEntityAdded(); } }
+	public GameEndSystem(Context context) : base(context) {
 
-	Pool _pool;
+    }
 
-	public void SetPool(Pool pool) {
-		_pool = pool;
+    protected override Collector GetTrigger(Context context) {
+        return context.CreateCollector(CoreMatcher.GameEnd);
+    }
+
+    protected override bool Filter(Entity entity) {
+        // TODO Entitas 0.36.0 Migration
+        // ensure was: 
+        // exclude was: 
+
+        return true;
+    }
+
+	Context _pool;
+
+	public void SetPool(Context Context) {
+		_pool = Context;
 	}
 
-	public void Execute(List<Entity> entities) {
+	protected override void Execute(List<Entity> entities) {
 		Entity gameEndEntity = entities.SingleEntity();
 		if (gameEndEntity.isGameEnd) {
 			Debug.Log ("Game end test");

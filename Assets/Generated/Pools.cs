@@ -8,35 +8,35 @@
 //------------------------------------------------------------------------------
 namespace Entitas {
 
-    public partial class Pools {
+    public partial class Contexts {
 
-        public static Pool CreateCorePool() {
-            return CreatePool("Core", CoreComponentIds.TotalComponents, CoreComponentIds.componentNames, CoreComponentIds.componentTypes);
+        public static Context CreateCorePool() {
+            return CreateContext("Core", CoreComponentIds.TotalComponents, CoreComponentIds.componentNames, CoreComponentIds.componentTypes);
         }
 
-        public static Pool CreateInputPool() {
-            return CreatePool("Input", InputComponentIds.TotalComponents, InputComponentIds.componentNames, InputComponentIds.componentTypes);
+        public static Context CreateInputPool() {
+			return CreateContext("Input", InputComponentIds.TotalComponents, InputComponentIds.componentNames, InputComponentIds.componentTypes);
         }
 
-        public static Pool CreateMenuPool() {
-            return CreatePool("Menu", MenuComponentIds.TotalComponents, MenuComponentIds.componentNames, MenuComponentIds.componentTypes);
+        public static Context CreateMenuPool() {
+			return CreateContext("Menu", MenuComponentIds.TotalComponents, MenuComponentIds.componentNames, MenuComponentIds.componentTypes);
         }
 
-        public static Pool CreateTilesPool() {
-            return CreatePool("Tiles", TilesComponentIds.TotalComponents, TilesComponentIds.componentNames, TilesComponentIds.componentTypes);
+        public static Context CreateTilesPool() {
+			return CreateContext("Tiles", TilesComponentIds.TotalComponents, TilesComponentIds.componentNames, TilesComponentIds.componentTypes);
         }
 
-        public static Pool CreateUIPool() {
-            return CreatePool("UI", UIComponentIds.TotalComponents, UIComponentIds.componentNames, UIComponentIds.componentTypes);
+        public static Context CreateUIPool() {
+			return CreateContext("UI", UIComponentIds.TotalComponents, UIComponentIds.componentNames, UIComponentIds.componentTypes);
         }
 
-        public Pool[] allPools { get { return new [] { core, input, menu, tiles, uI }; } }
+        public Context[] allPools { get { return new [] { core, input, menu, tiles, uI }; } }
 
-        public Pool core;
-        public Pool input;
-        public Pool menu;
-        public Pool tiles;
-        public Pool uI;
+        public Context core;
+        public Context input;
+        public Context menu;
+        public Context tiles;
+        public Context uI;
 
         public void SetAllPools() {
             core = CreateCorePool();

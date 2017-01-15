@@ -1,12 +1,12 @@
-﻿using Entitas;
+using Entitas;
 using System;
 
-public sealed class TeamCreationSystem : ISetPool, IInitializeSystem {
+public sealed class TeamCreationSystem : IInitializeSystem {
 
-	Pool _pool;
+	Context _pool;
 
-	public void SetPool(Pool pool) {
-		_pool = pool;
+	public void SetPool(Context Context) {
+		_pool = Context;
 	}
 
 	public void Initialize() {

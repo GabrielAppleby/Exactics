@@ -4,10 +4,10 @@ using Entitas;
 
 public sealed class OptionsUI : MonoBehaviour {
 
-	Pool _pool;
+	Context _pool;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_pool = Contexts.sharedInstance.menu;
 	}
 
 

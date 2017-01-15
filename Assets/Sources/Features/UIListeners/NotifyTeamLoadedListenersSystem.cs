@@ -1,19 +1,33 @@
-﻿using Entitas;
+using Entitas;
 using System.Collections.Generic;
 
-public class NotifyTeamLoadedListenersSystem : IReactiveSystem, ISetPool
+public class NotifyTeamLoadedListenersSystem : ReactiveSystem
 {
-	Pool _pool;
+	Context _pool;
 	Group _listeners;
 
-	public TriggerOnEvent trigger { get { return MenuMatcher.TeamMenu.OnEntityAdded ();}}
+	public NotifyTeamLoadedListenersSystem(Context context) : base(context) {
 
-	public void SetPool(Pool pool){
-		_pool = pool;
+    }
+
+    protected override Collector GetTrigger(Context context) {
+        return context.CreateCollector(MenuMatcher.TeamMenu);
+    }
+
+    protected override bool Filter(Entity entity) {
+        // TODO Entitas 0.36.0 Migration
+        // ensure was: 
+        // exclude was: 
+
+        return true;
+    }
+
+	public void SetPool(Context Context){
+		_pool = Context;
 		_listeners = _pool.GetGroup (MenuMatcher.TeamMenu);
 	}
 
-	public void Execute(List<Entity> entities)
+	protected override void Execute(List<Entity> entities)
 	{
 		foreach (Entity entity in _listeners.GetEntities()) {
 			//entity.teamLoadedListener.listener.TeamLoaded ();

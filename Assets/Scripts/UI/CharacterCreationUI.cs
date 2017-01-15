@@ -4,11 +4,11 @@ using Entitas;
 
 public sealed class CharacterCreationUI : MonoBehaviour {
 
-	Pool _pool;
+	Context _pool;
 	public Text label;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_pool = Contexts.sharedInstance.menu;
 	}
 		
 

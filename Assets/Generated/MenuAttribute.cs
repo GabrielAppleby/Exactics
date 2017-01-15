@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 using Entitas.CodeGenerator;
 
-public class MenuAttribute : PoolAttribute {
+public class MenuAttribute : ContextAttribute {
 
     public MenuAttribute() : base("Menu") {
     }

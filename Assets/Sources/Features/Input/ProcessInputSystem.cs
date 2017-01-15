@@ -1,18 +1,32 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Entitas;
 using System.Linq;
 
-public sealed class ProcessInputSystem : ISetPools, IReactiveSystem {
+public sealed class ProcessInputSystem : ReactiveSystem {
 
-	public TriggerOnEvent trigger { get { return InputMatcher.Input.OnEntityAdded(); } }
+	public ProcessInputSystem(Context context) : base(context) {
 
-	Pools _pools;
+    }
 
-	public void SetPools(Pools pools) {
-		_pools = pools;
+    protected override Collector GetTrigger(Context context) {
+        return context.CreateCollector(InputMatcher.Input);
+    }
+
+    protected override bool Filter(Entity entity) {
+        // TODO Entitas 0.36.0 Migration
+        // ensure was: 
+        // exclude was: 
+
+        return true;
+    }
+
+	Contexts _pools;
+
+	public void SetPools(Contexts Contexts) {
+		_pools = Contexts;
 	}
 
-	public void Execute(List<Entity> entities) {
+	protected override void Execute(List<Entity> entities) {
 		Entity inputEntity = entities.SingleEntity();
 		InputComponent input = inputEntity.input;
 

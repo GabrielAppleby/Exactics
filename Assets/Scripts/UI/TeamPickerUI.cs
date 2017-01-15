@@ -4,10 +4,10 @@ using Entitas;
 
 public sealed class TeamPickerUI : MonoBehaviour {
 
-	Pool _pool;
+	Context _pool;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_pool = Contexts.sharedInstance.menu;
 	}
 
 

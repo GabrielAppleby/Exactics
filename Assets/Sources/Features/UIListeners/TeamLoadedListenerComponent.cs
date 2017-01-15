@@ -1,4 +1,4 @@
-﻿using Entitas;
+using Entitas;
 
 [Menu]
 public class TeamLoadedListenerComponent : IComponent {

@@ -35,7 +35,7 @@ namespace Entitas {
         }
     }
 
-    public partial class Pool {
+    public partial class Context {
 
         public Entity gameMapEntity { get { return GetGroup(CoreMatcher.GameMap).GetSingleEntity(); } }
         public GameMapComponent gameMap { get { return gameMapEntity.gameMap; } }
@@ -44,7 +44,7 @@ namespace Entitas {
         public Entity SetGameMap(int newColumns, int newRows) {
             if(hasGameMap) {
                 throw new EntitasException("Could not set gameMap!\n" + this + " already has an entity with GameMapComponent!",
-                    "You should check if the pool already has a gameMapEntity before setting it or use pool.ReplaceGameMap().");
+                    "You should check if the Context already has a gameMapEntity before setting it or use Context.ReplaceGameMap().");
             }
             var entity = CreateEntity();
             entity.AddGameMap(newColumns, newRows);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Entitas.CodeGenerator;
 using Entitas;
 

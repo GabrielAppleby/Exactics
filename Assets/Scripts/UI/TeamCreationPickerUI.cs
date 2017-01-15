@@ -4,12 +4,12 @@ using Entitas;
 
 public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 
-	Pool _pool;
+	Context _pool;
 	string _name;
 
 	public void Start() {
 		_name = this.name;
-		_pool = Pools.sharedInstance.menu;
+		_pool = Contexts.sharedInstance.menu;
 		_pool.CreateEntity ()
 			.AddTeamLoadedListener (this);
 	}

@@ -4,16 +4,16 @@ using UnityEngine;
 public class MenuController : MonoBehaviour {
 
 	Systems _systems;
-	Pools _pools;
+	Contexts _pools;
 
 	void Start() {
-		_pools = Pools.sharedInstance;
+		_pools = Contexts.sharedInstance;
 		if (_pools.allPools [0] == null) {
 			_pools.SetAllPools ();
 		}
 		// Manually add entity indices.
 		// It's planned to generate this in future versions of Entitas
-		//pools.AddEntityIndices();
+		//Contexts.AddEntityIndices();
 
 		_systems = createSystems(_pools);
 		_systems.Initialize();
@@ -27,13 +27,13 @@ public class MenuController : MonoBehaviour {
 	void OnDestroy() {
 		_systems.TearDown();
 		_systems.DeactivateReactiveSystems ();
-		foreach (Pool pool in _pools.allPools) {
-			pool.Reset ();
+		foreach (Context Context in _pools.allPools) {
+			Context.Reset ();
 		}
 	}
 
-	protected Systems createSystems(Pools pools) {
-		return new Feature ("Systems")
-			.Add (pools.menu.CreateSystem (new SceneSystem ()));
+	protected Systems createSystems(Contexts Contexts) {
+		return new Feature ("Systems");
+			//.Add (Contexts.menu.CreateSystem (new SceneSystem ())); Gabe made me do it
 	}
 }

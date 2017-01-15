@@ -1,15 +1,15 @@
-﻿using Entitas;
+using Entitas;
 using System;
 using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public sealed class TeamLoadSystem : ISetPool, IInitializeSystem {
+public sealed class TeamLoadSystem : IInitializeSystem {
 
-	Pool _pool;
+	Context _pool;
 
-	public void SetPool(Pool pool) {
-		_pool = pool;
+	public void SetPool(Context Context) {
+		_pool = Context;
 	}
 
 	public void Initialize() {

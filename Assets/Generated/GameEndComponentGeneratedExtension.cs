@@ -33,7 +33,7 @@ namespace Entitas {
         }
     }
 
-    public partial class Pool {
+    public partial class Context {
 
         public Entity gameEndEntity { get { return GetGroup(CoreMatcher.GameEnd).GetSingleEntity(); } }
 

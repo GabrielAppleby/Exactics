@@ -33,7 +33,7 @@ namespace Entitas {
         }
     }
 
-    public partial class Pool {
+    public partial class Context {
 
         public Entity sceneEntity { get { return GetGroup(MenuMatcher.Scene).GetSingleEntity(); } }
         public SceneComponent scene { get { return sceneEntity.scene; } }
@@ -42,7 +42,7 @@ namespace Entitas {
         public Entity SetScene(string newSceneName) {
             if(hasScene) {
                 throw new EntitasException("Could not set scene!\n" + this + " already has an entity with SceneComponent!",
-                    "You should check if the pool already has a sceneEntity before setting it or use pool.ReplaceScene().");
+                    "You should check if the Context already has a sceneEntity before setting it or use Context.ReplaceScene().");
             }
             var entity = CreateEntity();
             entity.AddScene(newSceneName);

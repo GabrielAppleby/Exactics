@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
 public static class EntityIndexPoolExtensions {
 
 
-	public static void AddEntityIndices(this Pools pools) {
+	public static void AddEntityIndices(this Contexts Contexts) {
 		EntityIndex<string> positionIndex = new EntityIndex<string>(
-			pools.core.GetGroup(Matcher.AnyOf(CoreMatcher.FakePosition, TilesMatcher.FakePosition)),
+			Contexts.core.GetGroup(Matcher.AnyOf(CoreMatcher.FakePosition, TilesMatcher.FakePosition)),
 			(e, c) => {
 				FakePositionComponent fakePositionComponent = c as FakePositionComponent;
 					return fakePositionComponent != null
@@ -16,11 +16,11 @@ public static class EntityIndexPoolExtensions {
 			}
 		);
 
-		pools.core.AddEntityIndex(CoreComponentIds.Position.ToString(), positionIndex);
+		Contexts.core.AddEntityIndex(CoreComponentIds.Position.ToString(), positionIndex);
 	}
 
-	public static HashSet<Entity> GetEntitiesWithPosition(this Pool pool, float x, float y) {
-		var index = (EntityIndex<string>)pool.GetEntityIndex(CoreComponentIds.Position.ToString());
+	public static HashSet<Entity> GetEntitiesWithPosition(this Context Context, float x, float y) {
+		var index = (EntityIndex<string>)Context.GetEntityIndex(CoreComponentIds.Position.ToString());
 		return index.GetEntities(x + "," + y);
 	}
 }
