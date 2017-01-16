@@ -12,43 +12,43 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public OffenseComponent offense { get { return (OffenseComponent)GetComponent(CoreComponentIds.Offense); } }
-        public bool hasOffense { get { return HasComponent(CoreComponentIds.Offense); } }
+        public OffenseComponent offense { get { return (OffenseComponent)GetComponent(GameComponentIds.Offense); } }
+        public bool hasOffense { get { return HasComponent(GameComponentIds.Offense); } }
 
         public Entity AddOffense(int newExpertise, int newAccuracy, int newDamage, int newSpellpower) {
-            var component = CreateComponent<OffenseComponent>(CoreComponentIds.Offense);
+            var component = CreateComponent<OffenseComponent>(GameComponentIds.Offense);
             component.expertise = newExpertise;
             component.accuracy = newAccuracy;
             component.damage = newDamage;
             component.spellpower = newSpellpower;
-            return AddComponent(CoreComponentIds.Offense, component);
+            return AddComponent(GameComponentIds.Offense, component);
         }
 
         public Entity ReplaceOffense(int newExpertise, int newAccuracy, int newDamage, int newSpellpower) {
-            var component = CreateComponent<OffenseComponent>(CoreComponentIds.Offense);
+            var component = CreateComponent<OffenseComponent>(GameComponentIds.Offense);
             component.expertise = newExpertise;
             component.accuracy = newAccuracy;
             component.damage = newDamage;
             component.spellpower = newSpellpower;
-            ReplaceComponent(CoreComponentIds.Offense, component);
+            ReplaceComponent(GameComponentIds.Offense, component);
             return this;
         }
 
         public Entity RemoveOffense() {
-            return RemoveComponent(CoreComponentIds.Offense);
+            return RemoveComponent(GameComponentIds.Offense);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherOffense;
 
         public static IMatcher Offense {
             get {
                 if(_matcherOffense == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Offense);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Offense);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherOffense = matcher;
                 }
 

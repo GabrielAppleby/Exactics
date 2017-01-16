@@ -12,39 +12,39 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public TeamMenuComponent teamMenu { get { return (TeamMenuComponent)GetComponent(MenuComponentIds.TeamMenu); } }
-        public bool hasTeamMenu { get { return HasComponent(MenuComponentIds.TeamMenu); } }
+        public TeamMenuComponent teamMenu { get { return (TeamMenuComponent)GetComponent(GameComponentIds.TeamMenu); } }
+        public bool hasTeamMenu { get { return HasComponent(GameComponentIds.TeamMenu); } }
 
         public Entity AddTeamMenu(int newNumber, string newName) {
-            var component = CreateComponent<TeamMenuComponent>(MenuComponentIds.TeamMenu);
+            var component = CreateComponent<TeamMenuComponent>(GameComponentIds.TeamMenu);
             component.number = newNumber;
             component.name = newName;
-            return AddComponent(MenuComponentIds.TeamMenu, component);
+            return AddComponent(GameComponentIds.TeamMenu, component);
         }
 
         public Entity ReplaceTeamMenu(int newNumber, string newName) {
-            var component = CreateComponent<TeamMenuComponent>(MenuComponentIds.TeamMenu);
+            var component = CreateComponent<TeamMenuComponent>(GameComponentIds.TeamMenu);
             component.number = newNumber;
             component.name = newName;
-            ReplaceComponent(MenuComponentIds.TeamMenu, component);
+            ReplaceComponent(GameComponentIds.TeamMenu, component);
             return this;
         }
 
         public Entity RemoveTeamMenu() {
-            return RemoveComponent(MenuComponentIds.TeamMenu);
+            return RemoveComponent(GameComponentIds.TeamMenu);
         }
     }
 }
 
-    public partial class MenuMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherTeamMenu;
 
         public static IMatcher TeamMenu {
             get {
                 if(_matcherTeamMenu == null) {
-                    var matcher = (Matcher)Matcher.AllOf(MenuComponentIds.TeamMenu);
-                    matcher.componentNames = MenuComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.TeamMenu);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherTeamMenu = matcher;
                 }
 

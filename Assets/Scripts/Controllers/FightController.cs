@@ -4,16 +4,16 @@ using UnityEngine;
 public class FightController : MonoBehaviour {
 
 	Systems _systems;
-	Pools _pools;
+	Contexts _contexts;
 
 	void Start() {
 
-		_pools = Pools.sharedInstance;
-		if (_pools.allPools [0] == null) {
-			_pools.SetAllPools ();
+		_contexts = Contexts.sharedInstance;
+		if (_contexts.allContexts [0] == null) {
+			_contexts.SetAllContexts ();
 		}
 
-		_systems = createSystems(_pools);
+		_systems = createSystems(_contexts);
 		_systems.Initialize();
 	}
 
@@ -25,13 +25,13 @@ public class FightController : MonoBehaviour {
 	void OnDestroy() {
 		_systems.TearDown();
 		_systems.DeactivateReactiveSystems ();
-		foreach (Pool pool in _pools.allPools) {
-			pool.Reset ();
+		foreach (Context context in _contexts.allContexts) {
+			context.Reset ();
 		}
 	}
 
-	Systems createSystems(Pools pools) {
+	Systems createSystems(Contexts contexts) {
 		return new Feature ("Systems")
-			.Add (pools.menu.CreateSystem (new CreateGameMapSystem ()));
+			.Add (new CreateGameMapSystem (contexts));
 	}
 }

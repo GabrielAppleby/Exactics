@@ -2,7 +2,7 @@
 
 using Entitas;
 
-[Tiles]
+[Game]
 public class NeighborsComponent : IComponent {
 	public Entity[] neighbors;
 }

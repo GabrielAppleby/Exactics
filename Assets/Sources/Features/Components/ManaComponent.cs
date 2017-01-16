@@ -2,7 +2,7 @@
 
 using Entitas;
 
-[Core]
+[Game]
 public class ManaComponent : IComponent {
 	public int mana;
 }

@@ -4,23 +4,23 @@ using Entitas;
 
 public sealed class MainMenuUI : MonoBehaviour {
 	
-	Pool _pool;
+	Context _context;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_context = Contexts.sharedInstance.game;
 	}
 		
 
 	public void HandleFightButtonClick() {
-		_pool.CreateEntity().AddScene("TeamPicker");
+		_context.CreateEntity().AddScene("TeamPicker");
 	}
 
 	public void HandleTeamBuilderButtonClick() {
-		_pool.CreateEntity().AddScene("TeamCreationPicker");
+		_context.CreateEntity().AddScene("TeamCreationPicker");
 	}
 
 	public void HandleOptionsButtonClick() {
-		_pool.CreateEntity().AddScene("Options");
+		_context.CreateEntity().AddScene("Options");
 	}
 
 	public void HandleQuitButtonClick() {

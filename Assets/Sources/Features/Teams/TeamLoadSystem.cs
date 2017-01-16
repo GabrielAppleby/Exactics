@@ -4,12 +4,12 @@ using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public sealed class TeamLoadSystem : ISetPool, IInitializeSystem {
+public sealed class TeamLoadSystem : IInitializeSystem {
 
-	Pool _pool;
+	Context _context;
 
-	public void SetPool(Pool pool) {
-		_pool = pool;
+	public TeamLoadSystem(Contexts contexts) {
+		_context = contexts.game;
 	}
 
 	public void Initialize() {
@@ -19,7 +19,7 @@ public sealed class TeamLoadSystem : ISetPool, IInitializeSystem {
 					BinaryFormatter bf = new BinaryFormatter();
 					FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
 					TeamMenuComponent tmc = (TeamMenuComponent)bf.Deserialize (file);
-					_pool.CreateEntity ()
+					_context.CreateEntity ()
 						.AddTeamMenu (tmc.number, tmc.name);
 				}
 			}

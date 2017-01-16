@@ -15,13 +15,13 @@ namespace Entitas {
         static readonly SelectedComponent selectedComponent = new SelectedComponent();
 
         public bool isSelected {
-            get { return HasComponent(CoreComponentIds.Selected); }
+            get { return HasComponent(GameComponentIds.Selected); }
             set {
                 if(value != isSelected) {
                     if(value) {
-                        AddComponent(CoreComponentIds.Selected, selectedComponent);
+                        AddComponent(GameComponentIds.Selected, selectedComponent);
                     } else {
-                        RemoveComponent(CoreComponentIds.Selected);
+                        RemoveComponent(GameComponentIds.Selected);
                     }
                 }
             }
@@ -34,15 +34,15 @@ namespace Entitas {
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherSelected;
 
         public static IMatcher Selected {
             get {
                 if(_matcherSelected == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Selected);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Selected);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherSelected = matcher;
                 }
 

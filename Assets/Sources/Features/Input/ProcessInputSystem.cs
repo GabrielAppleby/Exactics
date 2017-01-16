@@ -2,22 +2,28 @@
 using Entitas;
 using System.Linq;
 
-public sealed class ProcessInputSystem : ISetPools, IReactiveSystem {
+public sealed class ProcessInputSystem : ReactiveSystem {
 
-	public TriggerOnEvent trigger { get { return InputMatcher.Input.OnEntityAdded(); } }
+	Contexts _contexts;
 
-	Pools _pools;
-
-	public void SetPools(Pools pools) {
-		_pools = pools;
+	public ProcessInputSystem(Contexts contexts) : base(contexts.game) {
+		_contexts = contexts;
 	}
 
-	public void Execute(List<Entity> entities) {
+	protected override Collector GetTrigger(Context context) {
+		return _contexts.input.CreateCollector(InputMatcher.Input, GroupEvent.Added);
+	}
+
+	protected override bool Filter(Entity entity) {
+		return true;
+	}
+
+	protected override void Execute(List<Entity> entities) {
 		Entity inputEntity = entities.SingleEntity();
 		InputComponent input = inputEntity.input;
 
-		foreach(Entity e in _pools.core.GetEntitiesWithPosition(input.x, input.y).Where(e => e.isInteractive)) {
+		//foreach(Entity e in _contexts.game.GetEntitiesWithPosition(input.x, input.y).Where(e => e.isInteractive)) {
 			//e.isDestroy = true;
-		}
+		//}
 	}
 }

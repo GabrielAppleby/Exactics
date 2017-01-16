@@ -1,5 +1,5 @@
 ﻿using Entitas;
 
-[Core]
+[Game]
 public class GameMapElementComponent : IComponent {
 }

@@ -12,56 +12,39 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public FakePositionComponent fakePosition { get { return (FakePositionComponent)GetComponent(CoreComponentIds.FakePosition); } }
-        public bool hasFakePosition { get { return HasComponent(CoreComponentIds.FakePosition); } }
+        public FakePositionComponent fakePosition { get { return (FakePositionComponent)GetComponent(GameComponentIds.FakePosition); } }
+        public bool hasFakePosition { get { return HasComponent(GameComponentIds.FakePosition); } }
 
         public Entity AddFakePosition(int newX, int newY) {
-            var component = CreateComponent<FakePositionComponent>(CoreComponentIds.FakePosition);
+            var component = CreateComponent<FakePositionComponent>(GameComponentIds.FakePosition);
             component.x = newX;
             component.y = newY;
-            return AddComponent(CoreComponentIds.FakePosition, component);
+            return AddComponent(GameComponentIds.FakePosition, component);
         }
 
         public Entity ReplaceFakePosition(int newX, int newY) {
-            var component = CreateComponent<FakePositionComponent>(CoreComponentIds.FakePosition);
+            var component = CreateComponent<FakePositionComponent>(GameComponentIds.FakePosition);
             component.x = newX;
             component.y = newY;
-            ReplaceComponent(CoreComponentIds.FakePosition, component);
+            ReplaceComponent(GameComponentIds.FakePosition, component);
             return this;
         }
 
         public Entity RemoveFakePosition() {
-            return RemoveComponent(CoreComponentIds.FakePosition);
+            return RemoveComponent(GameComponentIds.FakePosition);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherFakePosition;
 
         public static IMatcher FakePosition {
             get {
                 if(_matcherFakePosition == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.FakePosition);
-                    matcher.componentNames = CoreComponentIds.componentNames;
-                    _matcherFakePosition = matcher;
-                }
-
-                return _matcherFakePosition;
-            }
-        }
-    }
-
-    public partial class TilesMatcher {
-
-        static IMatcher _matcherFakePosition;
-
-        public static IMatcher FakePosition {
-            get {
-                if(_matcherFakePosition == null) {
-                    var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.FakePosition);
-                    matcher.componentNames = TilesComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.FakePosition);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherFakePosition = matcher;
                 }
 

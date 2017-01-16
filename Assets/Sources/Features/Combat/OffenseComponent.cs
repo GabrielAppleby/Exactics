@@ -2,7 +2,7 @@
 
 using Entitas;
 
-[Core]
+[Game]
 public class OffenseComponent : IComponent {
 	public int expertise;
 	public int accuracy;

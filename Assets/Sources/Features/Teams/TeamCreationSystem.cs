@@ -1,13 +1,9 @@
 ﻿using Entitas;
 using System;
 
-public sealed class TeamCreationSystem : ISetPool, IInitializeSystem {
+public sealed class TeamCreationSystem : IInitializeSystem {
 
-	Pool _pool;
-
-	public void SetPool(Pool pool) {
-		_pool = pool;
-	}
+	public TeamCreationSystem(Contexts contexts) {}
 
 	public void Initialize() {
 		//For loop up to 5 - number of team entities

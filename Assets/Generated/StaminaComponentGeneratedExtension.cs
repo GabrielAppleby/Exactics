@@ -12,37 +12,37 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public StaminaComponent stamina { get { return (StaminaComponent)GetComponent(CoreComponentIds.Stamina); } }
-        public bool hasStamina { get { return HasComponent(CoreComponentIds.Stamina); } }
+        public StaminaComponent stamina { get { return (StaminaComponent)GetComponent(GameComponentIds.Stamina); } }
+        public bool hasStamina { get { return HasComponent(GameComponentIds.Stamina); } }
 
         public Entity AddStamina(int newStamina) {
-            var component = CreateComponent<StaminaComponent>(CoreComponentIds.Stamina);
+            var component = CreateComponent<StaminaComponent>(GameComponentIds.Stamina);
             component.stamina = newStamina;
-            return AddComponent(CoreComponentIds.Stamina, component);
+            return AddComponent(GameComponentIds.Stamina, component);
         }
 
         public Entity ReplaceStamina(int newStamina) {
-            var component = CreateComponent<StaminaComponent>(CoreComponentIds.Stamina);
+            var component = CreateComponent<StaminaComponent>(GameComponentIds.Stamina);
             component.stamina = newStamina;
-            ReplaceComponent(CoreComponentIds.Stamina, component);
+            ReplaceComponent(GameComponentIds.Stamina, component);
             return this;
         }
 
         public Entity RemoveStamina() {
-            return RemoveComponent(CoreComponentIds.Stamina);
+            return RemoveComponent(GameComponentIds.Stamina);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherStamina;
 
         public static IMatcher Stamina {
             get {
                 if(_matcherStamina == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Stamina);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Stamina);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherStamina = matcher;
                 }
 

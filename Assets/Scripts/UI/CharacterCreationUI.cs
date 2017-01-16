@@ -3,23 +3,23 @@ using UnityEngine.UI;
 using Entitas;
 
 public sealed class CharacterCreationUI : MonoBehaviour {
-
-	Pool _pool;
+	
+	Context _context;
 	public Text label;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_context = Contexts.sharedInstance.game;
 	}
 		
 
 	public void HandleBackButtonClick() {
-		_pool.CreateEntity().AddScene("TeamCreation");
+		_context.CreateEntity().AddScene("TeamCreation");
 	}
 
 
 	public void HandleContinueButtonClick() {
 
-		//
+	
 	}
 
 }

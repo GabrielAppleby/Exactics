@@ -15,13 +15,13 @@ namespace Entitas {
         static readonly GameMapElementComponent gameMapElementComponent = new GameMapElementComponent();
 
         public bool isGameMapElement {
-            get { return HasComponent(CoreComponentIds.GameMapElement); }
+            get { return HasComponent(GameComponentIds.GameMapElement); }
             set {
                 if(value != isGameMapElement) {
                     if(value) {
-                        AddComponent(CoreComponentIds.GameMapElement, gameMapElementComponent);
+                        AddComponent(GameComponentIds.GameMapElement, gameMapElementComponent);
                     } else {
-                        RemoveComponent(CoreComponentIds.GameMapElement);
+                        RemoveComponent(GameComponentIds.GameMapElement);
                     }
                 }
             }
@@ -34,15 +34,15 @@ namespace Entitas {
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherGameMapElement;
 
         public static IMatcher GameMapElement {
             get {
                 if(_matcherGameMapElement == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameMapElement);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.GameMapElement);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherGameMapElement = matcher;
                 }
 

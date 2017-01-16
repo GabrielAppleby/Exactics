@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public sealed class SceneSystem : ISetPool, IReactiveSystem {
+public sealed class SceneSystem : ReactiveSystem {
 
-	Pool _pool;
+	public SceneSystem(Contexts contexts) : base(contexts.game) {}
 
-	public TriggerOnEvent trigger { get { return MenuMatcher.Scene.OnEntityAdded (); } }
-
-	public void SetPool(Pool pool) {
-		_pool = pool;
+	protected override Collector GetTrigger(Context context) {
+		return context.CreateCollector(GameMatcher.Scene, GroupEvent.Added);
 	}
 
-	public void Execute(List<Entity> entities) {
+	protected override bool Filter(Entity entity) {
+		return true;
+	}
+		
+	protected override void Execute(List<Entity> entities) {
 		SceneManager.LoadScene (entities.SingleEntity ().scene.sceneName);
 	}
 		

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CharactersMenuController : MenuController {
 
-	Systems createSystems(Pools pools) {
-		return base.createSystems (pools)
-			.Add(pools.menu.CreateSystem (new TeamCreationSystem ()));
+	Systems createSystems(Contexts contexts) {
+		return base.createSystems (contexts)
+			.Add(new TeamCreationSystem (contexts));
 	}
 }

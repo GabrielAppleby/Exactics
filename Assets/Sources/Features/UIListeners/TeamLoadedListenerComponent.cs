@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-[Menu]
+[Game]
 public class TeamLoadedListenerComponent : IComponent {
 	public ITeamLoadedListener listener;
 }

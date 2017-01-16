@@ -2,7 +2,7 @@
 
 using Entitas;
 
-[Core]
+[Game]
 public class MovementComponent : IComponent {
 	public int movement;
 	public int currentMovement;

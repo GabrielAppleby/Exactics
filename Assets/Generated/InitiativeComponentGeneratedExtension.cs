@@ -12,37 +12,37 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public InitiativeComponent initiative { get { return (InitiativeComponent)GetComponent(CoreComponentIds.Initiative); } }
-        public bool hasInitiative { get { return HasComponent(CoreComponentIds.Initiative); } }
+        public InitiativeComponent initiative { get { return (InitiativeComponent)GetComponent(GameComponentIds.Initiative); } }
+        public bool hasInitiative { get { return HasComponent(GameComponentIds.Initiative); } }
 
         public Entity AddInitiative(int newInitiative) {
-            var component = CreateComponent<InitiativeComponent>(CoreComponentIds.Initiative);
+            var component = CreateComponent<InitiativeComponent>(GameComponentIds.Initiative);
             component.initiative = newInitiative;
-            return AddComponent(CoreComponentIds.Initiative, component);
+            return AddComponent(GameComponentIds.Initiative, component);
         }
 
         public Entity ReplaceInitiative(int newInitiative) {
-            var component = CreateComponent<InitiativeComponent>(CoreComponentIds.Initiative);
+            var component = CreateComponent<InitiativeComponent>(GameComponentIds.Initiative);
             component.initiative = newInitiative;
-            ReplaceComponent(CoreComponentIds.Initiative, component);
+            ReplaceComponent(GameComponentIds.Initiative, component);
             return this;
         }
 
         public Entity RemoveInitiative() {
-            return RemoveComponent(CoreComponentIds.Initiative);
+            return RemoveComponent(GameComponentIds.Initiative);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherInitiative;
 
         public static IMatcher Initiative {
             get {
                 if(_matcherInitiative == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Initiative);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Initiative);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherInitiative = matcher;
                 }
 

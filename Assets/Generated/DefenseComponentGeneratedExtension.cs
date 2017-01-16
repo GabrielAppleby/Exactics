@@ -12,47 +12,47 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public DefenseComponent defense { get { return (DefenseComponent)GetComponent(CoreComponentIds.Defense); } }
-        public bool hasDefense { get { return HasComponent(CoreComponentIds.Defense); } }
+        public DefenseComponent defense { get { return (DefenseComponent)GetComponent(GameComponentIds.Defense); } }
+        public bool hasDefense { get { return HasComponent(GameComponentIds.Defense); } }
 
         public Entity AddDefense(int newDefense, int newHealth, int newCurrentHealth, int newFortitude, int newResistance, int newEvasion) {
-            var component = CreateComponent<DefenseComponent>(CoreComponentIds.Defense);
+            var component = CreateComponent<DefenseComponent>(GameComponentIds.Defense);
             component.defense = newDefense;
             component.health = newHealth;
             component.currentHealth = newCurrentHealth;
             component.fortitude = newFortitude;
             component.resistance = newResistance;
             component.evasion = newEvasion;
-            return AddComponent(CoreComponentIds.Defense, component);
+            return AddComponent(GameComponentIds.Defense, component);
         }
 
         public Entity ReplaceDefense(int newDefense, int newHealth, int newCurrentHealth, int newFortitude, int newResistance, int newEvasion) {
-            var component = CreateComponent<DefenseComponent>(CoreComponentIds.Defense);
+            var component = CreateComponent<DefenseComponent>(GameComponentIds.Defense);
             component.defense = newDefense;
             component.health = newHealth;
             component.currentHealth = newCurrentHealth;
             component.fortitude = newFortitude;
             component.resistance = newResistance;
             component.evasion = newEvasion;
-            ReplaceComponent(CoreComponentIds.Defense, component);
+            ReplaceComponent(GameComponentIds.Defense, component);
             return this;
         }
 
         public Entity RemoveDefense() {
-            return RemoveComponent(CoreComponentIds.Defense);
+            return RemoveComponent(GameComponentIds.Defense);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherDefense;
 
         public static IMatcher Defense {
             get {
                 if(_matcherDefense == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Defense);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Defense);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherDefense = matcher;
                 }
 

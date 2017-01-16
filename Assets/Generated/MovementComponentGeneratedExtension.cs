@@ -12,39 +12,39 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public MovementComponent movement { get { return (MovementComponent)GetComponent(CoreComponentIds.Movement); } }
-        public bool hasMovement { get { return HasComponent(CoreComponentIds.Movement); } }
+        public MovementComponent movement { get { return (MovementComponent)GetComponent(GameComponentIds.Movement); } }
+        public bool hasMovement { get { return HasComponent(GameComponentIds.Movement); } }
 
         public Entity AddMovement(int newMovement, int newCurrentMovement) {
-            var component = CreateComponent<MovementComponent>(CoreComponentIds.Movement);
+            var component = CreateComponent<MovementComponent>(GameComponentIds.Movement);
             component.movement = newMovement;
             component.currentMovement = newCurrentMovement;
-            return AddComponent(CoreComponentIds.Movement, component);
+            return AddComponent(GameComponentIds.Movement, component);
         }
 
         public Entity ReplaceMovement(int newMovement, int newCurrentMovement) {
-            var component = CreateComponent<MovementComponent>(CoreComponentIds.Movement);
+            var component = CreateComponent<MovementComponent>(GameComponentIds.Movement);
             component.movement = newMovement;
             component.currentMovement = newCurrentMovement;
-            ReplaceComponent(CoreComponentIds.Movement, component);
+            ReplaceComponent(GameComponentIds.Movement, component);
             return this;
         }
 
         public Entity RemoveMovement() {
-            return RemoveComponent(CoreComponentIds.Movement);
+            return RemoveComponent(GameComponentIds.Movement);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherMovement;
 
         public static IMatcher Movement {
             get {
                 if(_matcherMovement == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Movement);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Movement);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherMovement = matcher;
                 }
 

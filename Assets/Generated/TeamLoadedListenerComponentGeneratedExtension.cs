@@ -12,37 +12,37 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public TeamLoadedListenerComponent teamLoadedListener { get { return (TeamLoadedListenerComponent)GetComponent(MenuComponentIds.TeamLoadedListener); } }
-        public bool hasTeamLoadedListener { get { return HasComponent(MenuComponentIds.TeamLoadedListener); } }
+        public TeamLoadedListenerComponent teamLoadedListener { get { return (TeamLoadedListenerComponent)GetComponent(GameComponentIds.TeamLoadedListener); } }
+        public bool hasTeamLoadedListener { get { return HasComponent(GameComponentIds.TeamLoadedListener); } }
 
         public Entity AddTeamLoadedListener(ITeamLoadedListener newListener) {
-            var component = CreateComponent<TeamLoadedListenerComponent>(MenuComponentIds.TeamLoadedListener);
+            var component = CreateComponent<TeamLoadedListenerComponent>(GameComponentIds.TeamLoadedListener);
             component.listener = newListener;
-            return AddComponent(MenuComponentIds.TeamLoadedListener, component);
+            return AddComponent(GameComponentIds.TeamLoadedListener, component);
         }
 
         public Entity ReplaceTeamLoadedListener(ITeamLoadedListener newListener) {
-            var component = CreateComponent<TeamLoadedListenerComponent>(MenuComponentIds.TeamLoadedListener);
+            var component = CreateComponent<TeamLoadedListenerComponent>(GameComponentIds.TeamLoadedListener);
             component.listener = newListener;
-            ReplaceComponent(MenuComponentIds.TeamLoadedListener, component);
+            ReplaceComponent(GameComponentIds.TeamLoadedListener, component);
             return this;
         }
 
         public Entity RemoveTeamLoadedListener() {
-            return RemoveComponent(MenuComponentIds.TeamLoadedListener);
+            return RemoveComponent(GameComponentIds.TeamLoadedListener);
         }
     }
 }
 
-    public partial class MenuMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherTeamLoadedListener;
 
         public static IMatcher TeamLoadedListener {
             get {
                 if(_matcherTeamLoadedListener == null) {
-                    var matcher = (Matcher)Matcher.AllOf(MenuComponentIds.TeamLoadedListener);
-                    matcher.componentNames = MenuComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.TeamLoadedListener);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherTeamLoadedListener = matcher;
                 }
 

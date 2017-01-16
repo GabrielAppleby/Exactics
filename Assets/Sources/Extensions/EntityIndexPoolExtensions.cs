@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
@@ -23,4 +23,4 @@ public static class EntityIndexPoolExtensions {
 		var index = (EntityIndex<string>)pool.GetEntityIndex(CoreComponentIds.Position.ToString());
 		return index.GetEntities(x + "," + y);
 	}
-}
+}*/
