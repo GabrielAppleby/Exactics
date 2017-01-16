@@ -12,37 +12,37 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public ManaComponent mana { get { return (ManaComponent)GetComponent(CoreComponentIds.Mana); } }
-        public bool hasMana { get { return HasComponent(CoreComponentIds.Mana); } }
+        public ManaComponent mana { get { return (ManaComponent)GetComponent(GameComponentIds.Mana); } }
+        public bool hasMana { get { return HasComponent(GameComponentIds.Mana); } }
 
         public Entity AddMana(int newMana) {
-            var component = CreateComponent<ManaComponent>(CoreComponentIds.Mana);
+            var component = CreateComponent<ManaComponent>(GameComponentIds.Mana);
             component.mana = newMana;
-            return AddComponent(CoreComponentIds.Mana, component);
+            return AddComponent(GameComponentIds.Mana, component);
         }
 
         public Entity ReplaceMana(int newMana) {
-            var component = CreateComponent<ManaComponent>(CoreComponentIds.Mana);
+            var component = CreateComponent<ManaComponent>(GameComponentIds.Mana);
             component.mana = newMana;
-            ReplaceComponent(CoreComponentIds.Mana, component);
+            ReplaceComponent(GameComponentIds.Mana, component);
             return this;
         }
 
         public Entity RemoveMana() {
-            return RemoveComponent(CoreComponentIds.Mana);
+            return RemoveComponent(GameComponentIds.Mana);
         }
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherMana;
 
         public static IMatcher Mana {
             get {
                 if(_matcherMana == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Mana);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Mana);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherMana = matcher;
                 }
 

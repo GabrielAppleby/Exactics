@@ -3,11 +3,11 @@ using Entitas;
 using System.Collections.Generic;
 using System;
 
-public sealed class CreateGameMapSystem : IInitializeSystem, ISetPool {
-	Pool _pool;
+public sealed class CreateGameMapSystem : IInitializeSystem {
+	Context _context;
 
-	public void SetPool(Pool pool) {
-		_pool = pool;
+	public CreateGameMapSystem(Contexts contexts) {
+		_context = contexts.game;
 	}
 
 	public void Initialize() {
@@ -40,7 +40,7 @@ public sealed class CreateGameMapSystem : IInitializeSystem, ISetPool {
 		int numTilesHigh = tileMap.NumTilesHigh;
 
 		//Sets the rows and columns of the game map component
-		_pool.SetGameMap(numTilesWide, numTilesHigh);
+		_context.SetGameMap(numTilesWide, numTilesHigh);
 
 		//Fake x and y coordinates initialized to -1, because incremented at start of loop to solve a fence post
 		int x = -1;
@@ -57,7 +57,7 @@ public sealed class CreateGameMapSystem : IInitializeSystem, ISetPool {
 					impassable = false;
 				}
 				foreach (Transform nestedChild in child) {
-					tileEntity = _pool.CreateEntity ()
+					tileEntity = _context.CreateEntity ()
 						.AddPosition (nestedChild.position.x, nestedChild.position.y)
 						.IsGameMapElement (true)
 						.IsInteractive (true)

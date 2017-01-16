@@ -1,15 +1,17 @@
 ﻿using Entitas;
 using UnityEngine;
 
-public sealed class InputSystem : ISetPool, IExecuteSystem, ICleanupSystem {
+public sealed class InputSystem : IExecuteSystem, ICleanupSystem {
 
-	Pool _pool;
+	Context _context;
 	Group _inputs;
 
-	public void SetPool(Pool pool) {
-		_pool = pool;
-		_inputs = pool.GetGroup(InputMatcher.Input);
+
+	public InputSystem(Contexts contexts) {
+		_context = contexts.input;
+		_inputs = _context.GetGroup(InputMatcher.Input);
 	}
+		
 
 	public void Execute() {
 		bool input = Input.GetMouseButtonDown(0);
@@ -17,7 +19,7 @@ public sealed class InputSystem : ISetPool, IExecuteSystem, ICleanupSystem {
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100);
 			if (hit.collider != null) {
 				Vector3 pos = hit.collider.transform.position;
-				_pool.CreateEntity ()
+				_context.CreateEntity ()
 				.AddInput (pos.x, pos.y);
 			}
 		}
@@ -25,7 +27,7 @@ public sealed class InputSystem : ISetPool, IExecuteSystem, ICleanupSystem {
 
 	public void Cleanup() {
 		foreach(Entity e in _inputs.GetEntities()) {
-			_pool.DestroyEntity(e);
+			_context.DestroyEntity(e);
 		}
 	}
 }

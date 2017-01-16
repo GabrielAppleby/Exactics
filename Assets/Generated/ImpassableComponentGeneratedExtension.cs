@@ -15,13 +15,13 @@ namespace Entitas {
         static readonly ImpassableComponent impassableComponent = new ImpassableComponent();
 
         public bool isImpassable {
-            get { return HasComponent(CoreComponentIds.Impassable); }
+            get { return HasComponent(GameComponentIds.Impassable); }
             set {
                 if(value != isImpassable) {
                     if(value) {
-                        AddComponent(CoreComponentIds.Impassable, impassableComponent);
+                        AddComponent(GameComponentIds.Impassable, impassableComponent);
                     } else {
-                        RemoveComponent(CoreComponentIds.Impassable);
+                        RemoveComponent(GameComponentIds.Impassable);
                     }
                 }
             }
@@ -34,15 +34,15 @@ namespace Entitas {
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherImpassable;
 
         public static IMatcher Impassable {
             get {
                 if(_matcherImpassable == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.Impassable);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Impassable);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherImpassable = matcher;
                 }
 

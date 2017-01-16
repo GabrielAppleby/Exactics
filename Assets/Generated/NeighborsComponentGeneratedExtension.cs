@@ -12,37 +12,37 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public NeighborsComponent neighbors { get { return (NeighborsComponent)GetComponent(TilesComponentIds.Neighbors); } }
-        public bool hasNeighbors { get { return HasComponent(TilesComponentIds.Neighbors); } }
+        public NeighborsComponent neighbors { get { return (NeighborsComponent)GetComponent(GameComponentIds.Neighbors); } }
+        public bool hasNeighbors { get { return HasComponent(GameComponentIds.Neighbors); } }
 
         public Entity AddNeighbors(Entitas.Entity[] newNeighbors) {
-            var component = CreateComponent<NeighborsComponent>(TilesComponentIds.Neighbors);
+            var component = CreateComponent<NeighborsComponent>(GameComponentIds.Neighbors);
             component.neighbors = newNeighbors;
-            return AddComponent(TilesComponentIds.Neighbors, component);
+            return AddComponent(GameComponentIds.Neighbors, component);
         }
 
         public Entity ReplaceNeighbors(Entitas.Entity[] newNeighbors) {
-            var component = CreateComponent<NeighborsComponent>(TilesComponentIds.Neighbors);
+            var component = CreateComponent<NeighborsComponent>(GameComponentIds.Neighbors);
             component.neighbors = newNeighbors;
-            ReplaceComponent(TilesComponentIds.Neighbors, component);
+            ReplaceComponent(GameComponentIds.Neighbors, component);
             return this;
         }
 
         public Entity RemoveNeighbors() {
-            return RemoveComponent(TilesComponentIds.Neighbors);
+            return RemoveComponent(GameComponentIds.Neighbors);
         }
     }
 }
 
-    public partial class TilesMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherNeighbors;
 
         public static IMatcher Neighbors {
             get {
                 if(_matcherNeighbors == null) {
-                    var matcher = (Matcher)Matcher.AllOf(TilesComponentIds.Neighbors);
-                    matcher.componentNames = TilesComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Neighbors);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherNeighbors = matcher;
                 }
 

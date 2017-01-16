@@ -2,7 +2,7 @@
 
 using Entitas;
 
-[Core]
+[Game]
 public class StaminaComponent : IComponent {
 	public int stamina;
 }

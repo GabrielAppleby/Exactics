@@ -12,37 +12,37 @@ namespace Entitas {
 
     public partial class Entity {
 
-        public SceneComponent scene { get { return (SceneComponent)GetComponent(MenuComponentIds.Scene); } }
-        public bool hasScene { get { return HasComponent(MenuComponentIds.Scene); } }
+        public SceneComponent scene { get { return (SceneComponent)GetComponent(GameComponentIds.Scene); } }
+        public bool hasScene { get { return HasComponent(GameComponentIds.Scene); } }
 
         public Entity AddScene(string newSceneName) {
-            var component = CreateComponent<SceneComponent>(MenuComponentIds.Scene);
+            var component = CreateComponent<SceneComponent>(GameComponentIds.Scene);
             component.sceneName = newSceneName;
-            return AddComponent(MenuComponentIds.Scene, component);
+            return AddComponent(GameComponentIds.Scene, component);
         }
 
         public Entity ReplaceScene(string newSceneName) {
-            var component = CreateComponent<SceneComponent>(MenuComponentIds.Scene);
+            var component = CreateComponent<SceneComponent>(GameComponentIds.Scene);
             component.sceneName = newSceneName;
-            ReplaceComponent(MenuComponentIds.Scene, component);
+            ReplaceComponent(GameComponentIds.Scene, component);
             return this;
         }
 
         public Entity RemoveScene() {
-            return RemoveComponent(MenuComponentIds.Scene);
+            return RemoveComponent(GameComponentIds.Scene);
         }
     }
 
-    public partial class Pool {
+    public partial class Context {
 
-        public Entity sceneEntity { get { return GetGroup(MenuMatcher.Scene).GetSingleEntity(); } }
+        public Entity sceneEntity { get { return GetGroup(GameMatcher.Scene).GetSingleEntity(); } }
         public SceneComponent scene { get { return sceneEntity.scene; } }
         public bool hasScene { get { return sceneEntity != null; } }
 
         public Entity SetScene(string newSceneName) {
             if(hasScene) {
                 throw new EntitasException("Could not set scene!\n" + this + " already has an entity with SceneComponent!",
-                    "You should check if the pool already has a sceneEntity before setting it or use pool.ReplaceScene().");
+                    "You should check if the context already has a sceneEntity before setting it or use context.ReplaceScene().");
             }
             var entity = CreateEntity();
             entity.AddScene(newSceneName);
@@ -66,15 +66,15 @@ namespace Entitas {
     }
 }
 
-    public partial class MenuMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherScene;
 
         public static IMatcher Scene {
             get {
                 if(_matcherScene == null) {
-                    var matcher = (Matcher)Matcher.AllOf(MenuComponentIds.Scene);
-                    matcher.componentNames = MenuComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.Scene);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherScene = matcher;
                 }
 

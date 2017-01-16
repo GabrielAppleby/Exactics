@@ -15,13 +15,13 @@ namespace Entitas {
         static readonly GameEndComponent gameEndComponent = new GameEndComponent();
 
         public bool isGameEnd {
-            get { return HasComponent(CoreComponentIds.GameEnd); }
+            get { return HasComponent(GameComponentIds.GameEnd); }
             set {
                 if(value != isGameEnd) {
                     if(value) {
-                        AddComponent(CoreComponentIds.GameEnd, gameEndComponent);
+                        AddComponent(GameComponentIds.GameEnd, gameEndComponent);
                     } else {
-                        RemoveComponent(CoreComponentIds.GameEnd);
+                        RemoveComponent(GameComponentIds.GameEnd);
                     }
                 }
             }
@@ -33,9 +33,9 @@ namespace Entitas {
         }
     }
 
-    public partial class Pool {
+    public partial class Context {
 
-        public Entity gameEndEntity { get { return GetGroup(CoreMatcher.GameEnd).GetSingleEntity(); } }
+        public Entity gameEndEntity { get { return GetGroup(GameMatcher.GameEnd).GetSingleEntity(); } }
 
         public bool isGameEnd {
             get { return gameEndEntity != null; }
@@ -53,15 +53,15 @@ namespace Entitas {
     }
 }
 
-    public partial class CoreMatcher {
+    public partial class GameMatcher {
 
         static IMatcher _matcherGameEnd;
 
         public static IMatcher GameEnd {
             get {
                 if(_matcherGameEnd == null) {
-                    var matcher = (Matcher)Matcher.AllOf(CoreComponentIds.GameEnd);
-                    matcher.componentNames = CoreComponentIds.componentNames;
+                    var matcher = (Matcher)Matcher.AllOf(GameComponentIds.GameEnd);
+                    matcher.componentNames = GameComponentIds.componentNames;
                     _matcherGameEnd = matcher;
                 }
 

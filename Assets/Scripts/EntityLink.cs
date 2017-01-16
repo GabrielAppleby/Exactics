@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using Entitas;
 using System;
 
@@ -50,4 +50,4 @@ public static class EntityLinkExtension {
 	public static void Unlink(this GameObject gameObject) {
 		gameObject.GetEntityLink().Unlink();
 	}
-}
+}*/

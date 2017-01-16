@@ -1,7 +1,7 @@
 ﻿
 using Entitas;
 
-[Core]
+[Game]
 public sealed class SelectedComponent : IComponent {
 
 }

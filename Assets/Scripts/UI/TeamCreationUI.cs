@@ -4,19 +4,19 @@ using Entitas;
 
 public sealed class TeamCreationUI : MonoBehaviour {
 
-	Pool _pool;
+	Context _context;
 	public Text label;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_context = Contexts.sharedInstance.game;
 	}
 
 	public void HandleCharacterButtonClick() {
-		_pool.CreateEntity().AddScene("CharacterCreation");
+		_context.CreateEntity().AddScene("CharacterCreation");
 	}
 
 	public void HandleBackButtonClick() {
-		_pool.CreateEntity().AddScene("TeamCreationPicker");
+		_context.CreateEntity().AddScene("TeamCreationPicker");
 	}
 
 

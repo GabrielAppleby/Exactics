@@ -4,15 +4,15 @@ using Entitas;
 
 public sealed class TeamPickerUI : MonoBehaviour {
 
-	Pool _pool;
+	Context _context;
 
 	public void Start() {
-		_pool = Pools.sharedInstance.menu;
+		_context = Contexts.sharedInstance.game;
 	}
 
 
 	public void HandleBackButtonClick() {
-		_pool.CreateEntity().AddScene("MainMenu");
+		_context.CreateEntity().AddScene("MainMenu");
 	}
 
 }

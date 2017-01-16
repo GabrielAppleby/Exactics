@@ -2,7 +2,7 @@
 using Entitas;
 using System;
 
-[Menu, Serializable]
+[Game, Serializable]
 public sealed class TeamMenuComponent : IComponent {
 	public int number;
 	public string name;

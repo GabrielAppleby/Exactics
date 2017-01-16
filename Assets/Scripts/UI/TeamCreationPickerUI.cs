@@ -4,13 +4,13 @@ using Entitas;
 
 public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 
-	Pool _pool;
+	Context _context;
 	string _name;
 
 	public void Start() {
 		_name = this.name;
-		_pool = Pools.sharedInstance.menu;
-		_pool.CreateEntity ()
+		_context = Contexts.sharedInstance.game;
+		_context.CreateEntity ()
 			.AddTeamLoadedListener (this);
 	}
 
@@ -53,11 +53,11 @@ public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 	}
 
 	public void HandleBackButtonClick() {
-		_pool.CreateEntity().AddScene("MainMenu");
+		_context.CreateEntity().AddScene("MainMenu");
 	}
 
 	public void HandleTeamButtonClick() {
-		_pool.CreateEntity().AddScene("TeamCreation");
+		_context.CreateEntity().AddScene("TeamCreation");
 	}
 
 }
