@@ -20,25 +20,25 @@ namespace Entitas.Unity.VisualDebugging {
         public static Dictionary<string, int> GetStats() {
             var types = Assembly.GetAssembly(typeof(Entity)).GetTypes();
             var components = types.Where(type => type.ImplementsInterface<IComponent>()).ToArray();
-            var contexts = getContexts(components);
+            var pools = getPools(components);
 
             var stats = new Dictionary<string, int> {
                 { "Total Components", components.Length },
                 { "Systems", types.Count(implementsSystem) }
             };
 
-            foreach(var context in contexts) {
-                stats.Add("Components in " + context.Key, context.Value);
+            foreach(var pool in pools) {
+                stats.Add("Components in " + pool.Key, pool.Value);
             }
 
             return stats;
         }
 
-        static Dictionary<string, int> getContexts(Type[] components) {
+        static Dictionary<string, int> getPools(Type[] components) {
             return components.Aggregate(new Dictionary<string, int>(), (lookups, type) => {
-                var lookupTags = TypeReflectionProvider.GetContexts(type, false);
+                var lookupTags = TypeReflectionProvider.GetPools(type, false);
                 if(lookupTags.Length == 0) {
-                    lookupTags = new [] { "Context" };
+                    lookupTags = new [] { "Pool" };
                 }
                 foreach(var lookupTag in lookupTags) {
                     if(!lookups.ContainsKey(lookupTag)) {

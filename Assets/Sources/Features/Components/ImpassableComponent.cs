@@ -1,4 +1,4 @@
-using Entitas;
+﻿using Entitas;
 
 [Core]
 public class ImpassableComponent : IComponent {

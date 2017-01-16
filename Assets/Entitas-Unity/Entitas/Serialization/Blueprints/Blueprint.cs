@@ -5,15 +5,15 @@ namespace Entitas.Serialization.Blueprints {
     [Serializable]
     public class Blueprint {
 
-        public string contextIdentifier;
+        public string poolIdentifier;
         public string name;
         public ComponentBlueprint[] components;
 
         public Blueprint() {
         }
 
-        public Blueprint(string contextIdentifier, string name, Entity entity) {
-            this.contextIdentifier = contextIdentifier;
+        public Blueprint(string poolIdentifier, string name, Entity entity) {
+            this.poolIdentifier = poolIdentifier;
             this.name = name;
 
             var allComponents = entity.GetComponents();

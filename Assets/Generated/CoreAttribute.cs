@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 using Entitas.CodeGenerator;
 
-public class CoreAttribute : ContextAttribute {
+public class CoreAttribute : PoolAttribute {
 
     public CoreAttribute() : base("Core") {
     }

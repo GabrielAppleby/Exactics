@@ -4,8 +4,7 @@ namespace Entitas {
 
     /// Systems provide a convenient way to group systems.
     /// You can add IInitializeSystem, IExecuteSystem, ICleanupSystem,
-    /// ITearDownSystem, ReactiveS
-    /// ystem and other nested Systems instances.
+    /// ITearDownSystem, ReactiveSystem and other nested Systems instances.
     /// All systems will be initialized and executed based on the order
     /// you added them.
     public class Systems : IInitializeSystem, IExecuteSystem,
@@ -26,7 +25,12 @@ namespace Entitas {
 
         /// Adds the system instance to the systems list.
         public virtual Systems Add(ISystem system) {
-            var initializeSystem = system as IInitializeSystem;
+            var reactiveSystem = system as ReactiveSystem;
+
+            var initializeSystem = reactiveSystem != null
+                ? reactiveSystem.subsystem as IInitializeSystem
+                : system as IInitializeSystem;
+
             if(initializeSystem != null) {
                 _initializeSystems.Add(initializeSystem);
             }
@@ -36,12 +40,18 @@ namespace Entitas {
                 _executeSystems.Add(executeSystem);
             }
 
-            var cleanupSystem = system as ICleanupSystem;
+            var cleanupSystem = reactiveSystem != null
+                ? reactiveSystem.subsystem as ICleanupSystem
+                : system as ICleanupSystem;
+
             if(cleanupSystem != null) {
                 _cleanupSystems.Add(cleanupSystem);
             }
 
-            var tearDownSystem = system as ITearDownSystem;
+            var tearDownSystem = reactiveSystem != null
+                ? reactiveSystem.subsystem as ITearDownSystem
+                : system as ITearDownSystem;
+
             if(tearDownSystem != null) {
                 _tearDownSystems.Add(tearDownSystem);
             }
@@ -49,15 +59,15 @@ namespace Entitas {
             return this;
         }
 
-        /// Calls Initialize() on all IInitializeSystem and other
-        /// nested Systems instances in the order you added them.
+        /// Calls Initialize() on all IInitializeSystem, ReactiveSystem and
+        /// other nested Systems instances in the order you added them.
         public virtual void Initialize() {
             for (int i = 0; i < _initializeSystems.Count; i++) {
                 _initializeSystems[i].Initialize();
             }
         }
 
-        /// Calls Execute() on all IExecuteSystem and other
+        /// Calls Execute() on all IExecuteSystem, ReactiveSystem and other
         /// nested Systems instances in the order you added them.
         public virtual void Execute() {
             for (int i = 0; i < _executeSystems.Count; i++) {
@@ -65,7 +75,7 @@ namespace Entitas {
             }
         }
 
-        /// Calls Cleanup() on all ICleanupSystem and other
+        /// Calls Cleanup() on all ICleanupSystem, ReactiveSystem and other
         /// nested Systems instances in the order you added them.
         public virtual void Cleanup() {
             for (int i = 0; i < _cleanupSystems.Count; i++) {
@@ -73,7 +83,7 @@ namespace Entitas {
             }
         }
 
-        /// Calls TearDown() on all ITearDownSystem  and other
+        /// Calls TearDown() on all ITearDownSystem, ReactiveSystem and other
         /// nested Systems instances in the order you added them.
         public virtual void TearDown() {
             for (int i = 0; i < _tearDownSystems.Count; i++) {

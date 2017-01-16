@@ -4,11 +4,11 @@ using Entitas;
 
 public sealed class TeamCreationUI : MonoBehaviour {
 
-	Context _pool;
+	Pool _pool;
 	public Text label;
 
 	public void Start() {
-		_pool = Contexts.sharedInstance.menu;
+		_pool = Pools.sharedInstance.menu;
 	}
 
 	public void HandleCharacterButtonClick() {

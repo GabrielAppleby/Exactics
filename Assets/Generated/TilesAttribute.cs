@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 using Entitas.CodeGenerator;
 
-public class TilesAttribute : ContextAttribute {
+public class TilesAttribute : PoolAttribute {
 
     public TilesAttribute() : base("Tiles") {
     }

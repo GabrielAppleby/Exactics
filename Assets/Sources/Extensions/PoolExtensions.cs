@@ -1,11 +1,11 @@
-using Entitas;
+﻿using Entitas;
 using UnityEngine;
 
 public static class PoolExtensions {
 
 
-	/*public static Entity CreateRandomPiece(this Context Context, int x, int y) {
-		return Context.CreateEntity()
+	/*public static Entity CreateRandomPiece(this Pool pool, int x, int y) {
+		return pool.CreateEntity()
 			.IsGameBoardElement(true)
 			.AddPosition(x, y)
 			.IsMovable(true)

@@ -2,11 +2,11 @@ namespace Entitas {
 
     public static class GroupExtension {
 
-        /// Creates an Collector for this group.
-        public static Collector CreateCollector(
+        /// Creates an EntityCollector for this group.
+        public static EntityCollector CreateCollector(
             this Group group,
-            GroupEvent groupEvent = GroupEvent.Added) {
-            return new Collector(group, groupEvent);
+            GroupEventType eventType = GroupEventType.OnEntityAdded) {
+            return new EntityCollector(group, eventType);
         }
     }
 }

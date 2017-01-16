@@ -68,9 +68,9 @@ namespace Entitas.Unity {
         }
 
         public static string GetLocalVersion() {
-            var files = Directory.GetFiles(Application.dataPath, "version", SearchOption.AllDirectories);
+            var files = Directory.GetFiles(Application.dataPath, "entitas_version", SearchOption.AllDirectories);
             if(files.Length != 1) {
-                Debug.Log("Couldn't locate version file");
+                Debug.Log("Couldn't locate file entitas_version");
                 return "0.0.0";
             }
 

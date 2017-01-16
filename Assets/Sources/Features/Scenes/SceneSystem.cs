@@ -1,32 +1,18 @@
-using Entitas;
+﻿using Entitas;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public sealed class SceneSystem : ReactiveSystem {
+public sealed class SceneSystem : ISetPool, IReactiveSystem {
 
-	Context _pool;
+	Pool _pool;
 
-	public SceneSystem(Context context) : base(context) {
+	public TriggerOnEvent trigger { get { return MenuMatcher.Scene.OnEntityAdded (); } }
 
-    }
-
-    protected override Collector GetTrigger(Context context) {
-        return context.CreateCollector(MenuMatcher.Scene);
-    }
-
-    protected override bool Filter(Entity entity) {
-        // TODO Entitas 0.36.0 Migration
-        // ensure was: 
-        // exclude was: 
-
-        return true;
-    }
-
-	public void SetPool(Context Context) {
-		_pool = Context;
+	public void SetPool(Pool pool) {
+		_pool = pool;
 	}
 
-	protected override void Execute(List<Entity> entities) {
+	public void Execute(List<Entity> entities) {
 		SceneManager.LoadScene (entities.SingleEntity ().scene.sceneName);
 	}
 		

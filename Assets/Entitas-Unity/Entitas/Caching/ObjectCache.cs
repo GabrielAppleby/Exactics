@@ -5,7 +5,7 @@ namespace Entitas {
 
     public class ObjectCache {
 
-        readonly Dictionary<Type, object> _objectPools;
+        Dictionary<Type, object> _objectPools;
 
         public ObjectCache() {
             _objectPools = new Dictionary<Type, object>();

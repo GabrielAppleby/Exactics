@@ -6,21 +6,21 @@ namespace Entitas.Unity.VisualDebugging {
     [InitializeOnLoad]
     public static class EntitasHierarchyIcon {
 
-        static Texture2D contextHierarchyIcon {
+        static Texture2D poolHierarchyIcon {
             get {
-                if(_contextHierarchyIcon == null) {
-                    _contextHierarchyIcon = EntitasEditorLayout.LoadTexture("l:EntitasContextHierarchyIcon");
+                if(_poolHierarchyIcon == null) {
+                    _poolHierarchyIcon = EntitasEditorLayout.LoadTexture("l:EntitasPoolHierarchyIcon");
                 }
-                return _contextHierarchyIcon;
+                return _poolHierarchyIcon;
             }
         }
 
-        static Texture2D contextErrorHierarchyIcon {
+        static Texture2D poolErrorHierarchyIcon {
             get {
-                if(_contextErrorHierarchyIcon == null) {
-                    _contextErrorHierarchyIcon = EntitasEditorLayout.LoadTexture("l:EntitasContextErrorHierarchyIcon");
+                if(_poolErrorHierarchyIcon == null) {
+                    _poolErrorHierarchyIcon = EntitasEditorLayout.LoadTexture("l:EntitasPoolErrorHierarchyIcon");
                 }
-                return _contextErrorHierarchyIcon;
+                return _poolErrorHierarchyIcon;
             }
         }
 
@@ -51,8 +51,8 @@ namespace Entitas.Unity.VisualDebugging {
             }
         }
 
-        static Texture2D _contextHierarchyIcon;
-        static Texture2D _contextErrorHierarchyIcon;
+        static Texture2D _poolHierarchyIcon;
+        static Texture2D _poolErrorHierarchyIcon;
         static Texture2D _entityHierarchyIcon;
         static Texture2D _entityErrorHierarchyIcon;
         static Texture2D _systemsHierarchyIcon;
@@ -68,15 +68,15 @@ namespace Entitas.Unity.VisualDebugging {
                 const float iconOffset = iconSize + 2f;
                 var rect = new Rect(selectionRect.x + selectionRect.width - iconOffset, selectionRect.y, iconSize, iconSize);
 
-                var contextObserver = gameObject.GetComponent<ContextObserverBehaviour>();
+                var poolObserver = gameObject.GetComponent<PoolObserverBehaviour>();
                 var entityBehaviour = gameObject.GetComponent<EntityBehaviour>();
                 var debugSystemsBehaviour = gameObject.GetComponent<DebugSystemsBehaviour>();
 
-                if(contextObserver != null) {
-                    if(contextObserver.contextObserver.context.retainedEntitiesCount != 0) {
-                        GUI.DrawTexture(rect, contextErrorHierarchyIcon);
+                if(poolObserver != null) {
+                    if(poolObserver.poolObserver.pool.retainedEntitiesCount != 0) {
+                        GUI.DrawTexture(rect, poolErrorHierarchyIcon);
                     } else {
-                        GUI.DrawTexture(rect, contextHierarchyIcon);
+                        GUI.DrawTexture(rect, poolHierarchyIcon);
                     }
                 } else if(entityBehaviour != null) {
                     if(entityBehaviour.entity.isEnabled) {

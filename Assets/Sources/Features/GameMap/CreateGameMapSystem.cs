@@ -1,13 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Entitas;
 using System.Collections.Generic;
 using System;
 
-public sealed class CreateGameMapSystem : IInitializeSystem {
-	Context _pool;
+public sealed class CreateGameMapSystem : IInitializeSystem, ISetPool {
+	Pool _pool;
 
-	public void SetPool(Context Context) {
-		_pool = Context;
+	public void SetPool(Pool pool) {
+		_pool = pool;
 	}
 
 	public void Initialize() {

@@ -5,15 +5,15 @@ namespace Entitas.Unity.VisualDebugging {
     [ExecuteInEditMode]
     public class EntityBehaviour : MonoBehaviour {
 
-        public Context context { get { return _context; } }
+        public Pool pool { get { return _pool; } }
         public Entity entity { get { return _entity; } }
 
-        Context _context;
+        Pool _pool;
         Entity _entity;
         string _cachedName;
 
-        public void Init(Context context, Entity entity) {
-            _context = context;
+        public void Init(Pool pool, Entity entity) {
+            _pool = pool;
             _entity = entity;
             _entity.OnEntityReleased += onEntityReleased;
             Update();

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 using Entitas.CodeGenerator;
 
-public class UIAttribute : ContextAttribute {
+public class UIAttribute : PoolAttribute {
 
     public UIAttribute() : base("UI") {
     }
