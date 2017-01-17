@@ -19,37 +19,7 @@ public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 //  AFTER PROTOTYPE UI WILL BE GENERATED
 //  IN A SYSTEM AND THIS PROBLEM WON'T EXIST
 	public void TeamLoaded(Entity entity) {
-		switch (entity.teamMenu.number) {
-		case 1:
-			if (_name == "TeamOne") {
-				this.gameObject.GetComponentInChildren<Text> ().text = entity.teamMenu.name;
-			}
-			break;
-		case 2:
-			if (_name == "TeamTwo") {
-				this.gameObject.GetComponentInChildren<Text> ().text = entity.teamMenu.name;
-			}
-			break;
-		case 3:
-			if (_name == "TeamThree") {
-				this.gameObject.GetComponentInChildren<Text> ().text = entity.teamMenu.name;
-			}
-			break;
-		case 4:
-			if (_name == "TeamFour") {
-				this.gameObject.GetComponentInChildren<Text> ().text = entity.teamMenu.name;
-			}
-			break;
-		case 5:
-			if (_name == "TeamFive") {
-				this.gameObject.GetComponentInChildren<Text> ().text = entity.teamMenu.name;
-			}
-			break;
-		default:
-			Debug.Log ("Something wrong with the Team Loaded function on line 30");
-			break;
-		}
-			
+		
 	}
 
 	public void HandleBackButtonClick() {
@@ -57,6 +27,7 @@ public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 	}
 
 	public void HandleTeamButtonClick() {
+		_context.CreateEntity ().AddName (_name).AddTeamCharacters(new string[5]);
 		_context.CreateEntity().AddScene("TeamCreation");
 	}
 

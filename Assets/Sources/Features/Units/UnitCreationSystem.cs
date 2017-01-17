@@ -2,11 +2,11 @@
 
 public sealed class UnitCreationSystem : IInitializeSystem {
 
-	Context _context;
+	//Context _context;
 	//Group _group;
 
-	public UnitCreationSystem(Contexts contexts) {
-		_context = contexts.game;
+	public UnitCreationSystem(/*Contexts contexts*/) {
+		//_context = contexts.game;
 	}
 
 	public void Initialize() {

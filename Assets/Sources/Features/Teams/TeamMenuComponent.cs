@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using Entitas;
 using System;
 
@@ -6,4 +6,4 @@ using System;
 public sealed class TeamMenuComponent : IComponent {
 	public int number;
 	public string name;
-}
+}*/

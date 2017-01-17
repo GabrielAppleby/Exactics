@@ -5,7 +5,7 @@ using Entitas;
 public sealed class TeamCreationUI : MonoBehaviour {
 
 	Context _context;
-	public Text label;
+	public Text _teamName;
 
 	public void Start() {
 		_context = Contexts.sharedInstance.game;

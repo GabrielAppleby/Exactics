@@ -4,17 +4,14 @@ using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
+using Entitas.Serialization.Blueprints;
 
 public sealed class TeamSaveSystem : ReactiveSystem {
 
-	Context _context;
-
-	public TeamSaveSystem(Contexts contexts) : base(contexts.game) {
-		_context = contexts.game;
-	}
+	public TeamSaveSystem(Contexts contexts) : base(contexts.game) {}
 
 	protected override Collector GetTrigger(Context context) {
-		return _context.CreateCollector(GameMatcher.TeamMenu, GroupEvent.Added);
+		return context.CreateCollector(GameMatcher.TeamCharacters, GroupEvent.Added);
 	}
 
 	protected override bool Filter(Entity entity) {
@@ -23,6 +20,10 @@ public sealed class TeamSaveSystem : ReactiveSystem {
 
 	protected override void Execute(List<Entity> entities) {
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Open (Application.persistentDataPath,  FileMode.Open);
+		foreach (var entity in entities) {
+			//using (var file = File.Open (Application.persistentDataPath + entity.id.id, FileMode.Open)) {
+				//bf.Serialize (file, ?);
+			//}
+		}
 	}
 }

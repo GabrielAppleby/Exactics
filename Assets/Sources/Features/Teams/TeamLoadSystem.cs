@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
+using Entitas.Serialization.Blueprints;
 
 public sealed class TeamLoadSystem : IInitializeSystem {
 
@@ -14,13 +15,15 @@ public sealed class TeamLoadSystem : IInitializeSystem {
 
 	public void Initialize() {
 		if (Directory.Exists (Application.persistentDataPath)) {
+			BinaryFormatter bf;
+			Blueprint team;
 			foreach (string fileName in Directory.GetFiles(Application.persistentDataPath)) {
 				if (fileName.StartsWith("Team")) {
-					BinaryFormatter bf = new BinaryFormatter();
-					FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
-					TeamMenuComponent tmc = (TeamMenuComponent)bf.Deserialize (file);
-					_context.CreateEntity ()
-						.AddTeamMenu (tmc.number, tmc.name);
+					bf = new BinaryFormatter();
+					using (var file = File.Open(Application.persistentDataPath + fileName, FileMode.Open)) {
+						team = (Blueprint)bf.Deserialize (file);
+						_context.CreateEntity ().ApplyBlueprint(team);
+					}
 				}
 			}
 		}

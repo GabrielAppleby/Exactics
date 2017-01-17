@@ -18,7 +18,7 @@ public sealed class CharacterCreationUI : MonoBehaviour {
 
 
 	public void HandleContinueButtonClick() {
-
+		//add the character stuff.
 	
 	}
 
