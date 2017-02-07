@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour {
 	void Start() {
 		_contexts = Contexts.sharedInstance;
 		if (_contexts.allContexts [0] == null) {
+			Debug.Log ("test");
 			_contexts.SetAllContexts ();
 		}
 		// Manually add entity indices.
@@ -27,13 +28,15 @@ public class MenuController : MonoBehaviour {
 	void OnDestroy() {
 		_systems.TearDown();
 		_systems.DeactivateReactiveSystems ();
-		foreach (Context pool in _contexts.allContexts) {
-			pool.Reset ();
-		}
+		/*foreach (Context context in _contexts.allContexts) {
+			context.Reset ();
+		}*/
 	}
 
-	protected Systems createSystems(Contexts pools) {
-		return new Feature ("Systems")
-			.Add (new SceneSystem (pools));
+	protected virtual Systems createSystems(Contexts contexts) {
+		Systems systems = new Feature ("Systems")
+			.Add (new SceneSystem (contexts))
+			.Add (new TeamSaveSystem (contexts));
+		return systems;
 	}
 }

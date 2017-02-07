@@ -13,21 +13,23 @@ public static class GameComponentIds {
     public const int GameEnd = 2;
     public const int GameMap = 3;
     public const int GameMapElement = 4;
-    public const int Impassable = 5;
-    public const int Initiative = 6;
-    public const int Interactive = 7;
-    public const int Mana = 8;
-    public const int Movement = 9;
-    public const int Neighbors = 10;
-    public const int Offense = 11;
-    public const int Position = 12;
-    public const int Scene = 13;
-    public const int Selected = 14;
-    public const int Stamina = 15;
-    public const int TeamLoadedListener = 16;
-    public const int TeamMenu = 17;
+    public const int Id = 5;
+    public const int Impassable = 6;
+    public const int Initiative = 7;
+    public const int Interactive = 8;
+    public const int Mana = 9;
+    public const int Movement = 10;
+    public const int Name = 11;
+    public const int Neighbors = 12;
+    public const int Offense = 13;
+    public const int Position = 14;
+    public const int Scene = 15;
+    public const int Selected = 16;
+    public const int Stamina = 17;
+    public const int TeamCharacters = 18;
+    public const int TeamLoadedListener = 19;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "Defense",
@@ -35,19 +37,21 @@ public static class GameComponentIds {
         "GameEnd",
         "GameMap",
         "GameMapElement",
+        "Id",
         "Impassable",
         "Initiative",
         "Interactive",
         "Mana",
         "Movement",
+        "Name",
         "Neighbors",
         "Offense",
         "Position",
         "Scene",
         "Selected",
         "Stamina",
-        "TeamLoadedListener",
-        "TeamMenu"
+        "TeamCharacters",
+        "TeamLoadedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -56,18 +60,20 @@ public static class GameComponentIds {
         typeof(GameEndComponent),
         typeof(GameMapComponent),
         typeof(GameMapElementComponent),
+        typeof(IdComponent),
         typeof(ImpassableComponent),
         typeof(InitiativeComponent),
         typeof(InteractiveComponent),
         typeof(ManaComponent),
         typeof(MovementComponent),
+        typeof(NameComponent),
         typeof(NeighborsComponent),
         typeof(OffenseComponent),
         typeof(PositionComponent),
         typeof(SceneComponent),
         typeof(SelectedComponent),
         typeof(StaminaComponent),
-        typeof(TeamLoadedListenerComponent),
-        typeof(TeamMenuComponent)
+        typeof(TeamCharactersComponent),
+        typeof(TeamLoadedListenerComponent)
     };
 }

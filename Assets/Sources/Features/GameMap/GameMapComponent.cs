@@ -1,5 +1,4 @@
-﻿
-using Entitas;
+﻿using Entitas;
 using Entitas.CodeGenerator;
 
 [Game, SingleEntity]

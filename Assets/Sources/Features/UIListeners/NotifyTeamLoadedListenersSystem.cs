@@ -8,11 +8,11 @@ public class NotifyTeamLoadedListenersSystem : ReactiveSystem
 
 	public NotifyTeamLoadedListenersSystem(Contexts contexts) : base(contexts.game) {
 		_context = contexts.game;
-		_listeners = _context.GetGroup (GameMatcher.TeamMenu);
+		_listeners = _context.GetGroup (GameMatcher.TeamCharacters);
 	}
 
 	protected override Collector GetTrigger(Context context) {
-		return context.CreateCollector(GameMatcher.TeamMenu, GroupEvent.Added);
+		return context.CreateCollector(GameMatcher.TeamCharacters, GroupEvent.Added);
 	}
 
 	protected override bool Filter(Entity entity) {
