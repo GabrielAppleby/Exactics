@@ -19,11 +19,12 @@ public sealed class TeamSaveSystem : ReactiveSystem {
 	}
 
 	protected override void Execute(List<Entity> entities) {
-		BinaryFormatter bf = new BinaryFormatter ();
-		foreach (var entity in entities) {
-			//using (var file = File.Open (Application.persistentDataPath + entity.id.id, FileMode.Open)) {
-				//bf.Serialize (file, ?);
-			//}
-		}
+//		var es = new EntitySave();
+//		es.contextName = entity.contextInfo.name;
+//		foreach (var i in entity.GetComponentIndices())
+//		{
+//			es.components.Add(entity.GetComponent(i));
+//		}
+//		return JsonUtility.ToJson(es);
 	}
 }

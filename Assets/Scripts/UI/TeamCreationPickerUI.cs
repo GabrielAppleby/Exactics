@@ -27,7 +27,7 @@ public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 	}
 
 	public void HandleTeamButtonClick() {
-		_context.CreateEntity ().AddName (_name).AddTeamCharacters(new string[5]);
+		_context.CreateEntity ().AddName (_name).AddTeamCharacters (new string[5]);
 		_context.CreateEntity().AddScene("TeamCreation");
 	}
 
