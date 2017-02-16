@@ -23,13 +23,15 @@ public static class GameComponentIds {
     public const int Neighbors = 12;
     public const int Offense = 13;
     public const int Position = 14;
-    public const int Scene = 15;
-    public const int Selected = 16;
-    public const int Stamina = 17;
-    public const int TeamCharacters = 18;
-    public const int TeamLoadedListener = 19;
+    public const int SaveDirectory = 15;
+    public const int Scene = 16;
+    public const int Selected = 17;
+    public const int Stamina = 18;
+    public const int TeamCharacters = 19;
+    public const int TeamLoaded = 20;
+    public const int TeamLoadedListener = 21;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "Defense",
@@ -47,10 +49,12 @@ public static class GameComponentIds {
         "Neighbors",
         "Offense",
         "Position",
+        "SaveDirectory",
         "Scene",
         "Selected",
         "Stamina",
         "TeamCharacters",
+        "TeamLoaded",
         "TeamLoadedListener"
     };
 
@@ -70,10 +74,12 @@ public static class GameComponentIds {
         typeof(NeighborsComponent),
         typeof(OffenseComponent),
         typeof(PositionComponent),
+        typeof(SaveDirectoryComponent),
         typeof(SceneComponent),
         typeof(SelectedComponent),
         typeof(StaminaComponent),
         typeof(TeamCharactersComponent),
+        typeof(TeamLoadedComponent),
         typeof(TeamLoadedListenerComponent)
     };
 }

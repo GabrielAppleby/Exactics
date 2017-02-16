@@ -8,7 +8,11 @@ using Entitas.Serialization.Blueprints;
 
 public sealed class TeamSaveSystem : ReactiveSystem {
 
-	public TeamSaveSystem(Contexts contexts) : base(contexts.game) {}
+	Context _context;
+
+	public TeamSaveSystem(Contexts contexts) : base(contexts.game) {
+		_context = contexts.game;
+	}
 
 	protected override Collector GetTrigger(Context context) {
 		return context.CreateCollector(GameMatcher.TeamCharacters, GroupEvent.Added);
@@ -19,12 +23,17 @@ public sealed class TeamSaveSystem : ReactiveSystem {
 	}
 
 	protected override void Execute(List<Entity> entities) {
-//		var es = new EntitySave();
-//		es.contextName = entity.contextInfo.name;
-//		foreach (var i in entity.GetComponentIndices())
-//		{
-//			es.components.Add(entity.GetComponent(i));
-//		}
-//		return JsonUtility.ToJson(es);
+		// There will only ever be one entity with this component added
+		// per game tick.
+		Entity entity = entities[0];
+
+		EntitySave es = new EntitySave();
+		es.contextName = _context.contextInfo.name;
+
+		foreach (int i in entity.GetComponentIndices()){
+			es.components.Add(entity.GetComponent(i));
+		}
+			
+		File.WriteAllText (Application.persistentDataPath + entity.isSaveDirectory, JsonUtility.ToJson (es));
 	}
 }
