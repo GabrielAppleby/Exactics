@@ -6,44 +6,51 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Entitas {
+using Entitas;
+            
+public partial class Contexts : IContexts {
 
-    public partial class Contexts {
+    public static Contexts sharedInstance {
+        get {
+            if(_sharedInstance == null) {
+                _sharedInstance = new Contexts();
+            }
 
-        public static Context CreateAppContext() {
-            return CreateContext("App", AppComponentIds.TotalComponents, AppComponentIds.componentNames, AppComponentIds.componentTypes);
+            return _sharedInstance;
         }
+        set { _sharedInstance = value; }
+    }
 
-        public static Context CreateGameContext() {
-            return CreateContext("Game", GameComponentIds.TotalComponents, GameComponentIds.componentNames, GameComponentIds.componentTypes);
+    static Contexts _sharedInstance;
+
+    public static void CreateContextObserver(IContext context) {
+#if(!ENTITAS_DISABLE_VISUAL_DEBUGGING && UNITY_EDITOR)
+        if(UnityEngine.Application.isPlaying) {
+            var observer = new Entitas.Unity.VisualDebugging.ContextObserver(context);
+            UnityEngine.Object.DontDestroyOnLoad(observer.gameObject);
         }
+#endif
+    }
 
-        public static Context CreateGamePersStateContext() {
-            return CreateContext("GamePersState", GamePersStateComponentIds.TotalComponents, GamePersStateComponentIds.componentNames, GamePersStateComponentIds.componentTypes);
-        }
+    public AppContext app { get; set; }
+    public GameContext game { get; set; }
+    public GamePersStateContext gamePersState { get; set; }
+    public GameUIContext gameUI { get; set; }
+    public InputContext input { get; set; }
 
-        public static Context CreateGameUIContext() {
-            return CreateContext("GameUI", GameUIComponentIds.TotalComponents, GameUIComponentIds.componentNames, GameUIComponentIds.componentTypes);
-        }
+    public IContext[] allContexts { get { return new IContext [] { app, game, gamePersState, gameUI, input }; } }
 
-        public static Context CreateInputContext() {
-            return CreateContext("Input", InputComponentIds.TotalComponents, InputComponentIds.componentNames, InputComponentIds.componentTypes);
-        }
+    public void SetAllContexts() {
+        app = new AppContext();
+        game = new GameContext();
+        gamePersState = new GamePersStateContext();
+        gameUI = new GameUIContext();
+        input = new InputContext();
 
-        public Context[] allContexts { get { return new [] { app, game, gamePersState, gameUI, input }; } }
-
-        public Context app;
-        public Context game;
-        public Context gamePersState;
-        public Context gameUI;
-        public Context input;
-
-        public void SetAllContexts() {
-            app = CreateAppContext();
-            game = CreateGameContext();
-            gamePersState = CreateGamePersStateContext();
-            gameUI = CreateGameUIContext();
-            input = CreateInputContext();
-        }
+        CreateContextObserver(app);
+        CreateContextObserver(game);
+        CreateContextObserver(gamePersState);
+        CreateContextObserver(gameUI);
+        CreateContextObserver(input);
     }
 }

@@ -9,7 +9,6 @@ public class MenuController : MonoBehaviour {
 	void Start() {
 		_contexts = Contexts.sharedInstance;
 		if (_contexts.allContexts [0] == null) {
-			Debug.Log ("test");
 			_contexts.SetAllContexts ();
 		}
 		// Manually add entity indices.
@@ -34,7 +33,7 @@ public class MenuController : MonoBehaviour {
 	}
 
 	protected virtual Systems createSystems(Contexts contexts) {
-		Systems systems = new Feature ("Systems")
+		Systems systems = new Feature("Systems")
 			.Add (new SceneSystem (contexts))
 			.Add (new TeamSaveSystem (contexts));
 		return systems;

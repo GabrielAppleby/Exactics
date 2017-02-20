@@ -25,13 +25,13 @@ public class FightController : MonoBehaviour {
 	void OnDestroy() {
 		_systems.TearDown();
 		_systems.DeactivateReactiveSystems ();
-		foreach (Context context in _contexts.allContexts) {
+		foreach (IContext context in _contexts.allContexts) {
 			context.Reset ();
 		}
 	}
 
 	Systems createSystems(Contexts contexts) {
-		return new Feature ("Systems")
+		return new Feature("Systems")
 			.Add (new CreateGameMapSystem (contexts));
 	}
 }

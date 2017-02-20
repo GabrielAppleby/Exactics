@@ -4,16 +4,16 @@ using Entitas;
 
 public sealed class CharacterCreationUI : MonoBehaviour {
 	
-	Context _context;
+	GameContext _gameContext;
 	public Text label;
 
 	public void Start() {
-		_context = Contexts.sharedInstance.game;
+		_gameContext = Contexts.sharedInstance.game;
 	}
 		
 
 	public void HandleBackButtonClick() {
-		_context.CreateEntity().AddScene("TeamCreation");
+		_gameContext.CreateEntity().AddScene("TeamCreation");
 	}
 
 
