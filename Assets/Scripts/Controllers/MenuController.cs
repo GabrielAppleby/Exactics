@@ -11,10 +11,6 @@ public class MenuController : MonoBehaviour {
 		if (_contexts.allContexts [0] == null) {
 			_contexts.SetAllContexts ();
 		}
-		// Manually add entity indices.
-		// It's planned to generate this in future versions of Entitas
-		//pools.AddEntityIndices();
-
 		_systems = createSystems(_contexts);
 		_systems.Initialize();
 	}

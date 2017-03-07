@@ -23,14 +23,14 @@ public sealed class TeamCreationPickerUI : MonoBehaviour, ITeamLoadedListener {
 	}
 
 	public void HandleBackButtonClick() {
-		_gameContext.CreateEntity().AddScene("MainMenu");
+		_gameContext.ReplaceScene("MainMenu");
 	}
 
 	public void HandleTeamButtonClick() {
 		GameEntity gameEntity = _gameContext.CreateEntity();
 		gameEntity.AddName(_name);
 		gameEntity.AddTeamCharacters (new string[5]);
-		_gameContext.CreateEntity().AddScene("TeamCreation");
+		_gameContext.ReplaceScene("TeamCreation");
 	}
 
 }

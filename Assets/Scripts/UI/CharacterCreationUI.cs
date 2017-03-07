@@ -13,7 +13,7 @@ public sealed class CharacterCreationUI : MonoBehaviour {
 		
 
 	public void HandleBackButtonClick() {
-		_gameContext.CreateEntity().AddScene("TeamCreation");
+		_gameContext.ReplaceScene("TeamCreation");
 	}
 
 

@@ -35,6 +35,6 @@ public sealed class TeamSaveSystem : ReactiveSystem<GameEntity> {
 			es.components.Add(entity.GetComponent(i));
 		}
 			
-//		File.WriteAllText (Application.persistentDataPath + entity.isSaveDirectory, JsonUtility.ToJson (es));
+		File.WriteAllText (Application.persistentDataPath + entity.isSaveDirectory, JsonUtility.ToJson (es));
 	}
 }

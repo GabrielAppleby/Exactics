@@ -20,6 +20,4 @@ public sealed class SceneSystem : ReactiveSystem<GameEntity> {
 	protected override void Execute(List<GameEntity> entities) {
 		SceneManager.LoadScene (entities.SingleEntity ().scene.sceneName);
 	}
-		
-
 }

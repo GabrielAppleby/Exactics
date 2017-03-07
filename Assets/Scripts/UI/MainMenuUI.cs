@@ -12,15 +12,15 @@ public sealed class MainMenuUI : MonoBehaviour {
 		
 
 	public void HandleFightButtonClick() {
-		_gameContext.CreateEntity().AddScene("TeamPicker");
+		_gameContext.ReplaceScene("TeamPicker");
 	}
 
 	public void HandleTeamBuilderButtonClick() {
-		_gameContext.CreateEntity().AddScene("TeamCreationPicker");
+		_gameContext.ReplaceScene("TeamCreationPicker");
 	}
 
 	public void HandleOptionsButtonClick() {
-		_gameContext.CreateEntity().AddScene("Options");
+		_gameContext.ReplaceScene("Options");
 	}
 
 	public void HandleQuitButtonClick() {

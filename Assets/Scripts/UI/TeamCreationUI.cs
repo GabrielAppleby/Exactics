@@ -13,11 +13,11 @@ public sealed class TeamCreationUI : MonoBehaviour {
 	}
 
 	public void HandleCharacterButtonClick() {
-		_gameContext.CreateEntity().AddScene("CharacterCreation");
+		_gameContext.ReplaceScene("CharacterCreation");
 	}
 
 	public void HandleBackButtonClick() {
-		_gameContext.CreateEntity().AddScene("TeamCreationPicker");
+		_gameContext.ReplaceScene("TeamCreationPicker");
 	}
 
 

@@ -12,7 +12,7 @@ public sealed class TeamPickerUI : MonoBehaviour {
 
 
 	public void HandleBackButtonClick() {
-		_gameContext.CreateEntity().AddScene("MainMenu");
+		_gameContext.ReplaceScene("MainMenu");
 	}
 
 }

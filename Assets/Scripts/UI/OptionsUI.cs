@@ -12,7 +12,7 @@ public sealed class OptionsUI : MonoBehaviour {
 
 
 	public void HandleBackButtonClick() {
-		_gameContext.CreateEntity().AddScene("MainMenu");
+		_gameContext.ReplaceScene("MainMenu");
 	}
 		
 }
